@@ -181,5 +181,37 @@ footer{
 .hero{
     padding:140px 20px;
 }
+
+    .reviews{
+    padding:80px 8%;
+    background:#ffffff;
+    text-align:center;
+}
+
+.review-box{
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.review{
+    width:320px;
+    background:#f8f9fc;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.review:hover{
+    transform:translateY(-8px);
+}
+
+.review p{
+    margin:15px 0;
+    line-height:1.6;
+}
     font-size:14px;
 }
