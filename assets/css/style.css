@@ -87,7 +87,11 @@ nav a:hover{
     flex-wrap:wrap;
 }
 
-.card{
+.card{transition:0.3s;
+      .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
     background:white;
     width:260px;
     padding:30px;
