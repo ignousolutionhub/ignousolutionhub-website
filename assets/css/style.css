@@ -157,5 +157,29 @@ footer{
 .logo-text p{
     color:#ddd;
     margin-top:4px;
+    .stats{
+    background:#0d4f9c;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:40px;
+    color:#ffd700;
+    margin-bottom:10px;
+}
+
+.stat p{
+    font-size:18px;
+}
+
+.hero{
+    padding:140px 20px;
+}
     font-size:14px;
 }
