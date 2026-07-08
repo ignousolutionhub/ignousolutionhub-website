@@ -133,3 +133,25 @@ footer{
     text-align:center;
     padding:20px;
 }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    height:60px;
+    width:auto;
+}
+
+.logo-text h2{
+    color:white;
+    margin:0;
+    font-size:28px;
+}
+
+.logo-text p{
+    color:#ddd;
+    margin-top:4px;
+    font-size:14px;
+}
