@@ -268,3 +268,55 @@ nav{
 }
 
 }
+/* ===== Popular Courses ===== */
+
+.courses-home{
+padding:80px 8%;
+background:#ffffff;
+text-align:center;
+}
+
+.courses-home h2{
+font-size:42px;
+color:#003366;
+margin-bottom:50px;
+}
+
+.course-grid{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.course-card{
+width:260px;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.course-card:hover{
+transform:translateY(-8px);
+}
+
+.course-card h3{
+color:#003366;
+margin-bottom:10px;
+}
+
+.btn-small{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#003366;
+color:#fff;
+text-decoration:none;
+border-radius:6px;
+}
+
+.btn-small:hover{
+background:#005bb5;
+}
