@@ -320,3 +320,27 @@ border-radius:6px;
 .btn-small:hover{
 background:#005bb5;
 }
+/* ===== Floating WhatsApp Button ===== */
+
+.whatsapp-float{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:#fff;
+    font-size:30px;
+    text-decoration:none;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    z-index:9999;
+    transition:.3s;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.1);
+}
