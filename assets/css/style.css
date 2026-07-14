@@ -693,3 +693,41 @@ margin-bottom:15px;
 font-size:16px;
 line-height:1.7;
 }
+/* ===== Callback ===== */
+
+.callback{
+padding:80px 8%;
+background:#ffffff;
+text-align:center;
+}
+
+.callback h2{
+font-size:40px;
+color:#003366;
+margin-bottom:15px;
+}
+
+.callback p{
+font-size:18px;
+margin-bottom:30px;
+}
+
+.callback-form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.callback-form input,
+.callback-form select{
+padding:15px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.callback-form button{
+cursor:pointer;
+}
