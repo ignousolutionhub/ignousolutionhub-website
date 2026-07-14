@@ -482,3 +482,41 @@ align-self:center;
 width:220px;
 cursor:pointer;
 }
+/* ===== Latest Updates ===== */
+
+.updates{
+    padding:80px 8%;
+    background:#ffffff;
+    text-align:center;
+}
+
+.updates h2{
+    font-size:42px;
+    color:#003366;
+    margin-bottom:40px;
+}
+
+.update-box{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.update-card{
+    width:320px;
+    background:#f8f9fc;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.update-card:hover{
+    transform:translateY(-8px);
+}
+
+.update-card h3{
+    color:#003366;
+    margin-bottom:15px;
+}
