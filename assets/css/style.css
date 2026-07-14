@@ -419,3 +419,37 @@ background:#005bb5;
 .faq-item p{
     color:#555;
 }
+.search-course{
+background:#fff;
+padding:70px 20px;
+text-align:center;
+}
+
+.search-course h2{
+font-size:40px;
+color:#003366;
+margin-bottom:25px;
+}
+
+.search-course input{
+width:420px;
+max-width:90%;
+padding:15px;
+font-size:18px;
+border:2px solid #003366;
+border-radius:8px;
+}
+
+.search-course button{
+padding:15px 30px;
+background:#003366;
+color:#fff;
+border:none;
+border-radius:8px;
+margin-left:10px;
+cursor:pointer;
+}
+
+.search-course button:hover{
+background:#005bb5;
+}
