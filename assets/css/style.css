@@ -650,3 +650,46 @@ width:100%;
 height:350px;
 border:0;
 }
+/* ===== Process ===== */
+
+.process{
+padding:80px 8%;
+background:#eef4fb;
+text-align:center;
+}
+
+.process h2{
+font-size:40px;
+color:#003366;
+margin-bottom:50px;
+}
+
+.process-box{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.process-card{
+width:300px;
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.process-card:hover{
+transform:translateY(-8px);
+}
+
+.process-card h3{
+color:#003366;
+margin-bottom:15px;
+}
+
+.process-card p{
+font-size:16px;
+line-height:1.7;
+}
