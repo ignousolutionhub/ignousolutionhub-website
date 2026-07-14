@@ -453,3 +453,32 @@ cursor:pointer;
 .search-course button:hover{
 background:#005bb5;
 }
+/* ===== Contact Form ===== */
+
+.contact-form{
+max-width:700px;
+margin:40px auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:15px;
+font-size:16px;
+border:2px solid #ddd;
+border-radius:8px;
+outline:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#003366;
+}
+
+.contact-form button{
+align-self:center;
+width:220px;
+cursor:pointer;
+}
