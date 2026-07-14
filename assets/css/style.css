@@ -344,3 +344,47 @@ background:#005bb5;
 .whatsapp-float:hover{
     transform:scale(1.1);
 }
+/* ===== Footer ===== */
+
+.footer{
+    background:#001933;
+    color:#fff;
+    padding:60px 8% 20px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.footer-box{
+    flex:1;
+    min-width:250px;
+}
+
+.footer-box h3{
+    color:#FFD700;
+    margin-bottom:15px;
+}
+
+.footer-box a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    margin:8px 0;
+}
+
+.footer-box a:hover{
+    color:#FFD700;
+}
+
+.footer hr{
+    margin:30px 0;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.copyright{
+    text-align:center;
+}
