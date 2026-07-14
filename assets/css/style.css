@@ -596,3 +596,42 @@ transform:translateY(-8px);
 margin-bottom:15px;
 color:#003366;
 }
+
+/* ===== Promise ===== */
+
+.promise{
+padding:80px 8%;
+background:#eef5ff;
+text-align:center;
+}
+
+.promise h2{
+font-size:42px;
+color:#003366;
+margin-bottom:40px;
+}
+
+.promise-box{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.promise-card{
+width:260px;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.promise-card:hover{
+transform:translateY(-8px);
+}
+
+.promise-card h3{
+color:#003366;
+margin-bottom:15px;
+}
