@@ -90,5 +90,41 @@ background:#004999;
 
 </div>
 
+  <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAnoboyUPY5gvGdo8F57H3sY_8MFhUuWug",
+  authDomain: "ignou-solution-hub-44d39.firebaseapp.com",
+  projectId: "ignou-solution-hub-44d39",
+  storageBucket: "ignou-solution-hub-44d39.firebasestorage.app",
+  messagingSenderId: "13808797212",
+  appId: "1:13808797212:web:7e2d2623b2a1d9ab08c1d9",
+  measurementId: "G-RW8DXN94FF"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("loginBtn").addEventListener("click", () => {
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth, email, password)
+.then(() => {
+    alert("Login Successful");
+    window.location.href = "firebase.html";
+})
+.catch((error) => {
+    alert(error.message);
+});
+
+});
+
+</script>
+
 </body>
 </html>
