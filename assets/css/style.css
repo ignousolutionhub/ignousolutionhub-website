@@ -795,3 +795,36 @@ transform:translateY(-8px);
 transition:0.3s ease;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
+.contact-form{
+max-width:700px;
+margin:40px auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:16px;
+
+}
+
+.contact-form button{
+
+width:220px;
+margin:auto;
+
+}
+
+iframe{
+
+margin-top:30px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
