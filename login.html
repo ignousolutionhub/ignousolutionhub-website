@@ -6,91 +6,71 @@
 <title>Admin Login - IGNOU Solution Hub</title>
 
 <style>
-  <script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAnoboyUPY5gvGdo8F57H3sY_8MFhUuWug",
-  authDomain: "ignou-solution-hub-44d39.firebaseapp.com",
-  projectId: "ignou-solution-hub-44d39",
-  storageBucket: "ignou-solution-hub-44d39.firebasestorage.app",
-  messagingSenderId: "13808797212",
-  appId: "1:13808797212:web:7e2d2623b2a1d9ab08c1d9",
-  measurementId: "G-RW8DXN94FF"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-document.getElementById("loginBtn").addEventListener("click", () => {
-
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-signInWithEmailAndPassword(auth, email, password)
-.then(() => {
-    alert("Login Successful");
-    window.location.href = "admin.html";
-})
-.catch((error) => {
-    alert(error.message);
-});
-
-});
-
-</script>
 body{
-font-family:Arial,sans-serif;
-background:#f5f5f5;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
 }
+
 .box{
-background:#fff;
-padding:30px;
-width:320px;
-border-radius:10px;
-box-shadow:0 0 15px rgba(0,0,0,.2);
+    background:#fff;
+    padding:30px;
+    width:320px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
 }
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
 input{
-width:100%;
-padding:10px;
-margin:10px 0;
-box-sizing:border-box;
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:5px;
 }
+
 button{
-width:100%;
-padding:10px;
-background:#0066cc;
-color:#fff;
-border:none;
-cursor:pointer;
+    width:100%;
+    padding:10px;
+    background:#0066cc;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
 }
+
 button:hover{
-background:#004999;
+    background:#004999;
 }
 </style>
 
 </head>
+
 <body>
 
 <div class="box">
+
 <h2>Admin Login</h2>
 
-<input type="email" id="email" placeholder="Email">
+<input type="email" id="email" placeholder="Enter Email">
 
-<input type="password" id="password" placeholder="Password">
+<input type="password" id="password" placeholder="Enter Password">
 
 <button id="loginBtn">Login</button>
 
 </div>
 
-  <script type="module">
+<script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
@@ -110,17 +90,24 @@ const auth = getAuth(app);
 
 document.getElementById("loginBtn").addEventListener("click", () => {
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-signInWithEmailAndPassword(auth, email, password)
-.then(() => {
-    alert("Login Successful");
-    window.location.href = "firebase.html";
-})
-.catch((error) => {
-    alert(error.message);
-});
+    signInWithEmailAndPassword(auth, email, password)
+
+    .then((userCredential)=>{
+
+        alert("Login Successful");
+
+        window.location.href="dashboard.html";
+
+    })
+
+    .catch((error)=>{
+
+        alert(error.message);
+
+    });
 
 });
 
