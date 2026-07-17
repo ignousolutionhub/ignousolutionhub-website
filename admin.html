@@ -1,13 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>IGNOU Solution Hub Admin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGNOU Solution Hub - Admin Panel</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+background:#f4f6f9;
+}
+
+.sidebar{
+width:250px;
+background:#0d47a1;
+height:100vh;
+color:#fff;
+position:fixed;
+left:0;
+top:0;
+overflow:auto;
+}
+
+.sidebar h2{
+padding:20px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.sidebar a{
+display:block;
+color:#fff;
+padding:15px 20px;
+text-decoration:none;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.sidebar a:hover{
+background:#1565c0;
+}
+
+.main{
+margin-left:250px;
+padding:30px;
+width:100%;
+}
+
+.header{
+background:#fff;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+margin-bottom:30px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#0d47a1;
+color:#fff;
+cursor:pointer;
+border-radius:5px;
+}
+
+.card button:hover{
+background:#1565c0;
+}
+</style>
 </head>
+
 <body>
 
-<h1>Admin Panel</h1>
+<div class="sidebar">
 
-<p>Coming Soon...</p>
+<h2>IGNOU Admin</h2>
+
+<a href="#">🏠 Dashboard</a>
+<a href="#">📚 Courses</a>
+<a href="#">📦 Products</a>
+<a href="#">📝 Assignments</a>
+<a href="#">📂 Projects</a>
+<a href="#">🧪 Practical</a>
+<a href="#">🏢 Internship</a>
+<a href="#">📖 Study Material</a>
+<a href="#">📢 Notices</a>
+<a href="#">📦 Orders</a>
+<a href="#">👥 Customers</a>
+<a href="#">⚙ Settings</a>
+<a href="login.html">🚪 Logout</a>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+<h1>Welcome Admin 👋</h1>
+<p>IGNOU Solution Hub Dashboard</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Add Product</h3>
+<p>Upload Assignment, Project, Practical etc.</p>
+<button>Add</button>
+</div>
+
+<div class="card">
+<h3>Products</h3>
+<p>Manage all uploaded products.</p>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h3>Orders</h3>
+<p>View customer orders.</p>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h3>Customers</h3>
+<p>Manage customers.</p>
+<button>Open</button>
+</div>
+
+</div>
+
+</div>
 
 </body>
 </html>
