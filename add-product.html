@@ -152,6 +152,8 @@ Publish Product
 
 import { db } from "./firebase-config.js";
 
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
 import {
 addDoc,
 collection,
@@ -159,6 +161,21 @@ serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 const form=document.getElementById("productForm");
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+
+    console.log("Current User:", user);
+
+    if (!user) {
+
+        alert("Admin Login Required");
+
+        window.location.href = "login.html";
+
+    }
+
+});
 
 form.addEventListener("submit",async(e)=>{
 
