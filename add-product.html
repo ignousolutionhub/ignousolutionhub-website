@@ -1,84 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Product</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f4f6f9;
-padding:30px;
-}
-
-.container{
-max-width:800px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-
-h2{
-margin-bottom:20px;
-text-align:center;
-}
-
-label{
-display:block;
-margin-top:15px;
-font-weight:bold;
-}
-
-input,select,textarea{
-width:100%;
-padding:10px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:5px;
-}
-
-textarea{
-height:120px;
-resize:vertical;
-}
-
-button{
-margin-top:20px;
-padding:12px;
-width:100%;
-background:#0d47a1;
-color:white;
-border:none;
-border-radius:5px;
-font-size:16px;
-cursor:pointer;
-}
-
-button:hover{
-background:#1565c0;
-}
-</style>
-
-</head>
-<body>
-
-<div class="container">
-
-<h2>Add New Product</h2>
-
-<form>
+<form id="productForm">
 
 <label>Product Type</label>
-<select>
+<select id="productType">
 <option>Assignment</option>
 <option>Project</option>
 <option>Practical</option>
@@ -87,33 +10,26 @@ background:#1565c0;
 </select>
 
 <label>Course</label>
-<input type="text" placeholder="Example: BCA">
+<input type="text" id="course" placeholder="Example: BCA">
 
 <label>Subject</label>
-<input type="text" placeholder="Subject Name">
+<input type="text" id="subject" placeholder="Subject Name">
 
 <label>Product Title</label>
-<input type="text" placeholder="Enter Product Title">
+<input type="text" id="title" placeholder="Enter Product Title">
 
 <label>Price (₹)</label>
-<input type="number" placeholder="299">
+<input type="number" id="price" placeholder="299">
 
 <label>Description</label>
-<textarea placeholder="Write Product Description"></textarea>
+<textarea id="description" placeholder="Write Product Description"></textarea>
 
 <label>Cover Image</label>
-<input type="file">
+<input type="file" id="image">
 
 <label>PDF File</label>
-<input type="file">
+<input type="file" id="pdf">
 
 <button type="submit">Publish Product</button>
 
 </form>
-
-</div>
-
-  <script type="module" src="product.js"></script>
-  
-</body>
-</html>
