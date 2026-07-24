@@ -1,75 +1,84 @@
-import { db } from "./firebase-config.js";
-
-import {
-addDoc,
-collection,
-serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment</title>
+<title>Payment - IGNOU Solution Hub</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-
-font-family:Arial;
-
 background:#f5f5f5;
-
 }
 
 .container{
 
-max-width:500px;
-
+max-width:600px;
 margin:50px auto;
-
 background:#fff;
-
-padding:25px;
-
+padding:30px;
 border-radius:10px;
-
-text-align:center;
-
-box-shadow:0 0 10px rgba(0,0,0,.2);
+box-shadow:0 5px 15px rgba(0,0,0,.2);
 
 }
 
-button{
+h1{
 
-background:#28a745;
-
-color:#fff;
-
-padding:15px 30px;
-
-font-size:18px;
-
-border:none;
-
-border-radius:6px;
-
-cursor:pointer;
-
-width:100%;
+text-align:center;
+color:#0d6efd;
+margin-bottom:20px;
 
 }
 
 .total{
 
-font-size:28px;
-
+font-size:30px;
 font-weight:bold;
+text-align:center;
+color:#198754;
+margin:25px 0;
 
-color:#0d6efd;
+}
 
-margin:20px;
+.upi{
+
+text-align:center;
+font-size:22px;
+margin-bottom:25px;
+
+}
+
+button{
+
+width:100%;
+padding:15px;
+font-size:18px;
+background:#198754;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#157347;
+
+}
+
+.note{
+
+margin-top:20px;
+text-align:center;
+color:#666;
 
 }
 
@@ -81,53 +90,105 @@ margin:20px;
 
 <div class="container">
 
-<h2>Complete Payment</h2>
+<h1>Complete Payment</h1>
 
 <div class="total">
 
-₹<span id="amount">0</span>
+₹ <span id="amount">0</span>
 
 </div>
 
-<p>
+<div class="upi">
 
-UPI ID:<br>
+<b>UPI ID</b><br>
 
-<b>jineshsingh01@oksbi</b>
+jineshsingh01@oksbi
 
-</p>
+</div>
 
-<p>
-
-Payment karne ke baad niche button dabaye.
-
-</p>
-
-<button onclick="paymentDone()">
+<button id="payBtn">
 
 I Have Paid
 
 </button>
 
+<div class="note">
+
+Payment complete karne ke baad hi button dabaye.
+
 </div>
 
-<script>
+</div>
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
+<script type="module">
 
-let total=0;
+import { db } from "./firebase-config.js";
+
+import {
+
+collection,
+addDoc,
+serverTimestamp
+
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
 
 cart.forEach(item=>{
 
-total+=item.price;
+total += item.price;
 
 });
 
-document.getElementById("amount").innerHTML=total;
+document.getElementById("amount").innerHTML = total;
 
-function paymentDone(){
+document.getElementById("payBtn").addEventListener("click",paymentDone);
 
-alert("Thank you. Order Received.");
+async function paymentDone(){
+
+let order = JSON.parse(localStorage.getItem("latestOrder"));
+
+  let total = 0;
+
+cart.forEach(item=>{
+    total += Number(item.price);
+});
+
+await addDoc(collection(db,"orders"),{
+
+    customerName: order.name,
+
+    mobile: order.mobile,
+
+    email: order.email,
+
+    enrollment: order.enrollment,
+
+    programme: order.programme,
+
+    course: order.course,
+
+    address: order.address,
+
+    pincode: order.pincode,
+
+    cart: cart,
+
+    totalAmount: total,
+
+    paymentStatus: "Pending",
+
+    dispatchStatus: "Pending",
+
+    createdAt: serverTimestamp()
+
+});
+
+localStorage.removeItem("cart");
+
+alert("Order Successfully Placed");
 
 window.location.href="success.html";
 
@@ -136,4 +197,5 @@ window.location.href="success.html";
 </script>
 
 </body>
+
 </html>
