@@ -1,94 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGNOU Solved Assignments | IGNOU Assignment Hub</title>
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
+<section style="max-width:1200px;margin:50px auto;padding:20px;">
+<h2 style="text-align:center;font-size:38px;color:#003366;">
+DECE Solved Assignments
+</h2>
 
-<body>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:40px;">
 
-<header>
+<div style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.15);text-align:center;">
+<h3>DECE-01 Assignment</h3>
+<p>Latest Session</p>
+<h2 style="color:#0d6efd;">₹250</h2>
 
-<div class="logo">
-<img src="assets/logo/logo.png" alt="IGNOU Assignment Hub">
-
-<div class="logo-text">
-<h2>IGNOU Assignment Hub</h2>
-<p>Assignments | Projects | Internship</p>
-</div>
+<button onclick="addToCart('DECE-01 Assignment',250)"
+style="background:#198754;color:#fff;border:none;padding:12px 25px;border-radius:6px;cursor:pointer;">
+Add To Cart
+</button>
 
 </div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="courses.html">Courses</a>
-<a href="assignments.html">Assignments</a>
-<a href="projects.html">Projects</a>
-<a href="internship.html">Internship</a>
-<a href="study-material.html">Study Material</a>
-<a href="pyq.html">PYQ</a>
-<a href="contact.html">Contact</a>
-</nav>
+<div style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.15);text-align:center;">
+<h3>DECE-02 Assignment</h3>
+<p>Latest Session</p>
+<h2 style="color:#0d6efd;">₹250</h2>
 
-</header>
+<button onclick="addToCart('DECE-02 Assignment',250)"
+style="background:#198754;color:#fff;border:none;padding:12px 25px;border-radius:6px;cursor:pointer;">
+Add To Cart
+</button>
 
-<section class="hero">
+</div>
 
-<h1>IGNOU Solved Assignments</h1>
+<div style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.15);text-align:center;">
+<h3>DECE-03 Assignment</h3>
+<p>Latest Session</p>
+<h2 style="color:#0d6efd;">₹250</h2>
 
-<p>
-Find your programme and get assignment guidance.
-</p>
+<button onclick="addToCart('DECE-03 Assignment',250)"
+style="background:#198754;color:#fff;border:none;padding:12px 25px;border-radius:6px;cursor:pointer;">
+Add To Cart
+</button>
 
+</div>
+
+</div>
 </section>
 
-<section class="services">
+<script>
+function addToCart(name,price){
 
-<h2>Popular Programmes</h2>
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
 
-<div class="service-box">
+cart.push({
+name:name,
+price:price
+});
 
-<div class="card">
-<h3>BCA</h3>
-<p>Assignment Support</p>
-</div>
+localStorage.setItem("cart",JSON.stringify(cart));
 
-<div class="card">
-<h3>MCA</h3>
-<p>Assignment Support</p>
-</div>
+window.location.href="cart.html";
 
-<div class="card">
-<h3>BAG</h3>
-<p>Assignment Support</p>
-</div>
-
-<div class="card">
-<h3>MCOM</h3>
-<p>Assignment Support</p>
-</div>
-
-<div class="card">
-<h3>BLIS</h3>
-<p>Assignment Support</p>
-</div>
-
-<div class="card">
-<h3>MLIS</h3>
-<p>Assignment Support</p>
-</div>
-
-</div>
-
-</section>
-
-<footer class="footer">
-<p class="copyright">
-© 2026 IGNOU Assignment Hub. All Rights Reserved.
-</p>
-</footer>
-
-</body>
-</html>
+}
+</script>
