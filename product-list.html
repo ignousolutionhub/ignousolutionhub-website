@@ -39,5 +39,25 @@ button{width:100%;padding:12px;border:none;background:#198754;color:#fff;border-
 </div>
 </div>
 
+  <script>
+
+function addToCart(name, price){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+    name:name,
+    price:price
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(name + " Cart me add ho gaya.");
+
+window.location.href="cart.html";
+
+}
+
+</script>
 </body>
 </html>
