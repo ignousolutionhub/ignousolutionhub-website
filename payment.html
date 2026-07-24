@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+
+background:#f5f5f5;
+
+}
+
+.container{
+
+max-width:500px;
+
+margin:50px auto;
+
+background:#fff;
+
+padding:25px;
+
+border-radius:10px;
+
+text-align:center;
+
+box-shadow:0 0 10px rgba(0,0,0,.2);
+
+}
+
+button{
+
+background:#28a745;
+
+color:#fff;
+
+padding:15px 30px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:6px;
+
+cursor:pointer;
+
+width:100%;
+
+}
+
+.total{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#0d6efd;
+
+margin:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Complete Payment</h2>
+
+<div class="total">
+
+₹<span id="amount">0</span>
+
+</div>
+
+<p>
+
+UPI ID:<br>
+
+<b>jineshsingh01@oksbi</b>
+
+</p>
+
+<p>
+
+Payment karne ke baad niche button dabaye.
+
+</p>
+
+<button onclick="paymentDone()">
+
+I Have Paid
+
+</button>
+
+</div>
+
+<script>
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+let total=0;
+
+cart.forEach(item=>{
+
+total+=item.price;
+
+});
+
+document.getElementById("amount").innerHTML=total;
+
+function paymentDone(){
+
+alert("Thank you. Order Received.");
+
+window.location.href="success.html";
+
+}
+
+</script>
+
+</body>
+</html>
