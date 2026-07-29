@@ -1,564 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGNOU Courses | IGNOU Assignment Hub</title>
 
-<link rel="stylesheet" href="assets/css/style.css">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Courses - IGNOU Solution Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#f4f6f9;
+color:#222;
+}
+
+/* HEADER */
+
+header{
+background:#0b5ed7;
+color:white;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+.home-btn{
+background:white;
+color:#0b5ed7;
+text-decoration:none;
+padding:10px 17px;
+border-radius:6px;
+font-weight:bold;
+}
+
+/* PAGE TITLE */
+
+.hero{
+background:white;
+text-align:center;
+padding:45px 20px;
+border-bottom:1px solid #ddd;
+}
+
+.hero h1{
+margin:0 0 12px;
+font-size:34px;
+color:#0b5ed7;
+}
+
+.hero p{
+margin:0;
+font-size:18px;
+color:#666;
+}
+
+/* CATEGORY GRID */
+
+.category-container{
+max-width:1150px;
+margin:40px auto;
+padding:0 20px;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+}
+
+.category-card{
+background:white;
+padding:30px 20px;
+border-radius:14px;
+box-shadow:0 3px 12px rgba(0,0,0,.12);
+text-align:center;
+text-decoration:none;
+color:#222;
+transition:.2s;
+}
+
+.category-card:hover{
+transform:translateY(-6px);
+box-shadow:0 7px 20px rgba(0,0,0,.18);
+}
+
+.icon{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.category-card h2{
+margin:0 0 10px;
+color:#0b5ed7;
+font-size:23px;
+}
+
+.category-card p{
+margin:0;
+color:#666;
+line-height:1.5;
+}
+
+/* FOOTER */
+
+footer{
+background:#152238;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+.category-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:550px){
+
+header{
+padding:15px;
+}
+
+.logo{
+font-size:19px;
+}
+
+.hero h1{
+font-size:27px;
+}
+
+.category-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
 <div class="logo">
-<img src="assets/logo/logo.png">
 
-<div class="logo-text">
-<h2>IGNOU Assignment Hub</h2>
-<p>Assignments | Projects | Internship</p>
-</div>
+IGNOU Solution Hub
 
 </div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="courses.html">Courses</a>
-<a href="assignments.html">Assignments</a>
-<a href="projects.html">Projects</a>
-<a href="internship.html">Internship</a>
-<a href="study-material.html">Study Material</a>
-<a href="pyq.html">PYQ</a>
-<a href="contact.html">Contact</a>
-</nav>
+<a href="index.html" class="home-btn">
+
+🏠 Home
+
+</a>
 
 </header>
 
+
 <section class="hero">
 
-<h1>IGNOU Courses</h1>
+<h1>Explore IGNOU Courses</h1>
 
 <p>
-Find your programme and get complete academic support.
+
+Choose your programme category and find Assignments, Projects, Practicals, Internships and Study Material.
+
 </p>
 
 </section>
 
-<section class="services">
 
-<h2>Popular IGNOU Programmes</h2>
+<div class="category-container">
 
-<div class="service-box">
 
-<div class="card">
-<h3>BCA</h3>
-<p>Bachelor of Computer Applications</p>
-</div>
-
-<div class="card">
-<h3>MCA</h3>
-<p>Master of Computer Applications</p>
-</div>
-
-<div class="card">
-<h3>BAG</h3>
-<p>Bachelor of Arts (General)</p>
-</div>
-
-<div class="card">
-<h3>BCOMG</h3>
-<p>Bachelor of Commerce (General)</p>
-</div>
-
-<div class="card">
-<h3>BSCG</h3>
-<p>Bachelor of Science (General)</p>
-</div>
-
-<div class="card">
-<h3>BSW</h3>
-<p>Bachelor of Social Work</p>
-</div>
-
-<div class="card">
-<h3>BLIS</h3>
-<p>Bachelor of Library & Information Science</p>
-</div>
-
-<div class="card">
-<h3>BBA</h3>
-<p>Bachelor of Business Administration</p>
-</div>
-
-<div class="card">
-<h3>BAVTM</h3>
-<p>Bachelor of Arts (Vocational Studies in Tourism Management)</p>
-</div>
-
-<div class="card">
-<h3>BTS</h3>
-<p>Bachelor of Tourism Studies</p>
-</div>
-
-<div class="card">
-<h3>MCA</h3>
-<p>Master of Computer Applications</p>
-</div>
-
-<div class="card">
-<h3>MCOM</h3>
-<p>Master of Commerce</p>
-</div>
-
-<div class="card">
-<h3>MBA</h3>
-<p>Master of Business Administration</p>
-</div>
-
-<div class="card">
-<h3>MSW</h3>
-<p>Master of Social Work</p>
-</div>
-
-<div class="card">
-<h3>MLIS</h3>
-<p>Master of Library & Information Science</p>
-</div>
-
-<div class="card">
-<h3>MAH</h3>
-<p>Master of Arts (History)</p>
-</div>
-
-<div class="card">
-<h3>MHD</h3>
-<p>Master of Arts (Hindi)</p>
-</div>
-
-<div class="card">
-<h3>MEG</h3>
-<p>Master of Arts (English)</p>
-</div>
-
-<div class="card">
-<h3>MPS</h3>
-<p>Master of Arts (Political Science)</p>
-</div>
-
-<div class="card">
-<h3>MSCIS</h3>
-<p>Master of Science (Information Security)</p>
-</div>
-
-  <div class="card">
-<h3>MPA</h3>
-<p>Master of Arts (Public Administration)</p>
-</div>
-
-<div class="card">
-<h3>MSO</h3>
-<p>Master of Arts (Sociology)</p>
-</div>
-
-<div class="card">
-<h3>MEC</h3>
-<p>Master of Arts (Economics)</p>
-</div>
-
-<div class="card">
-<h3>MAPC</h3>
-<p>Master of Arts (Psychology)</p>
-</div>
-
-<div class="card">
-<h3>MAAN</h3>
-<p>Master of Arts (Anthropology)</p>
-</div>
-
-<div class="card">
-<h3>MPH</h3>
-<p>Master of Arts (Philosophy)</p>
-</div>
-
-<div class="card">
-<h3>MARD</h3>
-<p>Master of Arts (Rural Development)</p>
-</div>
-
-<div class="card">
-<h3>MAJMC</h3>
-<p>Master of Arts (Journalism & Mass Communication)</p>
-</div>
-
-<div class="card">
-<h3>MTTM</h3>
-<p>Master of Tourism & Travel Management</p>
-</div>
-
-<div class="card">
-<h3>MSCMACS</h3>
-<p>M.Sc. Applied Statistics</p>
-</div>
-
-<div class="card">
-<h3>PGDCA</h3>
-<p>Post Graduate Diploma in Computer Applications</p>
-</div>
-
-<div class="card">
-<h3>PGDHRM</h3>
-<p>Post Graduate Diploma in Human Resource Management</p>
-</div>
-
-<div class="card">
-<h3>PGDIM</h3>
-<p>Post Graduate Diploma in Financial Management</p>
-</div>
-
-<div class="card">
-<h3>PGDOM</h3>
-<p>Post Graduate Diploma in Operations Management</p>
-</div>
-
-<div class="card">
-<h3>PGDMM</h3>
-<p>Post Graduate Diploma in Marketing Management</p>
-</div>
-
-<div class="card">
-<h3>PGDFMP</h3>
-<p>Post Graduate Diploma in Financial Markets Practice</p>
-</div>
-
-<div class="card">
-<h3>PGDRD</h3>
-<p>Post Graduate Diploma in Rural Development</p>
-</div>
-
-<div class="card">
-<h3>PGDESD</h3>
-<p>Post Graduate Diploma in Environment & Sustainable Development</p>
-</div>
-
-<div class="card">
-<h3>PGDAST</h3>
-<p>Post Graduate Diploma in Applied Statistics</p>
-</div>
-
-<div class="card">
-<h3>PGCGPS</h3>
-<p>Post Graduate Certificate in Gandhi & Peace Studies</p>
-</div>
-
-  <div class="card">
-<h3>DECE</h3>
-<p>Diploma in Early Childhood Care & Education</p>
-</div>
-
-<div class="card">
-<h3>DCE</h3>
-<p>Diploma in Creative Writing in English</p>
-</div>
-
-<div class="card">
-<h3>DNHE</h3>
-<p>Diploma in Nutrition & Health Education</p>
-</div>
+<div class="category-grid">
 
-<div class="card">
-<h3>DAFE</h3>
-<p>Diploma in Aquaculture</p>
-</div>
 
-<div class="card">
-<h3>DCCN</h3>
-<p>Diploma in Critical Care Nursing</p>
-</div>
+<a href="programmes.html?category=master" class="category-card">
 
-<div class="card">
-<h3>DMT</h3>
-<p>Diploma in Modern Office Practice</p>
-</div>
+<div class="icon">
 
-<div class="card">
-<h3>DWED</h3>
-<p>Diploma in Women's Empowerment & Development</p>
-</div>
+🎓
 
-<div class="card">
-<h3>PGDDE</h3>
-<p>Post Graduate Diploma in Distance Education</p>
 </div>
 
-<div class="card">
-<h3>PGDLAN</h3>
-<p>Post Graduate Diploma in Library Automation & Networking</p>
-</div>
+<h2>
 
-<div class="card">
-<h3>CIT</h3>
-<p>Certificate in Information Technology</p>
-</div>
+Master Degree
 
-<div class="card">
-<h3>CLIS</h3>
-<p>Certificate in Library & Information Science</p>
-</div>
+</h2>
 
-<div class="card">
-<h3>CNCC</h3>
-<p>Certificate in Nutrition & Child Care</p>
-</div>
+<p>
 
-<div class="card">
-<h3>CCITSK</h3>
-<p>Certificate in Communication & IT Skills</p>
-</div>
+MBA, MCA, M.Com, MA, MSW and other postgraduate programmes.
 
-<div class="card">
-<h3>CTPM</h3>
-<p>Certificate in Tourism Studies</p>
-</div>
+</p>
 
-<div class="card">
-<h3>CES</h3>
-<p>Certificate in Environmental Studies</p>
-</div>
+</a>
 
-<div class="card">
-<h3>CFN</h3>
-<p>Certificate in Food & Nutrition</p>
-</div>
 
-<div class="card">
-<h3>CHR</h3>
-<p>Certificate in Human Rights</p>
-</div>
 
-<div class="card">
-<h3>CRD</h3>
-<p>Certificate in Rural Development</p>
-</div>
+<a href="programmes.html?category=bachelor" class="category-card">
 
-<div class="card">
-<h3>CFE</h3>
-<p>Certificate in Functional English</p>
-</div>
+<div class="icon">
 
-<div class="card">
-<h3>CCP</h3>
-<p>Certificate in Consumer Protection</p>
-</div>
-  
-  <div class="card">
-<h3>BSCM</h3>
-<p>Bachelor of Science (Mathematics)</p>
-</div>
+📘
 
-<div class="card">
-<h3>BSCANH</h3>
-<p>Bachelor of Science (Anthropology)</p>
 </div>
 
-<div class="card">
-<h3>BSCBCH</h3>
-<p>Bachelor of Science (Biochemistry)</p>
-</div>
+<h2>
 
-<div class="card">
-<h3>BSCGG</h3>
-<p>Bachelor of Science (Geology)</p>
-</div>
+Bachelor Degree
 
-<div class="card">
-<h3>BSCPH</h3>
-<p>Bachelor of Science (Physics)</p>
-</div>
+</h2>
 
-<div class="card">
-<h3>BSCCH</h3>
-<p>Bachelor of Science (Chemistry)</p>
-</div>
+<p>
 
-<div class="card">
-<h3>BSCBOT</h3>
-<p>Bachelor of Science (Botany)</p>
-</div>
+BCA, B.Com, BBA, BAG, B.Sc., BSW and other undergraduate programmes.
 
-<div class="card">
-<h3>BSCZOO</h3>
-<p>Bachelor of Science (Zoology)</p>
-</div>
+</p>
 
-<div class="card">
-<h3>BAHDH</h3>
-<p>Bachelor of Arts (Honours Hindi)</p>
-</div>
+</a>
 
-<div class="card">
-<h3>BAEGH</h3>
-<p>Bachelor of Arts (Honours English)</p>
-</div>
 
-<div class="card">
-<h3>BAPSH</h3>
-<p>Bachelor of Arts (Honours Political Science)</p>
-</div>
 
-<div class="card">
-<h3>BASOH</h3>
-<p>Bachelor of Arts (Honours Sociology)</p>
-</div>
+<a href="programmes.html?category=diploma" class="category-card">
 
-<div class="card">
-<h3>BACAH</h3>
-<p>Bachelor of Arts (Honours Economics)</p>
-</div>
+<div class="icon">
 
-<div class="card">
-<h3>BAPCH</h3>
-<p>Bachelor of Arts (Honours Psychology)</p>
-</div>
+📜
 
-<div class="card">
-<h3>BAGEH</h3>
-<p>Bachelor of Arts (Honours Geography)</p>
 </div>
 
-<div class="card">
-<h3>BTS</h3>
-<p>Bachelor of Tourism Studies</p>
-</div>
+<h2>
 
-<div class="card">
-<h3>BSWG</h3>
-<p>Bachelor of Social Work (General)</p>
-</div>
+PG Diploma / Diploma
 
-<div class="card">
-<h3>BLIB</h3>
-<p>Bachelor of Library & Information Science</p>
-</div>
+</h2>
 
-<div class="card">
-<h3>BCOMAF</h3>
-<p>B.Com in Accounting & Finance</p>
-</div>
+<p>
 
-<div class="card">
-<h3>BCOMCAA</h3>
-<p>B.Com with Computer Applications</p>
-</div>
+PGDCA, PGDRD, DECE and other professional diploma programmes.
 
-  <div class="card">
-<h3>MBAFM</h3>
-<p>MBA in Financial Management</p>
-</div>
+</p>
 
-<div class="card">
-<h3>MBAMM</h3>
-<p>MBA in Marketing Management</p>
-</div>
+</a>
 
-<div class="card">
-<h3>MBAHM</h3>
-<p>MBA in Human Resource Management</p>
-</div>
 
-<div class="card">
-<h3>MBAOM</h3>
-<p>MBA in Operations Management</p>
-</div>
 
-<div class="card">
-<h3>MBAAHM</h3>
-<p>MBA in Hospital & Healthcare Management</p>
-</div>
+<a href="programmes.html?category=certificate" class="category-card">
 
-<div class="card">
-<h3>MSCDFSM</h3>
-<p>M.Sc. in Dietetics & Food Service Management</p>
-</div>
+<div class="icon">
 
-<div class="card">
-<h3>MSCENV</h3>
-<p>M.Sc. in Environmental Science</p>
-</div>
+🏅
 
-<div class="card">
-<h3>MSCCFT</h3>
-<p>M.Sc. in Counselling & Family Therapy</p>
 </div>
 
-<div class="card">
-<h3>MSCMACS</h3>
-<p>M.Sc. in Applied Statistics</p>
-</div>
+<h2>
 
-<div class="card">
-<h3>MSCZOO</h3>
-<p>M.Sc. in Zoology</p>
-</div>
+Certificate Programme
 
-<div class="card">
-<h3>MSCBOT</h3>
-<p>M.Sc. in Botany</p>
-</div>
+</h2>
 
-<div class="card">
-<h3>MSCPHY</h3>
-<p>M.Sc. in Physics</p>
-</div>
+<p>
 
-<div class="card">
-<h3>MSCCHM</h3>
-<p>M.Sc. in Chemistry</p>
-</div>
+CIT, CAFE and other IGNOU certificate programmes.
 
-<div class="card">
-<h3>MSCGGY</h3>
-<p>M.Sc. in Geography</p>
-</div>
+</p>
 
-<div class="card">
-<h3>PGDBLT</h3>
-<p>PG Diploma in Book Publishing</p>
-</div>
+</a>
 
-<div class="card">
-<h3>PGJMC</h3>
-<p>Post Graduate Diploma in Journalism & Mass Communication</p>
-</div>
 
-<div class="card">
-<h3>PGDIPR</h3>
-<p>PG Diploma in Intellectual Property Rights</p>
 </div>
 
-<div class="card">
-<h3>PGDHE</h3>
-<p>PG Diploma in Higher Education</p>
-</div>
 
-<div class="card">
-<h3>PGDAC</h3>
-<p>PG Diploma in Analytical Chemistry</p>
 </div>
 
-<div class="card">
-<h3>PGDAPP</h3>
-<p>PG Diploma in Applied Psychology</p>
-</div>
-  
-</div>
 
-</section>
 <footer>
 
-<p>© 2026 IGNOU Assignment Hub</p>
+© 2026 IGNOU Solution Hub | All Rights Reserved
 
 </footer>
 
+
 </body>
+
 </html>
