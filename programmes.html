@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IGNOU Programmes - IGNOU Solution Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#f4f6f9;
+color:#222;
+}
+
+/* HEADER */
+
+header{
+background:#0b5ed7;
+color:white;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+.back-btn{
+background:white;
+color:#0b5ed7;
+text-decoration:none;
+padding:10px 17px;
+border-radius:6px;
+font-weight:bold;
+}
+
+/* TITLE */
+
+.hero{
+background:white;
+text-align:center;
+padding:40px 20px;
+border-bottom:1px solid #ddd;
+}
+
+.hero h1{
+margin:0 0 10px;
+color:#0b5ed7;
+font-size:34px;
+}
+
+.hero p{
+margin:0;
+color:#666;
+font-size:17px;
+}
+
+/* PROGRAMME GRID */
+
+.container{
+max-width:1150px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.programme-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.programme-card{
+background:white;
+padding:25px 18px;
+border-radius:12px;
+box-shadow:0 3px 12px rgba(0,0,0,.12);
+text-align:center;
+cursor:pointer;
+transition:.2s;
+border:2px solid transparent;
+}
+
+.programme-card:hover{
+transform:translateY(-5px);
+border-color:#0b5ed7;
+box-shadow:0 7px 20px rgba(0,0,0,.18);
+}
+
+.programme-icon{
+font-size:42px;
+margin-bottom:12px;
+}
+
+.programme-card h2{
+margin:0 0 8px;
+color:#0b5ed7;
+font-size:22px;
+}
+
+.programme-card p{
+margin:0;
+color:#666;
+font-size:14px;
+}
+
+footer{
+background:#152238;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+.programme-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:550px){
+
+header{
+padding:15px;
+}
+
+.logo{
+font-size:19px;
+}
+
+.hero h1{
+font-size:27px;
+}
+
+.programme-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+IGNOU Solution Hub
+
+</div>
+
+<a href="courses.html" class="back-btn">
+
+← All Categories
+
+</a>
+
+</header>
+
+
+<section class="hero">
+
+<h1 id="categoryTitle">
+
+IGNOU Programmes
+
+</h1>
+
+<p id="categoryDescription">
+
+Select your programme to view available services.
+
+</p>
+
+</section>
+
+
+<div class="container">
+
+<div class="programme-grid" id="programmeGrid">
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 IGNOU Solution Hub | All Rights Reserved
+
+</footer>
+
+
+<script>
+
+/* URL se category read karna */
+
+const params = new URLSearchParams(window.location.search);
+
+const category = params.get("category") || "master";
+
+
+/* Sab programme lists */
+
+const programmes = {
+
+
+master:[
+
+{
+code:"MBA",
+name:"Master of Business Administration"
+},
+
+{
+code:"MCA",
+name:"Master of Computer Applications"
+},
+
+{
+code:"MCOM",
+name:"Master of Commerce"
+},
+
+{
+code:"MEG",
+name:"MA English"
+},
+
+{
+code:"MHD",
+name:"MA Hindi"
+},
+
+{
+code:"MAH",
+name:"MA History"
+},
+
+{
+code:"MPS",
+name:"MA Political Science"
+},
+
+{
+code:"MSO",
+name:"MA Sociology"
+},
+
+{
+code:"MPA",
+name:"MA Public Administration"
+},
+
+{
+code:"MSW",
+name:"Master of Social Work"
+},
+
+{
+code:"MAPC",
+name:"MA Psychology"
+}
+
+],
+
+
+bachelor:[
+
+{
+code:"BCA",
+name:"Bachelor of Computer Applications"
+},
+
+{
+code:"BCOMG",
+name:"Bachelor of Commerce"
+},
+
+{
+code:"BBA",
+name:"Bachelor of Business Administration"
+},
+
+{
+code:"BAG",
+name:"Bachelor of Arts General"
+},
+
+{
+code:"BSCG",
+name:"Bachelor of Science General"
+},
+
+{
+code:"BSW",
+name:"Bachelor of Social Work"
+},
+
+{
+code:"BLIS",
+name:"Bachelor of Library and Information Science"
+},
+
+{
+code:"BTS",
+name:"Bachelor of Tourism Studies"
+},
+
+{
+code:"BEd",
+name:"Bachelor of Education"
+}
+
+],
+
+
+diploma:[
+
+{
+code:"PGDCA",
+name:"Post Graduate Diploma in Computer Applications"
+},
+
+{
+code:"DECE",
+name:"Diploma in Early Childhood Care and Education"
+},
+
+{
+code:"PGDRD",
+name:"Post Graduate Diploma in Rural Development"
+},
+
+{
+code:"PGDHRM",
+name:"Post Graduate Diploma in Human Resource Management"
+},
+
+{
+code:"PGDMM",
+name:"Post Graduate Diploma in Marketing Management"
+},
+
+{
+code:"PGDFM",
+name:"Post Graduate Diploma in Financial Management"
+},
+
+{
+code:"PGDIBO",
+name:"Post Graduate Diploma in International Business Operations"
+},
+
+{
+code:"PGJMC",
+name:"Post Graduate Diploma in Journalism and Mass Communication"
+}
+
+],
+
+
+certificate:[
+
+{
+code:"CIT",
+name:"Certificate in Information Technology"
+},
+
+{
+code:"CAFE",
+name:"Certificate in Apparel Fashion Design"
+},
+
+{
+code:"CCH",
+name:"Certificate in Community Health"
+},
+
+{
+code:"CNCC",
+name:"Certificate in Nutrition and Child Care"
+},
+
+{
+code:"CTE",
+name:"Certificate in Teaching of English"
+},
+
+{
+code:"CES",
+name:"Certificate in Environmental Studies"
+},
+
+{
+code:"CPF",
+name:"Certificate in Performing Arts"
+},
+
+{
+code:"CCITSK",
+name:"Certificate in Communication and IT Skills"
+}
+
+]
+
+};
+
+
+/* Category headings */
+
+const categoryInfo={
+
+master:{
+
+title:"Master Degree Programmes",
+
+description:"Choose your postgraduate programme."
+
+},
+
+bachelor:{
+
+title:"Bachelor Degree Programmes",
+
+description:"Choose your undergraduate programme."
+
+},
+
+diploma:{
+
+title:"PG Diploma / Diploma Programmes",
+
+description:"Choose your professional diploma programme."
+
+},
+
+certificate:{
+
+title:"Certificate Programmes",
+
+description:"Choose your IGNOU certificate programme."
+
+}
+
+};
+
+
+/* Heading update */
+
+const info=
+
+categoryInfo[category] ||
+
+categoryInfo.master;
+
+
+document.getElementById("categoryTitle").innerText=
+
+info.title;
+
+
+document.getElementById("categoryDescription").innerText=
+
+info.description;
+
+
+/* Programme cards banana */
+
+const grid=
+
+document.getElementById("programmeGrid");
+
+
+const programmeList=
+
+programmes[category] ||
+
+programmes.master;
+
+
+programmeList.forEach(function(programme){
+
+const card=
+
+document.createElement("div");
+
+
+card.className=
+
+"programme-card";
+
+
+card.innerHTML=
+
+`
+
+<div class="programme-icon">
+
+🎓
+
+</div>
+
+<h2>
+
+${programme.code}
+
+</h2>
+
+<p>
+
+${programme.name}
+
+</p>
+
+`;
+
+
+card.addEventListener(
+
+"click",
+
+function(){
+
+window.location.href=
+
+"programme.html?code=" +
+
+encodeURIComponent(
+
+programme.code
+
+)
+
++
+
+"&name=" +
+
+encodeURIComponent(
+
+programme.name
+
+);
+
+}
+
+);
+
+
+grid.appendChild(card);
+
+});
+
+</script>
+
+
+</body>
+
+</html>
