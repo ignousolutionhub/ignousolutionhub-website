@@ -1,62 +1,360 @@
-<section style="max-width:1200px;margin:50px auto;padding:20px;">
-<h2 style="text-align:center;font-size:38px;color:#003366;">
-DECE Solved Assignments
-</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:40px;">
+<head>
 
-<div style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.15);text-align:center;">
-<h3>DECE-01 Assignment</h3>
-<p>Latest Session</p>
-<h2 style="color:#0d6efd;">₹250</h2>
+<meta charset="UTF-8">
 
-<button onclick="addToCart('DECE-01 Assignment',250)"
-style="background:#198754;color:#fff;border:none;padding:12px 25px;border-radius:6px;cursor:pointer;">
-Add To Cart
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DECE Solved Assignments - IGNOU Solution Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#f5f5f5;
+}
+
+header{
+background:#0b5ed7;
+color:white;
+padding:18px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+margin:0;
+font-size:26px;
+}
+
+.cart-btn{
+background:white;
+color:#0b5ed7;
+padding:10px 20px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+font-size:17px;
+}
+
+#cartCount{
+background:#e53935;
+color:white;
+padding:4px 9px;
+border-radius:50%;
+margin-left:5px;
+font-size:14px;
+}
+
+.info{
+max-width:1300px;
+margin:15px auto;
+padding:0 20px;
+font-size:17px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+max-width:1300px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.card h2{
+margin-top:0;
+font-size:25px;
+}
+
+.price{
+font-size:23px;
+font-weight:bold;
+color:#0b5ed7;
+}
+
+.select-box{
+display:block;
+margin-top:25px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.select-box input{
+width:21px;
+height:21px;
+vertical-align:middle;
+margin-right:10px;
+}
+
+.add-button{
+display:block;
+width:600px;
+max-width:90%;
+margin:15px auto 40px;
+padding:16px;
+background:#198754;
+color:white;
+border:none;
+border-radius:7px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.add-button:hover{
+background:#157347;
+}
+
+@media(max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+header h1{
+font-size:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>IGNOU DECE Solved Assignments</h1>
+
+<a href="cart.html" class="cart-btn">
+
+🛒 Cart <span id="cartCount">0</span>
+
+</a>
+
+</header>
+
+
+<div class="info">
+
+Select one, two or all three products
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h2>DECE-01 Solved Assignment</h2>
+
+<p>Latest Session • Ready to Dispatch</p>
+
+<p class="price">₹250</p>
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="productCheck"
+value="DECE-01 Solved Assignment"
+data-price="250">
+
+Select DECE-01
+
+</label>
+
+</div>
+
+
+<div class="card">
+
+<h2>DECE-02 Solved Assignment</h2>
+
+<p>Latest Session • Ready to Dispatch</p>
+
+<p class="price">₹250</p>
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="productCheck"
+value="DECE-02 Solved Assignment"
+data-price="250">
+
+Select DECE-02
+
+</label>
+
+</div>
+
+
+<div class="card">
+
+<h2>DECE-03 Solved Assignment</h2>
+
+<p>Latest Session • Ready to Dispatch</p>
+
+<p class="price">₹250</p>
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="productCheck"
+value="DECE-03 Solved Assignment"
+data-price="250">
+
+Select DECE-03
+
+</label>
+
+</div>
+
+
+</div>
+
+
+<button
+class="add-button"
+id="addSelectedButton">
+
+🛒 Add Selected Products To Cart
+
 </button>
 
-</div>
-
-<div style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.15);text-align:center;">
-<h3>DECE-02 Assignment</h3>
-<p>Latest Session</p>
-<h2 style="color:#0d6efd;">₹250</h2>
-
-<button onclick="addToCart('DECE-02 Assignment',250)"
-style="background:#198754;color:#fff;border:none;padding:12px 25px;border-radius:6px;cursor:pointer;">
-Add To Cart
-</button>
-
-</div>
-
-<div style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.15);text-align:center;">
-<h3>DECE-03 Assignment</h3>
-<p>Latest Session</p>
-<h2 style="color:#0d6efd;">₹250</h2>
-
-<button onclick="addToCart('DECE-03 Assignment',250)"
-style="background:#198754;color:#fff;border:none;padding:12px 25px;border-radius:6px;cursor:pointer;">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-</section>
 
 <script>
-function addToCart(name,price){
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
+function updateCartCount(){
 
-cart.push({
-name:name,
-price:price
+const cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+document.getElementById("cartCount").innerText =
+cart.length;
+
+}
+
+
+document
+.getElementById("addSelectedButton")
+.addEventListener("click",function(){
+
+const selected =
+document.querySelectorAll(
+".productCheck:checked"
+);
+
+
+if(selected.length===0){
+
+alert("Please select at least one assignment.");
+
+return;
+
+}
+
+
+let cart =
+JSON.parse(
+localStorage.getItem("cart")
+) || [];
+
+
+let added = 0;
+
+
+selected.forEach(function(item){
+
+const name = item.value;
+
+const price =
+Number(item.dataset.price);
+
+
+const exists =
+cart.some(function(cartItem){
+
+return cartItem.name === name;
+
 });
 
-localStorage.setItem("cart",JSON.stringify(cart));
+
+if(!exists){
+
+cart.push({
+
+name:name,
+
+price:price
+
+});
+
+added++;
+
+}
+
+});
+
+
+localStorage.setItem(
+
+"cart",
+
+JSON.stringify(cart)
+
+);
+
+
+updateCartCount();
+
+
+if(added===0){
+
+alert(
+"Selected assignments are already in your cart."
+);
+
+}else{
+
+alert(
+added +
+" assignment(s) added to cart successfully ✅"
+);
+
+}
+
 
 window.location.href="cart.html";
 
-}
+});
+
+
+updateCartCount();
+
 </script>
+
+</body>
+
+</html>
