@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Orders - IGNOU Solution Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#f4f6f9;
+color:#222;
+}
+
+header{
+background:#0b5ed7;
+color:white;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+margin:0;
+font-size:25px;
+}
+
+.back-btn{
+background:white;
+color:#0b5ed7;
+text-decoration:none;
+padding:10px 17px;
+border-radius:6px;
+font-weight:bold;
+}
+
+.container{
+max-width:1200px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.order-card{
+background:white;
+padding:25px;
+margin-bottom:22px;
+border-radius:12px;
+box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+.order-top{
+display:flex;
+justify-content:space-between;
+gap:20px;
+border-bottom:1px solid #ddd;
+padding-bottom:15px;
+margin-bottom:18px;
+}
+
+.order-top h2{
+margin:0;
+color:#0b5ed7;
+}
+
+.order-date{
+color:#666;
+font-size:14px;
+}
+
+.details-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.detail{
+background:#f7f9fc;
+padding:14px;
+border-radius:8px;
+}
+
+.detail b{
+display:block;
+color:#555;
+font-size:13px;
+margin-bottom:6px;
+}
+
+.products{
+margin-top:20px;
+padding-top:18px;
+border-top:1px solid #ddd;
+}
+
+.products h3{
+margin-top:0;
+color:#0b5ed7;
+}
+
+.product-item{
+background:#f7f9fc;
+padding:12px;
+margin:8px 0;
+border-radius:7px;
+display:flex;
+justify-content:space-between;
+}
+
+.total{
+font-size:23px;
+font-weight:bold;
+color:#198754;
+margin-top:18px;
+}
+
+.status-area{
+display:flex;
+gap:15px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.status-box{
+padding:10px 14px;
+border-radius:7px;
+font-weight:bold;
+}
+
+.pending{
+background:#fff3cd;
+color:#856404;
+}
+
+.paid{
+background:#d1e7dd;
+color:#0f5132;
+}
+
+.dispatch{
+background:#cfe2ff;
+color:#084298;
+}
+
+.message{
+background:white;
+padding:35px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 3px 12px rgba(0,0,0,.10);
+color:#666;
+font-size:18px;
+}
+
+@media(max-width:850px){
+
+.details-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+header{
+padding:15px;
+}
+
+header h1{
+font-size:19px;
+}
+
+.order-top{
+flex-direction:column;
+}
+
+.details-grid{
+grid-template-columns:1fr;
+}
+
+.product-item{
+flex-direction:column;
+gap:5px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Customer Orders</h1>
+
+<a href="dashboard.html" class="back-btn">
+
+← Dashboard
+
+</a>
+
+</header>
+
+
+<div class="container">
+
+<div id="ordersContainer">
+
+<div class="message">
+
+Loading orders...
+
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+
+import {
+
+auth,
+
+db
+
+} from "./firebase-config.js";
+
+
+import {
+
+onAuthStateChanged
+
+} from
+
+"https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+
+import {
+
+collection,
+
+getDocs,
+
+query,
+
+orderBy
+
+} from
+
+"https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+
+const ordersContainer =
+
+document.getElementById(
+
+"ordersContainer"
+
+);
+
+
+/* ADMIN LOGIN CHECK */
+
+onAuthStateChanged(
+
+auth,
+
+function(user){
+
+if(!user){
+
+alert(
+
+"Admin Login Required"
+
+);
+
+window.location.href=
+
+"login.html";
+
+return;
+
+}
+
+loadOrders();
+
+}
+
+);
+
+
+/* LOAD ORDERS */
+
+async function loadOrders(){
+
+try{
+
+const ordersQuery =
+
+query(
+
+collection(db,"orders"),
+
+orderBy("createdAt","desc")
+
+);
+
+
+const snapshot =
+
+await getDocs(
+
+ordersQuery
+
+);
+
+
+if(snapshot.empty){
+
+ordersContainer.innerHTML=
+
+`
+
+<div class="message">
+
+Abhi koi order nahi aaya.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+ordersContainer.innerHTML="";
+
+
+snapshot.forEach(
+
+function(orderDoc){
+
+
+const order =
+
+orderDoc.data();
+
+
+let dateText =
+
+"Date not available";
+
+
+if(
+
+order.createdAt
+
+){
+
+dateText =
+
+order.createdAt
+
+.toDate()
+
+.toLocaleString(
+
+"en-IN"
+
+);
+
+}
+
+
+let productsHtml =
+
+"";
+
+
+if(
+
+Array.isArray(
+
+order.cart
+
+)
+
+&&
+
+order.cart.length>0
+
+){
+
+
+order.cart.forEach(
+
+function(item){
+
+
+productsHtml +=
+
+`
+
+<div class="product-item">
+
+<span>
+
+${item.name || "Product"}
+
+</span>
+
+<b>
+
+₹${Number(item.price || 0)}
+
+</b>
+
+</div>
+
+`;
+
+
+}
+
+);
+
+
+}
+
+else{
+
+
+productsHtml=
+
+`
+
+<p>
+
+Product details not available.
+
+</p>
+
+`;
+
+
+}
+
+
+const paymentClass =
+
+String(
+
+order.paymentStatus || "Pending"
+
+)
+
+.toLowerCase()
+
+===
+
+"paid"
+
+?
+
+"paid"
+
+:
+
+"pending";
+
+
+const card =
+
+document.createElement(
+
+"div"
+
+);
+
+
+card.className=
+
+"order-card";
+
+
+card.innerHTML=
+
+`
+
+<div class="order-top">
+
+<div>
+
+<h2>
+
+${order.customerName || "Customer"}
+
+</h2>
+
+<p>
+
+Order ID: ${orderDoc.id}
+
+</p>
+
+</div>
+
+<div class="order-date">
+
+${dateText}
+
+</div>
+
+</div>
+
+
+<div class="details-grid">
+
+
+<div class="detail">
+
+<b>Mobile Number</b>
+
+${order.mobile || "Not added"}
+
+</div>
+
+
+<div class="detail">
+
+<b>Email</b>
+
+${order.email || "Not added"}
+
+</div>
+
+
+<div class="detail">
+
+<b>Enrollment Number</b>
+
+${order.enrollment || "Not added"}
+
+</div>
+
+
+<div class="detail">
+
+<b>Programme</b>
+
+${order.programme || "Not added"}
+
+</div>
+
+
+<div class="detail">
+
+<b>Course</b>
+
+${order.course || "Not added"}
+
+</div>
+
+
+<div class="detail">
+
+<b>PIN Code</b>
+
+${order.pincode || "Not added"}
+
+</div>
+
+
+</div>
+
+
+<div class="products">
+
+<h3>
+
+Purchased Products
+
+</h3>
+
+${productsHtml}
+
+</div>
+
+
+<div class="total">
+
+Total Amount: ₹${Number(
+
+order.totalAmount || 0
+
+)}
+
+</div>
+
+
+<div class="status-area">
+
+
+<div class="status-box ${paymentClass}">
+
+Payment: ${
+
+order.paymentStatus || "Pending"
+
+}
+
+</div>
+
+
+<div class="status-box dispatch">
+
+Dispatch: ${
+
+order.dispatchStatus || "Pending"
+
+}
+
+</div>
+
+
+</div>
+
+
+</div>
+
+`;
+
+
+ordersContainer.appendChild(
+
+card
+
+);
+
+
+}
+
+);
+
+
+}
+
+catch(error){
+
+console.error(
+
+error
+
+);
+
+
+ordersContainer.innerHTML=
+
+`
+
+<div class="message">
+
+Orders load nahi hue.
+
+<br><br>
+
+${error.message}
+
+</div>
+
+`;
+
+
+}
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
