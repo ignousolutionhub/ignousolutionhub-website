@@ -828,3 +828,36 @@ margin-top:30px;
 box-shadow:0 10px 30px rgba(0,0,0,.15);
 
 }
+
+.top-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0b5ed7;
+color:white;
+padding:15px 25px;
+}
+
+.top-header h1{
+margin:0;
+font-size:25px;
+}
+
+.cart-btn{
+background:white;
+color:#0b5ed7;
+padding:10px 18px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+font-size:17px;
+}
+
+#cartCount{
+background:#dc3545;
+color:white;
+padding:3px 8px;
+border-radius:50%;
+margin-left:5px;
+font-size:14px;
+}
