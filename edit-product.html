@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Product - IGNOU Solution Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#f4f6f9;
+color:#222;
+}
+
+header{
+background:#0b5ed7;
+color:white;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+margin:0;
+font-size:25px;
+}
+
+.back-btn{
+background:white;
+color:#0b5ed7;
+text-decoration:none;
+padding:10px 17px;
+border-radius:6px;
+font-weight:bold;
+}
+
+.container{
+max-width:850px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.form-box{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.form-box h2{
+margin-top:0;
+text-align:center;
+color:#0b5ed7;
+}
+
+label{
+display:block;
+font-weight:bold;
+margin-top:18px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+margin-top:7px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
+}
+
+textarea{
+height:130px;
+resize:vertical;
+}
+
+.update-btn{
+width:100%;
+margin-top:25px;
+padding:14px;
+background:#198754;
+color:white;
+border:none;
+border-radius:6px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.update-btn:hover{
+background:#157347;
+}
+
+.message{
+text-align:center;
+padding:20px;
+color:#666;
+font-size:17px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Edit Product</h1>
+
+<a href="manage-products.html" class="back-btn">
+
+← Manage Products
+
+</a>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="form-box">
+
+
+<h2>Update Product Details</h2>
+
+
+<div id="loadingMessage" class="message">
+
+Loading product details...
+
+</div>
+
+
+<form id="editForm" style="display:none;">
+
+
+<label>Product Type</label>
+
+<select id="productType">
+
+<option value="Assignment">
+
+Assignment
+
+</option>
+
+<option value="Project">
+
+Project
+
+</option>
+
+<option value="Practical">
+
+Practical
+
+</option>
+
+<option value="Internship">
+
+Internship
+
+</option>
+
+<option value="Study Material">
+
+Study Material
+
+</option>
+
+<option value="Guide">
+
+Guide
+
+</option>
+
+</select>
+
+
+<label>Course</label>
+
+<input
+type="text"
+id="course"
+required>
+
+
+<label>Subject</label>
+
+<input
+type="text"
+id="subject">
+
+
+<label>Product Title</label>
+
+<input
+type="text"
+id="title"
+required>
+
+
+<label>Price</label>
+
+<input
+type="number"
+id="price"
+min="0"
+required>
+
+
+<label>Description</label>
+
+<textarea
+id="description">
+
+</textarea>
+
+
+<button
+type="submit"
+class="update-btn"
+id="updateBtn">
+
+Update Product
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+<script type="module">
+
+
+import {
+
+auth,
+
+db
+
+} from "./firebase-config.js";
+
+
+import {
+
+onAuthStateChanged
+
+} from
+
+"https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+
+import {
+
+doc,
+
+getDoc,
+
+updateDoc
+
+} from
+
+"https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+
+const params =
+
+new URLSearchParams(
+
+window.location.search
+
+);
+
+
+const productId =
+
+params.get("id");
+
+
+const loadingMessage =
+
+document.getElementById(
+
+"loadingMessage"
+
+);
+
+
+const editForm =
+
+document.getElementById(
+
+"editForm"
+
+);
+
+
+const updateBtn =
+
+document.getElementById(
+
+"updateBtn"
+
+);
+
+
+/* LOGIN CHECK */
+
+onAuthStateChanged(
+
+auth,
+
+async function(user){
+
+
+if(!user){
+
+
+alert(
+
+"Admin Login Required"
+
+);
+
+
+window.location.href=
+
+"login.html";
+
+
+return;
+
+
+}
+
+
+if(!productId){
+
+
+loadingMessage.innerHTML=
+
+"Product ID not found.";
+
+
+return;
+
+
+}
+
+
+loadProduct();
+
+
+}
+
+);
+
+
+/* PRODUCT LOAD */
+
+async function loadProduct(){
+
+
+try{
+
+
+const productRef =
+
+doc(
+
+db,
+
+"products",
+
+productId
+
+);
+
+
+const productSnapshot =
+
+await getDoc(
+
+productRef
+
+);
+
+
+if(
+
+!productSnapshot.exists()
+
+){
+
+
+loadingMessage.innerHTML=
+
+"Product not found.";
+
+
+return;
+
+
+}
+
+
+const product =
+
+productSnapshot.data();
+
+
+document.getElementById(
+
+"productType"
+
+).value =
+
+product.type ||
+
+"Assignment";
+
+
+document.getElementById(
+
+"course"
+
+).value =
+
+product.course ||
+
+"";
+
+
+document.getElementById(
+
+"subject"
+
+).value =
+
+product.subject ||
+
+"";
+
+
+document.getElementById(
+
+"title"
+
+).value =
+
+product.title ||
+
+"";
+
+
+document.getElementById(
+
+"price"
+
+).value =
+
+product.price ||
+
+0;
+
+
+document.getElementById(
+
+"description"
+
+).value =
+
+product.description ||
+
+"";
+
+
+loadingMessage.style.display=
+
+"none";
+
+
+editForm.style.display=
+
+"block";
+
+
+}
+
+catch(error){
+
+
+console.error(
+
+error
+
+);
+
+
+loadingMessage.innerHTML =
+
+"Product load nahi hua.<br><br>" +
+
+error.message;
+
+
+}
+
+}
+
+
+/* UPDATE PRODUCT */
+
+editForm.addEventListener(
+
+"submit",
+
+async function(event){
+
+
+event.preventDefault();
+
+
+updateBtn.disabled =
+
+true;
+
+
+updateBtn.innerText =
+
+"Updating Product...";
+
+
+try{
+
+
+await updateDoc(
+
+doc(
+
+db,
+
+"products",
+
+productId
+
+),
+
+{
+
+
+type:
+
+document.getElementById(
+
+"productType"
+
+).value,
+
+
+course:
+
+document.getElementById(
+
+"course"
+
+).value.trim(),
+
+
+subject:
+
+document.getElementById(
+
+"subject"
+
+).value.trim(),
+
+
+title:
+
+document.getElementById(
+
+"title"
+
+).value.trim(),
+
+
+price:
+
+Number(
+
+document.getElementById(
+
+"price"
+
+).value
+
+),
+
+
+description:
+
+document.getElementById(
+
+"description"
+
+).value.trim()
+
+
+}
+
+
+);
+
+
+alert(
+
+"Product updated successfully ✅"
+
+);
+
+
+window.location.href =
+
+"manage-products.html";
+
+
+}
+
+catch(error){
+
+
+console.error(
+
+error
+
+);
+
+
+alert(
+
+"Update failed: " +
+
+error.message
+
+);
+
+
+updateBtn.disabled =
+
+false;
+
+
+updateBtn.innerText =
+
+"Update Product";
+
+
+}
+
+
+}
+
+);
+
+
+</script>
+
+
+</body>
+
+</html>
