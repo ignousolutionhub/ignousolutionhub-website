@@ -1,75 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Product - IGNOU Solution Hub</title>
+
+<title>DECE Assignments - IGNOU Solution Hub</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
 body{
-background:#f4f6f9;
-padding:30px;
+margin:0;
+background:#f5f5f5;
 }
 
-.container{
-max-width:850px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 15px rgba(0,0,0,.15);
-}
-
-h2{
-text-align:center;
-margin-bottom:25px;
-color:#0d47a1;
-}
-
-label{
-display:block;
-margin-top:15px;
-font-weight:bold;
-}
-
-input,
-select,
-textarea{
-width:100%;
-padding:12px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:6px;
-font-size:15px;
-}
-
-textarea{
-height:120px;
-resize:none;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:25px;
-background:#0d47a1;
+header{
+background:#0b5ed7;
 color:white;
-border:none;
-border-radius:6px;
+padding:18px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+margin:0;
+font-size:26px;
+}
+
+.cart-btn{
+background:white;
+color:#0b5ed7;
+padding:10px 18px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
 font-size:17px;
+}
+
+#cartCount{
+background:#dc3545;
+color:white;
+padding:3px 8px;
+border-radius:50%;
+margin-left:5px;
+font-size:14px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+padding:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.card h2{
+margin-top:0;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:#0b5ed7;
+}
+
+.select-box{
+display:block;
+margin-top:20px;
+font-size:17px;
+font-weight:bold;
 cursor:pointer;
 }
 
-button:hover{
-background:#1565c0;
+.select-box input{
+width:20px;
+height:20px;
+vertical-align:middle;
+margin-right:8px;
+}
+
+.add-button{
+display:block;
+width:90%;
+max-width:600px;
+margin:10px auto 35px;
+padding:15px;
+background:#198754;
+color:white;
+border:none;
+border-radius:7px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.add-button:hover{
+background:#157347;
 }
 
 </style>
@@ -78,153 +118,203 @@ background:#1565c0;
 
 <body>
 
-<div class="container">
+<header>
 
-<h2>Add New Product</h2>
+<h1>IGNOU DECE Solved Assignments</h1>
 
-<form id="productForm">
+<a href="cart.html" class="cart-btn">
 
-<label>Product Type</label>
+🛒 Cart (<span id="cartCount">0</span>)
 
-<select id="productType">
-<option value="Assignment">Assignment</option>
-<option value="Project">Project</option>
-<option value="Practical">Practical</option>
-<option value="Internship">Internship</option>
-<option value="Study Material">Study Material</option>
-</select>
+</a>
 
-<label>Course</label>
+</header>
 
-<input
-type="text"
-id="course"
-placeholder="Example : BCA">
 
-<label>Subject</label>
+<div class="grid">
 
-<input
-type="text"
-id="subject"
-placeholder="Example : BCS-011">
 
-<label>Product Title</label>
+<div class="card">
+
+<h2>DECE-01 Solved Assignment</h2>
+
+<p>Latest Session • Ready to Dispatch</p>
+
+<p class="price">₹250</p>
+
+<label class="select-box">
 
 <input
-type="text"
-id="title"
-placeholder="Enter Product Title">
+type="checkbox"
+class="product"
+data-name="DECE-01 Solved Assignment"
+data-price="250">
 
-<label>Price</label>
+Select DECE-01
 
-<input
-type="number"
-id="price"
-placeholder="499">
+</label>
 
-<label>Description</label>
+</div>
 
-<textarea
-id="description"
-placeholder="Write Product Description"></textarea>
 
-<label>Cover Image</label>
+<div class="card">
 
-<input
-type="file"
-id="image">
+<h2>DECE-02 Solved Assignment</h2>
 
-<label>PDF File</label>
+<p>Latest Session • Ready to Dispatch</p>
+
+<p class="price">₹250</p>
+
+<label class="select-box">
 
 <input
-type="file"
-id="pdf">
+type="checkbox"
+class="product"
+data-name="DECE-02 Solved Assignment"
+data-price="250">
 
-<button type="submit">
+Select DECE-02
 
-Publish Product
+</label>
+
+</div>
+
+
+<div class="card">
+
+<h2>DECE-03 Solved Assignment</h2>
+
+<p>Latest Session • Ready to Dispatch</p>
+
+<p class="price">₹250</p>
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="product"
+data-name="DECE-03 Solved Assignment"
+data-price="250">
+
+Select DECE-03
+
+</label>
+
+</div>
+
+
+</div>
+
+
+<button class="add-button" onclick="addSelectedProducts()">
+
+🛒 Add Selected Products To Cart
 
 </button>
 
-</form>
 
-  <script type="module">
+<script>
 
-import { db } from "./firebase-config.js";
+function updateCartCount(){
 
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+let cart=JSON.parse(localStorage.getItem("cart")) || [];
 
-import {
-addDoc,
-collection,
-serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-const form=document.getElementById("productForm");
-const auth = getAuth();
-
-onAuthStateChanged(auth, (user) => {
-
-    console.log("Current User:", user);
-
-    if (!user) {
-
-        alert("Admin Login Required");
-
-        window.location.href = "login.html";
-
-    }
-
-});
-
-form.addEventListener("submit",async(e)=>{
-
-e.preventDefault();
-
-const product={
-
-type:document.getElementById("productType").value,
-
-course:document.getElementById("course").value,
-
-subject:document.getElementById("subject").value,
-
-title:document.getElementById("title").value,
-
-price:Number(document.getElementById("price").value),
-
-description:document.getElementById("description").value,
-
-image:"",
-
-pdf:"",
-
-createdAt:serverTimestamp()
-
-};
-
-try{
-
-await addDoc(collection(db,"products"),product);
-
-alert("Product Published Successfully ✅");
-
-form.reset();
+document.getElementById("cartCount").innerText=cart.length;
 
 }
 
-catch(error){
 
-alert(error.message);
+function addSelectedProducts(){
 
-console.error(error);
+let selectedProducts=
+document.querySelectorAll(".product:checked");
+
+
+if(selectedProducts.length===0){
+
+alert("Please select at least one product.");
+
+return;
+
+}
+
+
+let cart=
+JSON.parse(localStorage.getItem("cart")) || [];
+
+
+let addedCount=0;
+
+
+selectedProducts.forEach(function(product){
+
+let name=product.dataset.name;
+
+let price=Number(product.dataset.price);
+
+
+let alreadyAdded=cart.some(function(item){
+
+return item.name===name;
+
+});
+
+
+if(!alreadyAdded){
+
+cart.push({
+
+name:name,
+
+price:price
+
+});
+
+addedCount++;
 
 }
 
 });
+
+
+localStorage.setItem(
+
+"cart",
+
+JSON.stringify(cart)
+
+);
+
+
+updateCartCount();
+
+
+if(addedCount===0){
+
+alert("Selected products pehle se Cart me hain.");
+
+}else{
+
+alert(
+
+addedCount+
+
+" product(s) successfully Cart me add ho gaye ✅"
+
+);
+
+}
+
+
+window.location.href="cart.html";
+
+}
+
+
+updateCartCount();
 
 </script>
 
 </body>
+
 </html>
-</div>
