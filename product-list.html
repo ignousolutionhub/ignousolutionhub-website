@@ -219,66 +219,7 @@ Add Selected Products To Cart
 
 <script>
 
-function addSelectedProducts(){
-
-let selectedProducts =
-document.querySelectorAll(".product:checked");
-
-
-if(selectedProducts.length === 0){
-
-alert("Please select at least one product.");
-
-return;
-
-}
-
-
-let cart =
-JSON.parse(localStorage.getItem("cart")) || [];
-
-
-selectedProducts.forEach(function(product){
-
-let alreadyAdded =
-cart.some(function(item){
-
-return item.name === product.value;
-
-});
-
-
-if(!alreadyAdded){
-
-cart.push({
-
-name:product.value,
-
-price:Number(product.dataset.price)
-
-});
-
-}
-
-});
-
-
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
-
-
-alert(
-selectedProducts.length +
-" product(s) Cart me add ho gaye."
-);
-
-
-window.location.href="cart.html";
-
-}
-  function updateCartCount(){
+function updateCartCount(){
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -286,10 +227,28 @@ document.getElementById("cartCount").innerText = cart.length;
 
 }
 
+function addToCart(name, price){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name:name,
+price:price
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+updateCartCount();
+
+alert(name + " Cart me add ho gaya.");
+
+window.location.href="cart.html";
+
+}
+
 updateCartCount();
 
 </script>
-
 
 </body>
 
