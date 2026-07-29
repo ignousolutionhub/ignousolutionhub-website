@@ -1,69 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Products - IGNOU Solution Hub</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DECE Products - IGNOU Solution Hub</title>
+
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f5f5f5}
-header{background:#0b5ed7;color:#fff;padding:18px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:25px}
-.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
-.price{font-size:22px;color:#0b5ed7;font-weight:bold}
-button{width:100%;padding:12px;border:none;background:#198754;color:#fff;border-radius:6px;cursor:pointer}
+
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f5f5f5;
+}
+
+header{
+background:#0b5ed7;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+padding:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.card h2{
+margin-top:0;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:#0b5ed7;
+}
+
+.select-box{
+margin-top:20px;
+font-size:17px;
+font-weight:bold;
+}
+
+.select-box input{
+width:20px;
+height:20px;
+vertical-align:middle;
+margin-right:8px;
+}
+
+.add-button{
+display:block;
+width:90%;
+max-width:600px;
+margin:10px auto 35px;
+padding:15px;
+background:#198754;
+color:white;
+border:none;
+border-radius:7px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.add-button:hover{
+background:#146c43;
+}
+
 </style>
+
 </head>
+
 <body>
-<header><h1>IGNOU DECE Solved Assignments</h1></header>
+
+<header>
+
+<h1>IGNOU DECE Solved Assignments</h1>
+
+<p>Select one, two or all three products</p>
+
+</header>
+
 
 <div class="grid">
+
+
 <div class="card">
+
 <h2>DECE-01 Solved Assignment</h2>
+
 <p>Latest Session • Ready to Dispatch</p>
+
 <p class="price">₹250</p>
-<button onclick="addToCart('DECE-01 Solved Assignment',250)">
-Add To Cart
-</button>
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="product"
+value="DECE-01 Solved Assignment"
+data-price="250">
+
+Select DECE-01
+
+</label>
+
 </div>
 
+
+
 <div class="card">
+
 <h2>DECE-02 Solved Assignment</h2>
+
 <p>Latest Session • Ready to Dispatch</p>
+
 <p class="price">₹250</p>
-<button onclick="addToCart('DECE-01 Solved Assignment',250)">
-Add To Cart
-</button>
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="product"
+value="DECE-02 Solved Assignment"
+data-price="250">
+
+Select DECE-02
+
+</label>
+
 </div>
+
+
 
 <div class="card">
+
 <h2>DECE-03 Solved Assignment</h2>
+
 <p>Latest Session • Ready to Dispatch</p>
+
 <p class="price">₹250</p>
-<button onclick="addToCart('DECE-01 Solved Assignment',250)">
-Add To Cart
+
+<label class="select-box">
+
+<input
+type="checkbox"
+class="product"
+value="DECE-03 Solved Assignment"
+data-price="250">
+
+Select DECE-03
+
+</label>
+
+</div>
+
+
+</div>
+
+
+<button
+class="add-button"
+onclick="addSelectedProducts()">
+
+Add Selected Products To Cart
+
 </button>
-</div>
-</div>
 
-  <script>
 
-function addToCart(name, price){
+<script>
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addSelectedProducts(){
 
-cart.push({
-    name:name,
-    price:price
+let selectedProducts =
+document.querySelectorAll(".product:checked");
+
+
+if(selectedProducts.length === 0){
+
+alert("Please select at least one product.");
+
+return;
+
+}
+
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+
+selectedProducts.forEach(function(product){
+
+let alreadyAdded =
+cart.some(function(item){
+
+return item.name === product.value;
+
 });
 
-localStorage.setItem("cart", JSON.stringify(cart));
 
-alert(name + " Cart me add ho gaya.");
+if(!alreadyAdded){
+
+cart.push({
+
+name:product.value,
+
+price:Number(product.dataset.price)
+
+});
+
+}
+
+});
+
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+
+alert(
+selectedProducts.length +
+" product(s) Cart me add ho gaye."
+);
+
 
 window.location.href="cart.html";
 
 }
 
 </script>
+
+
 </body>
+
 </html>
