@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IGNOU Project & Internship - IGNOU Assignment Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+margin:0;
+background:#f4f6f9;
+color:#222;
+}
+
+/* HEADER */
+
+header{
+background:#173f69;
+color:white;
+padding:15px 6%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+nav{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ffd24d;
+}
+
+.cart-btn{
+background:white;
+color:#173f69;
+padding:9px 15px;
+border-radius:22px;
+text-decoration:none;
+font-weight:bold;
+}
+
+#cartCount{
+background:#dc3545;
+color:white;
+padding:3px 8px;
+border-radius:50%;
+margin-left:5px;
+}
+
+/* HERO */
+
+.hero{
+background:#22558a;
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+.hero h1{
+margin:0 0 12px;
+font-size:38px;
+}
+
+.hero p{
+margin:0;
+font-size:18px;
+}
+
+/* MAIN */
+
+.container{
+max-width:1250px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.note{
+background:#fff3cd;
+border-left:5px solid #ffbf00;
+padding:15px;
+border-radius:7px;
+margin-bottom:25px;
+line-height:1.6;
+}
+
+/* CATEGORY TABS */
+
+.category-tabs{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-bottom:30px;
+}
+
+.tab{
+background:white;
+border:2px solid #0b5ed7;
+color:#0b5ed7;
+padding:15px 10px;
+border-radius:9px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.tab:hover,
+.tab.active{
+background:#0b5ed7;
+color:white;
+}
+
+/* CATEGORY */
+
+.category{
+display:none;
+}
+
+.category.active{
+display:block;
+}
+
+.category-title{
+color:#173f69;
+font-size:29px;
+margin-bottom:8px;
+}
+
+.category-text{
+color:#666;
+margin-bottom:25px;
+}
+
+/* PROGRAMME GRID */
+
+.programme-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.programme-card{
+background:white;
+padding:22px;
+border-radius:13px;
+box-shadow:0 4px 14px rgba(0,0,0,.11);
+border-top:5px solid #0b5ed7;
+}
+
+.programme-card h2{
+margin:0 0 8px;
+color:#173f69;
+font-size:23px;
+}
+
+.code{
+display:inline-block;
+background:#e7f0ff;
+color:#0b5ed7;
+padding:6px 11px;
+border-radius:18px;
+font-weight:bold;
+margin-bottom:14px;
+}
+
+.programme-card label{
+display:block;
+font-weight:bold;
+margin:12px 0 7px;
+}
+
+.programme-card select{
+width:100%;
+padding:12px;
+border:1px solid #bbb;
+border-radius:7px;
+font-size:16px;
+background:white;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:#198754;
+margin:16px 0 8px;
+}
+
+.add-btn{
+width:100%;
+padding:13px;
+background:#198754;
+color:white;
+border:none;
+border-radius:7px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.add-btn:hover{
+background:#146c43;
+}
+
+/* FOOTER */
+
+footer{
+background:#173f69;
+color:white;
+text-align:center;
+padding:22px;
+margin-top:45px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+.category-tabs{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:550px){
+
+header{
+padding:15px;
+}
+
+.hero h1{
+font-size:29px;
+}
+
+.category-tabs{
+grid-template-columns:1fr;
+}
+
+nav{
+gap:12px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+IGNOU Assignment Hub
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="assignments.html">Assignments</a>
+
+<a href="project-services.html">Project / Internship</a>
+
+<a href="study-material.html">Study Material</a>
+
+<a href="guide.html">Guide</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<a href="cart.html" class="cart-btn">
+
+🛒 Cart
+
+<span id="cartCount">0</span>
+
+</a>
+
+</header>
+
+
+<section class="hero">
+
+<h1>IGNOU Project / Internship / Dissertation</h1>
+
+<p>
+Select your programme and course component, then add it to your cart.
+</p>
+
+</section>
+
+
+<div class="container">
+
+<div class="note">
+
+<b>How to order:</b>
+
+Select your programme → Select Project / Internship / Dissertation / Field Work course → Add to Cart → Checkout → Complete Payment.
+
+</div>
+
+
+<div class="category-tabs">
+
+<button class="tab active" onclick="showCategory('master',this)">
+Master's Degree
+</button>
+
+<button class="tab" onclick="showCategory('bachelor',this)">
+Bachelor's Degree
+</button>
+
+<button class="tab" onclick="showCategory('pgd',this)">
+PG Diploma
+</button>
+
+<button class="tab" onclick="showCategory('diploma',this)">
+Diploma
+</button>
+
+</div>
+
+
+<!-- MASTER DEGREE -->
+
+<section id="master" class="category active">
+
+<h2 class="category-title">
+Master's Degree Programmes
+</h2>
+
+<p class="category-text">
+Select the required Project, Internship, Dissertation or Field Work component.
+</p>
+
+<div class="programme-grid">
+
+
+<div class="programme-card">
+
+<h2>MA in Psychology</h2>
+
+<div class="code">MAPC</div>
+
+<label>Select Component</label>
+
+<select id="mapc">
+
+<option value="">Select Course</option>
+
+<option value="MPCE-016|Project">
+MPCE-016 — Project
+</option>
+
+<option value="MPCE-026|Project">
+MPCE-026 — Project
+</option>
+
+<option value="MPCE-036|Project">
+MPCE-036 — Project
+</option>
+
+<option value="MPCE-015|Internship">
+MPCE-015 — Internship
+</option>
+
+<option value="MPCE-025|Internship">
+MPCE-025 — Internship
+</option>
+
+<option value="MPCE-035|Internship">
+MPCE-035 — Internship
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA in Psychology','MAPC','mapc',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Master of Social Work</h2>
+
+<div class="code">MSW</div>
+
+<label>Select Component</label>
+
+<select id="msw">
+
+<option value="">Select Course</option>
+
+<option value="MSWP-001|Project / Field Work">
+MSWP-001 — Project / Field Work
+</option>
+
+<option value="MSWP-002|Field Work Journal">
+MSWP-002 — Field Work Journal
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Master of Social Work','MSW','msw',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MSW Counselling</h2>
+
+<div class="code">MSWC</div>
+
+<label>Select Component</label>
+
+<select id="mswc">
+
+<option value="">Select Course</option>
+
+<option value="MSWP-011|Field Work">
+MSWP-011 — Field Work
+</option>
+
+<option value="MSWP-012|Field Work">
+MSWP-012 — Field Work
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MSW Counselling','MSWC','mswc',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA in Education</h2>
+
+<div class="code">MAEDU</div>
+
+<label>Select Component</label>
+
+<select id="maedu">
+
+<option value="">Select Course</option>
+
+<option value="MESE-001|Dissertation">
+MESE-001 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA in Education','MAEDU','maedu',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Journalism & Mass Communication</h2>
+
+<div class="code">MAJMC</div>
+
+<label>Select Component</label>
+
+<select id="majmc">
+
+<option value="">Select Course</option>
+
+<option value="MJMP-020|Production Project">
+MJMP-020 — Production Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Journalism & Mass Communication','MAJMC','majmc',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Master of Computer Applications</h2>
+
+<div class="code">MCA / MCA_NEW</div>
+
+<label>Select Component</label>
+
+<select id="mca">
+
+<option value="">Select Course</option>
+
+<option value="MCAP-228|Project">
+MCAP-228 — Project
+</option>
+
+<option value="MCAP-040|Project">
+MCAP-040 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Master of Computer Applications','MCA','mca',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Tourism Management</h2>
+
+<div class="code">MTTM</div>
+
+<label>Select Component</label>
+
+<select id="mttm">
+
+<option value="">Select Course</option>
+
+<option value="MTTM-16|Dissertation">
+MTTM-16 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Tourism Management','MTTM','mttm',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Development Studies</h2>
+
+<div class="code">MADVS</div>
+
+<label>Select Component</label>
+
+<select id="madvs">
+
+<option value="">Select Course</option>
+
+<option value="MEDSP-041|Dissertation">
+MEDSP-041 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Development Studies','MADVS','madvs',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Gender & Development Studies</h2>
+
+<div class="code">MAGD</div>
+
+<label>Select Component</label>
+
+<select id="magd">
+
+<option value="">Select Course</option>
+
+<option value="MWGP-001|Project / Dissertation">
+MWGP-001 — Project / Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Gender & Development Studies','MAGD','magd',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Extension & Development Studies</h2>
+
+<div class="code">MAEDS</div>
+
+<label>Select Component</label>
+
+<select id="maeds">
+
+<option value="">Select Course</option>
+
+<option value="MEDSP-015|Dissertation">
+MEDSP-015 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Extension & Development Studies','MAEDS','maeds',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Corporate Social Responsibility</h2>
+
+<div class="code">MACSR</div>
+
+<label>Select Component</label>
+
+<select id="macsr">
+
+<option value="">Select Course</option>
+
+<option value="MEDSP-051|Dissertation">
+MEDSP-051 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Corporate Social Responsibility','MACSR','macsr',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Urban Studies</h2>
+
+<div class="code">MAUS</div>
+
+<label>Select Component</label>
+
+<select id="maus">
+
+<option value="">Select Course</option>
+
+<option value="MEDSP-061|Dissertation">
+MEDSP-061 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Urban Studies','MAUS','maus',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA Environmental & Occupational Health</h2>
+
+<div class="code">MAEOH</div>
+
+<label>Select Component</label>
+
+<select id="maeoh">
+
+<option value="">Select Course</option>
+
+<option value="MEHP-001|Project">
+MEHP-001 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('MA Environmental & Occupational Health','MAEOH','maeoh',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>M.Sc. Environmental Science</h2>
+
+<div class="code">MSCENV</div>
+
+<label>Select Component</label>
+
+<select id="mscenv">
+
+<option value="">Select Course</option>
+
+<option value="MEVP-011|Project / Dissertation">
+MEVP-011 — Project / Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('M.Sc. Environmental Science','MSCENV','mscenv',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>M.Sc. Dietetics & Food Service Management</h2>
+
+<div class="code">MSCDFSM</div>
+
+<label>Select Component</label>
+
+<select id="mscdfsm">
+
+<option value="">Select Course</option>
+
+<option value="MFNL-008|Internship">
+MFNL-008 — Internship
+</option>
+
+<option value="MFNP-012|Dissertation">
+MFNP-012 — Dissertation
+</option>
+
+</select>
+
+<div class="price">₹<span>2500</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('M.Sc. Dietetics & Food Service Management','MSCDFSM','mscdfsm',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BACHELOR DEGREE -->
+
+<section id="bachelor" class="category">
+
+<h2 class="category-title">
+Bachelor's Degree Programmes
+</h2>
+
+<p class="category-text">
+Select the required Project, Practical or Field Work component.
+</p>
+
+<div class="programme-grid">
+
+
+<div class="programme-card">
+
+<h2>Bachelor of Social Work</h2>
+
+<div class="code">BSWG</div>
+
+<label>Select Component</label>
+
+<select id="bswg">
+
+<option value="">Select Course</option>
+
+<option value="BSWL-104|Field Work">
+BSWL-104 — Field Work
+</option>
+
+<option value="BSWL-105|Field Work">
+BSWL-105 — Field Work
+</option>
+
+<option value="BSWL-106|Field Work">
+BSWL-106 — Field Work
+</option>
+
+</select>
+
+<div class="price">₹<span>2000</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Bachelor of Social Work','BSWG','bswg',2000)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Bachelor of Computer Applications</h2>
+
+<div class="code">BCA</div>
+
+<label>Select Component</label>
+
+<select id="bca">
+
+<option value="">Select Course</option>
+
+<option value="BCSP-064|Project">
+BCSP-064 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2000</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Bachelor of Computer Applications','BCA','bca',2000)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>B.Sc. Hospitality & Hotel Administration</h2>
+
+<div class="code">BHM</div>
+
+<label>Select Component</label>
+
+<select id="bhm">
+
+<option value="">Select Course</option>
+
+<option value="Industrial Training|Practical / Industrial Training">
+Practical / Industrial Training Component
+</option>
+
+</select>
+
+<div class="price">₹<span>2000</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('B.Sc. Hospitality & Hotel Administration','BHM','bhm',2000)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>BAG / B.Sc. CBCS</h2>
+
+<div class="code">BAG / BSCG</div>
+
+<label>Select Component</label>
+
+<select id="bag">
+
+<option value="">Select Component</option>
+
+<option value="Programme Specific|Project / Elective Component">
+Programme Specific Project / Elective Component
+</option>
+
+</select>
+
+<div class="price">₹<span>2000</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('BAG / B.Sc. CBCS','BAG / BSCG','bag',2000)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PG DIPLOMA -->
+
+<section id="pgd" class="category">
+
+<h2 class="category-title">
+Post Graduate Diploma Programmes
+</h2>
+
+<p class="category-text">
+Select your programme project, practical or internship component.
+</p>
+
+<div class="programme-grid">
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Audio Programme Production</h2>
+
+<div class="code">PGDAEP</div>
+
+<label>Select Component</label>
+
+<select id="pgdaep">
+
+<option value="">Select Course</option>
+
+<option value="MJRP-002|Project">
+MJRP-002 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Audio Programme Production','PGDAEP','pgdaep',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Environmental & Occupational Health</h2>
+
+<div class="code">PGDEOH</div>
+
+<label>Select Component</label>
+
+<select id="pgdeoh">
+
+<option value="">Select Course</option>
+
+<option value="MEHP-001|Project">
+MEHP-001 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Environmental & Occupational Health','PGDEOH','pgdeoh',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Journalism & Mass Communication</h2>
+
+<div class="code">PGJMC</div>
+
+<label>Select Component</label>
+
+<select id="pgjmc">
+
+<option value="">Select Course</option>
+
+<option value="JMCP-001|Project">
+JMCP-001 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Journalism & Mass Communication','PGJMC','pgjmc',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Higher Education</h2>
+
+<div class="code">PGDHE</div>
+
+<label>Select Component</label>
+
+<select id="pgdhe">
+
+<option value="">Select Course</option>
+
+<option value="MES-035|Project">
+MES-035 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Higher Education','PGDHE','pgdhe',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in School Leadership & Management</h2>
+
+<div class="code">PGDSLM</div>
+
+<label>Select Component</label>
+
+<select id="pgdslm">
+
+<option value="">Select Course</option>
+
+<option value="MES-008|Project">
+MES-008 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in School Leadership & Management','PGDSLM','pgdslm',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Educational Management & Administration</h2>
+
+<div class="code">PGDEMA</div>
+
+<label>Select Component</label>
+
+<select id="pgdema">
+
+<option value="">Select Course</option>
+
+<option value="MESP-049|Project">
+MESP-049 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Educational Management & Administration','PGDEMA','pgdema',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Disability Management</h2>
+
+<div class="code">PGDDM</div>
+
+<label>Select Component</label>
+
+<select id="pgddm">
+
+<option value="">Select Course</option>
+
+<option value="MMDP-001|Project">
+MMDP-001 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Disability Management','PGDDM','pgddm',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Plantation Management</h2>
+
+<div class="code">PGDPM</div>
+
+<label>Select Component</label>
+
+<select id="pgdpm">
+
+<option value="">Select Course</option>
+
+<option value="MAM-004|Project">
+MAM-004 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>2200</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('PG Diploma in Plantation Management','PGDPM','pgdpm',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DIPLOMA -->
+
+<section id="diploma" class="category">
+
+<h2 class="category-title">
+Diploma Programmes
+</h2>
+
+<p class="category-text">
+Select your required Project, Practical or Field Work course.
+</p>
+
+<div class="programme-grid">
+
+
+<div class="programme-card">
+
+<h2>Diploma in Early Childhood Care & Education</h2>
+
+<div class="code">DECE</div>
+
+<label>Select Component</label>
+
+<select id="dece">
+
+<option value="">Select Course</option>
+
+<option value="DECE-04|Project Work">
+DECE-04 — Project Work
+</option>
+
+</select>
+
+<div class="price">₹<span>1800</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Diploma in Early Childhood Care & Education','DECE','dece',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Diploma in Nutrition & Health Education</h2>
+
+<div class="code">DNHE</div>
+
+<label>Select Component</label>
+
+<select id="dnhe">
+
+<option value="">Select Course</option>
+
+<option value="DNHE-04|Project / Practical">
+DNHE-04 — Project / Practical
+</option>
+
+</select>
+
+<div class="price">₹<span>1800</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Diploma in Nutrition & Health Education','DNHE','dnhe',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Diploma in Tourism Studies</h2>
+
+<div class="code">DTS</div>
+
+<label>Select Component</label>
+
+<select id="dts">
+
+<option value="">Select Course</option>
+
+<option value="PTS-4|Project / Practical">
+PTS-4 — Project / Practical
+</option>
+
+<option value="PTS-6|Project / Practical">
+PTS-6 — Project / Practical
+</option>
+
+</select>
+
+<div class="price">₹<span>1800</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Diploma in Tourism Studies','DTS','dts',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Diploma in Panchayat Level Administration & Development</h2>
+
+<div class="code">DPLAD</div>
+
+<label>Select Component</label>
+
+<select id="dplad">
+
+<option value="">Select Course</option>
+
+<option value="BPRP-004|Project">
+BPRP-004 — Project
+</option>
+
+</select>
+
+<div class="price">₹<span>1800</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Diploma in Panchayat Level Administration & Development','DPLAD','dplad',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Diploma in HIV & Family Education</h2>
+
+<div class="code">DAFE</div>
+
+<label>Select Component</label>
+
+<select id="dafe">
+
+<option value="">Select Course</option>
+
+<option value="BFE-102|Project / Practical">
+BFE-102 — Project / Practical
+</option>
+
+</select>
+
+<div class="price">₹<span>1800</span></div>
+
+<button class="add-btn"
+onclick="addProgramme('Diploma in HIV & Family Education','DAFE','dafe',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+© 2026 IGNOU Assignment Hub
+
+</footer>
+
+
+<script>
+
+
+function showCategory(id,button){
+
+document.querySelectorAll(
+
+".category"
+
+).forEach(
+
+function(section){
+
+section.classList.remove(
+
+"active"
+
+);
+
+}
+
+);
+
+
+document.getElementById(
+
+id
+
+).classList.add(
+
+"active"
+
+);
+
+
+document.querySelectorAll(
+
+".tab"
+
+).forEach(
+
+function(tab){
+
+tab.classList.remove(
+
+"active"
+
+);
+
+}
+
+);
+
+
+button.classList.add(
+
+"active"
+
+);
+
+
+window.scrollTo({
+
+top:document.querySelector(
+
+".category-tabs"
+
+).offsetTop-20,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+function updateCartCount(){
+
+let cart=
+
+JSON.parse(
+
+localStorage.getItem(
+
+"cart"
+
+)
+
+)
+
+|| [];
+
+
+document.getElementById(
+
+"cartCount"
+
+).innerText=
+
+cart.length;
+
+}
+
+
+function addProgramme(
+
+programmeName,
+
+programmeCode,
+
+selectId,
+
+price
+
+){
+
+
+let select=
+
+document.getElementById(
+
+selectId
+
+);
+
+
+if(
+
+select.value==""
+
+){
+
+
+alert(
+
+"Please select a course code first."
+
+);
+
+
+return;
+
+
+}
+
+
+let details=
+
+select.value.split(
+
+"|"
+
+);
+
+
+let courseCode=
+
+details[0];
+
+
+let component=
+
+details[1];
+
+
+let cart=
+
+JSON.parse(
+
+localStorage.getItem(
+
+"cart"
+
+)
+
+)
+
+|| [];
+
+
+let productName=
+
+programmeName+
+
+" — "+
+
+courseCode+
+
+" ("+
+
+component+
+
+")";
+
+
+cart.push({
+
+name:productName,
+
+price:Number(price),
+
+programme:programmeCode,
+
+course:courseCode,
+
+productType:component
+
+});
+
+
+localStorage.setItem(
+
+"cart",
+
+JSON.stringify(
+
+cart
+
+)
+
+);
+
+
+updateCartCount();
+
+
+alert(
+
+productName+
+
+" has been added to your cart."
+
+);
+
+
+window.location.href=
+
+"cart.html";
+
+
+}
+
+
+updateCartCount();
+
+
+</script>
+
+</body>
+</html>
