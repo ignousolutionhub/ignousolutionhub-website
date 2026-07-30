@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IGNOU Project & Internship - IGNOU Assignment Hub</title>
+<title>IGNOU Project & Internship | IGNOU Assignment Hub</title>
 
 <style>
 
@@ -22,9 +24,9 @@ color:#222;
 /* HEADER */
 
 header{
-background:#173f69;
+background:#0b5ed7;
 color:white;
-padding:15px 6%;
+padding:15px 5%;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -39,7 +41,7 @@ font-weight:bold;
 
 nav{
 display:flex;
-gap:20px;
+gap:18px;
 flex-wrap:wrap;
 }
 
@@ -50,14 +52,14 @@ font-weight:bold;
 }
 
 nav a:hover{
-color:#ffd24d;
+color:#ffd54f;
 }
 
 .cart-btn{
 background:white;
-color:#173f69;
-padding:9px 15px;
-border-radius:22px;
+color:#0b5ed7;
+padding:10px 16px;
+border-radius:25px;
 text-decoration:none;
 font-weight:bold;
 }
@@ -73,7 +75,7 @@ margin-left:5px;
 /* HERO */
 
 .hero{
-background:#22558a;
+background:linear-gradient(135deg,#0b5ed7,#173f69);
 color:white;
 text-align:center;
 padding:50px 20px;
@@ -92,26 +94,26 @@ font-size:18px;
 /* MAIN */
 
 .container{
-max-width:1250px;
+max-width:1300px;
 margin:35px auto;
 padding:0 20px;
 }
 
-.note{
+.info{
 background:#fff3cd;
 border-left:5px solid #ffbf00;
-padding:15px;
-border-radius:7px;
-margin-bottom:25px;
+padding:16px;
+border-radius:8px;
 line-height:1.6;
+margin-bottom:25px;
 }
 
 /* CATEGORY TABS */
 
 .category-tabs{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
 margin-bottom:30px;
 }
 
@@ -119,9 +121,9 @@ margin-bottom:30px;
 background:white;
 border:2px solid #0b5ed7;
 color:#0b5ed7;
-padding:15px 10px;
-border-radius:9px;
-font-size:16px;
+padding:14px 8px;
+border-radius:8px;
+font-size:15px;
 font-weight:bold;
 cursor:pointer;
 }
@@ -144,16 +146,16 @@ display:block;
 
 .category-title{
 color:#173f69;
-font-size:29px;
-margin-bottom:8px;
+font-size:30px;
+margin:0 0 8px;
 }
 
-.category-text{
+.category-description{
 color:#666;
-margin-bottom:25px;
+margin:0 0 25px;
 }
 
-/* PROGRAMME GRID */
+/* CARDS */
 
 .programme-grid{
 display:grid;
@@ -163,32 +165,32 @@ gap:20px;
 
 .programme-card{
 background:white;
-padding:22px;
-border-radius:13px;
+padding:21px;
+border-radius:12px;
 box-shadow:0 4px 14px rgba(0,0,0,.11);
 border-top:5px solid #0b5ed7;
 }
 
 .programme-card h2{
 margin:0 0 8px;
+font-size:22px;
 color:#173f69;
-font-size:23px;
 }
 
-.code{
+.programme-code{
 display:inline-block;
-background:#e7f0ff;
+background:#e8f1ff;
 color:#0b5ed7;
-padding:6px 11px;
+padding:6px 12px;
 border-radius:18px;
 font-weight:bold;
-margin-bottom:14px;
+margin-bottom:13px;
 }
 
 .programme-card label{
 display:block;
 font-weight:bold;
-margin:12px 0 7px;
+margin:10px 0 7px;
 }
 
 .programme-card select{
@@ -204,7 +206,7 @@ background:white;
 font-size:22px;
 font-weight:bold;
 color:#198754;
-margin:16px 0 8px;
+margin:16px 0;
 }
 
 .add-btn{
@@ -223,8 +225,6 @@ cursor:pointer;
 background:#146c43;
 }
 
-/* FOOTER */
-
 footer{
 background:#173f69;
 color:white;
@@ -235,44 +235,49 @@ margin-top:45px;
 
 /* MOBILE */
 
-@media(max-width:850px){
+@media(max-width:1000px){
+
+.category-tabs{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:650px){
 
 .category-tabs{
 grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:550px){
-
-header{
-padding:15px;
 }
 
 .hero h1{
 font-size:29px;
 }
 
-.category-tabs{
-grid-template-columns:1fr;
 }
 
-nav{
-gap:12px;
+@media(max-width:450px){
+
+.category-tabs{
+grid-template-columns:1fr;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
+
 <header>
 
 <div class="logo">
+
 IGNOU Assignment Hub
+
 </div>
+
 
 <nav>
 
@@ -290,6 +295,7 @@ IGNOU Assignment Hub
 
 </nav>
 
+
 <a href="cart.html" class="cart-btn">
 
 🛒 Cart
@@ -306,7 +312,9 @@ IGNOU Assignment Hub
 <h1>IGNOU Project / Internship / Dissertation</h1>
 
 <p>
-Select your programme and course component, then add it to your cart.
+
+Select your programme and course code, then add it to your cart.
+
 </p>
 
 </section>
@@ -314,11 +322,12 @@ Select your programme and course component, then add it to your cart.
 
 <div class="container">
 
-<div class="note">
 
-<b>How to order:</b>
+<div class="info">
 
-Select your programme → Select Project / Internship / Dissertation / Field Work course → Add to Cart → Checkout → Complete Payment.
+<b>Order Process:</b>
+
+Select Category → Select Programme Component → Add to Cart → Checkout → Payment → Order Confirmation.
 
 </div>
 
@@ -326,80 +335,190 @@ Select your programme → Select Project / Internship / Dissertation / Field Wor
 <div class="category-tabs">
 
 <button class="tab active" onclick="showCategory('master',this)">
+
 Master's Degree
+
 </button>
 
 <button class="tab" onclick="showCategory('bachelor',this)">
+
 Bachelor's Degree
+
 </button>
 
 <button class="tab" onclick="showCategory('pgd',this)">
+
 PG Diploma
+
 </button>
 
 <button class="tab" onclick="showCategory('diploma',this)">
+
 Diploma
+
+</button>
+
+<button class="tab" onclick="showCategory('certificate',this)">
+
+Certificate
+
 </button>
 
 </div>
 
 
-<!-- MASTER DEGREE -->
+<!-- MASTER'S DEGREE -->
 
 <section id="master" class="category active">
 
 <h2 class="category-title">
+
 Master's Degree Programmes
+
 </h2>
 
-<p class="category-text">
-Select the required Project, Internship, Dissertation or Field Work component.
+<p class="category-description">
+
+Select the required Project, Dissertation, Internship or Field Work course.
+
 </p>
+
 
 <div class="programme-grid">
 
 
 <div class="programme-card">
 
-<h2>MA in Psychology</h2>
+<h2>Master of Business Administration</h2>
 
-<div class="code">MAPC</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MBA / MBF / MBAHM / MBAMM / MBAOM
 
-<select id="mapc">
+</div>
 
-<option value="">Select Course</option>
+<label>Select Course</label>
 
-<option value="MPCE-016|Project">
-MPCE-016 — Project
-</option>
+<select id="mba">
 
-<option value="MPCE-026|Project">
-MPCE-026 — Project
-</option>
+<option value="">Select Project Course</option>
 
-<option value="MPCE-036|Project">
-MPCE-036 — Project
-</option>
+<option value="MMPP-001|Project">
 
-<option value="MPCE-015|Internship">
-MPCE-015 — Internship
-</option>
+MMPP-001 — Project
 
-<option value="MPCE-025|Internship">
-MPCE-025 — Internship
-</option>
-
-<option value="MPCE-035|Internship">
-MPCE-035 — Internship
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
+
+onclick="addProgramme('Master of Business Administration','MBA / MBF / MBAHM / MBAMM / MBAOM','mba',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Master of Commerce</h2>
+
+<div class="programme-code">
+
+MCOM / MCOM_NEW
+
+</div>
+
+<label>Select Course</label>
+
+<select id="mcom">
+
+<option value="">Select Project Course</option>
+
+<option value="MCOP-001|Project Work">
+
+MCOP-001 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Master of Commerce','MCOM / MCOM_NEW','mcom',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA in Psychology</h2>
+
+<div class="programme-code">
+
+MAPC
+
+</div>
+
+<label>Select Course</label>
+
+<select id="mapc">
+
+<option value="">Select Component</option>
+
+<option value="MPCE-016|Project">
+
+MPCE-016 — Project
+
+</option>
+
+<option value="MPCE-026|Project">
+
+MPCE-026 — Project
+
+</option>
+
+<option value="MPCE-036|Project">
+
+MPCE-036 — Project
+
+</option>
+
+<option value="MPCE-015|Internship">
+
+MPCE-015 — Internship
+
+</option>
+
+<option value="MPCE-025|Internship">
+
+MPCE-025 — Internship
+
+</option>
+
+<option value="MPCE-035|Internship">
+
+MPCE-035 — Internship
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
 onclick="addProgramme('MA in Psychology','MAPC','mapc',2500)">
 
 Add to Cart
@@ -413,27 +532,36 @@ Add to Cart
 
 <h2>Master of Social Work</h2>
 
-<div class="code">MSW</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MSW
+
+</div>
+
+<label>Select Course</label>
 
 <select id="msw">
 
-<option value="">Select Course</option>
+<option value="">Select Component</option>
 
-<option value="MSWP-001|Project / Field Work">
-MSWP-001 — Project / Field Work
+<option value="MSWP-001|Field Work">
+
+MSWP-001 — Field Work
+
 </option>
 
-<option value="MSWP-002|Field Work Journal">
-MSWP-002 — Field Work Journal
+<option value="MSWP-002|Field Work">
+
+MSWP-002 — Field Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('Master of Social Work','MSW','msw',2500)">
 
 Add to Cart
@@ -447,27 +575,36 @@ Add to Cart
 
 <h2>MSW Counselling</h2>
 
-<div class="code">MSWC</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MSWC
+
+</div>
+
+<label>Select Course</label>
 
 <select id="mswc">
 
-<option value="">Select Course</option>
+<option value="">Select Component</option>
 
 <option value="MSWP-011|Field Work">
+
 MSWP-011 — Field Work
+
 </option>
 
 <option value="MSWP-012|Field Work">
+
 MSWP-012 — Field Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('MSW Counselling','MSWC','mswc',2500)">
 
 Add to Cart
@@ -481,24 +618,37 @@ Add to Cart
 
 <h2>MA in Education</h2>
 
-<div class="code">MAEDU</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MAEDU / MAED
+
+</div>
+
+<label>Select Course</label>
 
 <select id="maedu">
 
-<option value="">Select Course</option>
+<option value="">Select Dissertation</option>
+
+<option value="MESP-001|Dissertation">
+
+MESP-001 — Dissertation
+
+</option>
 
 <option value="MESE-001|Dissertation">
+
 MESE-001 — Dissertation
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA in Education','MAEDU','maedu',2500)">
+
+onclick="addProgramme('MA in Education','MAEDU / MAED','maedu',2500)">
 
 Add to Cart
 
@@ -509,26 +659,76 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Journalism & Mass Communication</h2>
+<h2>MA in Rural Development</h2>
 
-<div class="code">MAJMC</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MARD
 
-<select id="majmc">
+</div>
 
-<option value="">Select Course</option>
+<label>Select Course</label>
 
-<option value="MJMP-020|Production Project">
-MJMP-020 — Production Project
+<select id="mard">
+
+<option value="">Select Dissertation</option>
+
+<option value="MRDP-001|Dissertation">
+
+MRDP-001 — Dissertation
+
+</option>
+
+<option value="MRDP-201|Dissertation">
+
+MRDP-201 — Dissertation
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Journalism & Mass Communication','MAJMC','majmc',2500)">
+
+onclick="addProgramme('MA in Rural Development','MARD','mard',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Master of Library & Information Science</h2>
+
+<div class="programme-code">
+
+MLIS
+
+</div>
+
+<label>Select Course</label>
+
+<select id="mlis">
+
+<option value="">Select Project</option>
+
+<option value="MLIP-002|Project">
+
+MLIP-002 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Master of Library & Information Science','MLIS','mlis',2500)">
 
 Add to Cart
 
@@ -541,28 +741,31 @@ Add to Cart
 
 <h2>Master of Computer Applications</h2>
 
-<div class="code">MCA / MCA_NEW</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MCA / MCA_NEW
+
+</div>
+
+<label>Select Course</label>
 
 <select id="mca">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
-<option value="MCAP-228|Project">
-MCAP-228 — Project
-</option>
+<option value="MCSP-060|Project">
 
-<option value="MCAP-040|Project">
-MCAP-040 — Project
+MCSP-060 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('Master of Computer Applications','MCA','mca',2500)">
+
+onclick="addProgramme('Master of Computer Applications','MCA / MCA_NEW','mca',2500)">
 
 Add to Cart
 
@@ -573,26 +776,39 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Tourism Management</h2>
+<h2>MA in Tourism Management</h2>
 
-<div class="code">MTTM</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MTTM
+
+</div>
+
+<label>Select Course</label>
 
 <select id="mttm">
 
-<option value="">Select Course</option>
+<option value="">Select Dissertation</option>
 
 <option value="MTTM-16|Dissertation">
+
 MTTM-16 — Dissertation
+
+</option>
+
+<option value="MTTMP-119|Dissertation">
+
+MTTMP-119 — Dissertation
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Tourism Management','MTTM','mttm',2500)">
+
+onclick="addProgramme('MA in Tourism Management','MTTM','mttm',2500)">
 
 Add to Cart
 
@@ -603,26 +819,70 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Development Studies</h2>
+<h2>MA in Journalism & Mass Communication</h2>
 
-<div class="code">MADVS</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MAJMC
+
+</div>
+
+<label>Select Course</label>
+
+<select id="majmc">
+
+<option value="">Select Project</option>
+
+<option value="MJMP-020|Production Project">
+
+MJMP-020 — Production Project
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('MA in Journalism & Mass Communication','MAJMC','majmc',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA in Development Studies</h2>
+
+<div class="programme-code">
+
+MADVS
+
+</div>
+
+<label>Select Course</label>
 
 <select id="madvs">
 
-<option value="">Select Course</option>
+<option value="">Select Dissertation</option>
 
 <option value="MEDSP-041|Dissertation">
+
 MEDSP-041 — Dissertation
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Development Studies','MADVS','madvs',2500)">
+
+onclick="addProgramme('MA in Development Studies','MADVS','madvs',2500)">
 
 Add to Cart
 
@@ -633,26 +893,33 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Gender & Development Studies</h2>
+<h2>MA in Gender & Development Studies</h2>
 
-<div class="code">MAGD</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MAGD
+
+</div>
+
+<label>Select Course</label>
 
 <select id="magd">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
-<option value="MWGP-001|Project / Dissertation">
-MWGP-001 — Project / Dissertation
+<option value="MWGP-001|Project Work">
+
+MWGP-001 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Gender & Development Studies','MAGD','magd',2500)">
+
+onclick="addProgramme('MA in Gender & Development Studies','MAGD','magd',2500)">
 
 Add to Cart
 
@@ -663,26 +930,33 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Extension & Development Studies</h2>
+<h2>MA in Extension & Development Studies</h2>
 
-<div class="code">MAEDS</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MAEDS
+
+</div>
+
+<label>Select Course</label>
 
 <select id="maeds">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
-<option value="MEDSP-015|Dissertation">
-MEDSP-015 — Dissertation
+<option value="MEDSP-015|Project">
+
+MEDSP-015 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Extension & Development Studies','MAEDS','maeds',2500)">
+
+onclick="addProgramme('MA in Extension & Development Studies','MAEDS','maeds',2500)">
 
 Add to Cart
 
@@ -693,26 +967,33 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Corporate Social Responsibility</h2>
+<h2>MA in Corporate Social Responsibility</h2>
 
-<div class="code">MACSR</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MACSR
+
+</div>
+
+<label>Select Course</label>
 
 <select id="macsr">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
-<option value="MEDSP-051|Dissertation">
-MEDSP-051 — Dissertation
+<option value="MEDSP-051|Project">
+
+MEDSP-051 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Corporate Social Responsibility','MACSR','macsr',2500)">
+
+onclick="addProgramme('MA in Corporate Social Responsibility','MACSR','macsr',2500)">
 
 Add to Cart
 
@@ -723,26 +1004,113 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>MA Urban Studies</h2>
+<h2>MA in Urban Studies</h2>
 
-<div class="code">MAUS</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MAUS
+
+</div>
+
+<label>Select Course</label>
 
 <select id="maus">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
-<option value="MEDSP-061|Dissertation">
-MEDSP-061 — Dissertation
+<option value="MEDSP-061|Project">
+
+MEDSP-061 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('MA Urban Studies','MAUS','maus',2500)">
+
+onclick="addProgramme('MA in Urban Studies','MAUS','maus',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA in Anthropology</h2>
+
+<div class="programme-code">
+
+MAAN
+
+</div>
+
+<label>Select Course</label>
+
+<select id="maan">
+
+<option value="">Select Dissertation</option>
+
+<option value="MANP-101|Dissertation">
+
+MANP-101 — Dissertation
+
+</option>
+
+<option value="MANE-106|Dissertation">
+
+MANE-106 — Dissertation
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('MA in Anthropology','MAAN','maan',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>MA in Economics</h2>
+
+<div class="programme-code">
+
+MAEC
+
+</div>
+
+<label>Select Course</label>
+
+<select id="maec">
+
+<option value="">Select Project</option>
+
+<option value="MECP-301|Project Work">
+
+MECP-301 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('MA in Economics','MAEC','maec',2500)">
 
 Add to Cart
 
@@ -755,23 +1123,30 @@ Add to Cart
 
 <h2>MA Environmental & Occupational Health</h2>
 
-<div class="code">MAEOH</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MAEOH
+
+</div>
+
+<label>Select Course</label>
 
 <select id="maeoh">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
 <option value="MEHP-001|Project">
+
 MEHP-001 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('MA Environmental & Occupational Health','MAEOH','maeoh',2500)">
 
 Add to Cart
@@ -785,23 +1160,36 @@ Add to Cart
 
 <h2>M.Sc. Environmental Science</h2>
 
-<div class="code">MSCENV</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MSCENV
+
+</div>
+
+<label>Select Course</label>
 
 <select id="mscenv">
 
-<option value="">Select Course</option>
+<option value="">Select Dissertation</option>
 
-<option value="MEVP-011|Project / Dissertation">
-MEVP-011 — Project / Dissertation
+<option value="MEVP-011|Dissertation">
+
+MEVP-011 — Dissertation
+
+</option>
+
+<option value="MEVP-001|Dissertation">
+
+MEVP-001 — Dissertation
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('M.Sc. Environmental Science','MSCENV','mscenv',2500)">
 
 Add to Cart
@@ -815,28 +1203,37 @@ Add to Cart
 
 <h2>M.Sc. Dietetics & Food Service Management</h2>
 
-<div class="code">MSCDFSM</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+MSCDFSM / MSDFSM
+
+</div>
+
+<label>Select Course</label>
 
 <select id="mscdfsm">
 
-<option value="">Select Course</option>
-
-<option value="MFNL-008|Internship">
-MFNL-008 — Internship
-</option>
+<option value="">Select Component</option>
 
 <option value="MFNP-012|Dissertation">
+
 MFNP-012 — Dissertation
+
+</option>
+
+<option value="MFNL-008|Internship">
+
+MFNL-008 — Internship
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2500</span></div>
+<div class="price">₹2500</div>
 
 <button class="add-btn"
-onclick="addProgramme('M.Sc. Dietetics & Food Service Management','MSCDFSM','mscdfsm',2500)">
+
+onclick="addProgramme('M.Sc. Dietetics & Food Service Management','MSCDFSM / MSDFSM','mscdfsm',2500)">
 
 Add to Cart
 
@@ -844,22 +1241,108 @@ Add to Cart
 
 </div>
 
+
+<div class="programme-card">
+
+<h2>M.Sc. Information Security</h2>
+
+<div class="programme-code">
+
+MSCIS
+
+</div>
+
+<label>Select Course</label>
+
+<select id="mscis">
+
+<option value="">Select Project</option>
+
+<option value="MSEP-028|Project">
+
+MSEP-028 — Project
+
+</option>
+
+<option value="MSEP-038|Project">
+
+MSEP-038 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('M.Sc. Information Security','MSCIS','mscis',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>M.Sc. Renewable Energy & Environment</h2>
+
+<div class="programme-code">
+
+MSCRWEE
+
+</div>
+
+<label>Select Course</label>
+
+<select id="mscrwee">
+
+<option value="">Select Project</option>
+
+<option value="MRWP-001|Project">
+
+MRWP-001 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹2500</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('M.Sc. Renewable Energy & Environment','MSCRWEE','mscrwee',2500)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
 </div>
 
 </section>
 
 
-<!-- BACHELOR DEGREE -->
+<!-- BACHELOR -->
 
 <section id="bachelor" class="category">
 
 <h2 class="category-title">
+
 Bachelor's Degree Programmes
+
 </h2>
 
-<p class="category-text">
-Select the required Project, Practical or Field Work component.
+<p class="category-description">
+
+Select your Project, Practical, Internship or Field Work component.
+
 </p>
+
 
 <div class="programme-grid">
 
@@ -868,32 +1351,49 @@ Select the required Project, Practical or Field Work component.
 
 <h2>Bachelor of Social Work</h2>
 
-<div class="code">BSWG</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+BSWG / BFSW
 
-<select id="bswg">
+</div>
 
-<option value="">Select Course</option>
+<label>Select Course</label>
+
+<select id="bsw">
+
+<option value="">Select Field Work</option>
 
 <option value="BSWL-104|Field Work">
+
 BSWL-104 — Field Work
+
 </option>
 
 <option value="BSWL-105|Field Work">
+
 BSWL-105 — Field Work
+
 </option>
 
 <option value="BSWL-106|Field Work">
+
 BSWL-106 — Field Work
+
+</option>
+
+<option value="BSWL-107|Field Work">
+
+BSWL-107 — Field Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2000</span></div>
+<div class="price">₹2000</div>
 
 <button class="add-btn"
-onclick="addProgramme('Bachelor of Social Work','BSWG','bswg',2000)">
+
+onclick="addProgramme('Bachelor of Social Work','BSWG / BFSW','bsw',2000)">
 
 Add to Cart
 
@@ -906,24 +1406,129 @@ Add to Cart
 
 <h2>Bachelor of Computer Applications</h2>
 
-<div class="code">BCA</div>
+<div class="programme-code">
 
-<label>Select Component</label>
+BCA / BCA_NEW
+
+</div>
+
+<label>Select Course</label>
 
 <select id="bca">
 
-<option value="">Select Course</option>
+<option value="">Select Project</option>
 
-<option value="BCSP-064|Project">
-BCSP-064 — Project
+<option value="BCSP-064|Project Work">
+
+BCSP-064 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2000</span></div>
+<div class="price">₹2000</div>
 
 <button class="add-btn"
-onclick="addProgramme('Bachelor of Computer Applications','BCA','bca',2000)">
+
+onclick="addProgramme('Bachelor of Computer Applications','BCA / BCA_NEW','bca',2000)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Bachelor of Library & Information Science</h2>
+
+<div class="programme-code">
+
+BLIS
+
+</div>
+
+<label>Select Course</label>
+
+<select id="blis">
+
+<option value="">Select Component</option>
+
+<option value="BLIP-101|Practical / Project">
+
+BLIP-101 — Practical / Project
+
+</option>
+
+<option value="BLIP-102|Practical / Project">
+
+BLIP-102 — Practical / Project
+
+</option>
+
+</select>
+
+<div class="price">₹2000</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Bachelor of Library & Information Science','BLIS','blis',2000)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Bachelor of Tourism & Travel Management</h2>
+
+<div class="programme-code">
+
+BTTM / BAFVTM
+
+</div>
+
+<label>Select Course</label>
+
+<select id="bttm">
+
+<option value="">Select Component</option>
+
+<option value="PTS-4|Project / Practical">
+
+PTS-4 — Project / Practical
+
+</option>
+
+<option value="PTS-5|Project / Practical">
+
+PTS-5 — Project / Practical
+
+</option>
+
+<option value="PTS-6|Project / Practical">
+
+PTS-6 — Project / Practical
+
+</option>
+
+<option value="BTRP-001|Project">
+
+BTRP-001 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹2000</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Bachelor of Tourism & Travel Management','BTTM / BAFVTM','bttm',2000)">
 
 Add to Cart
 
@@ -936,24 +1541,31 @@ Add to Cart
 
 <h2>B.Sc. Hospitality & Hotel Administration</h2>
 
-<div class="code">BHM</div>
+<div class="programme-code">
+
+BHM / BHA
+
+</div>
 
 <label>Select Component</label>
 
 <select id="bhm">
 
-<option value="">Select Course</option>
+<option value="">Select Component</option>
 
-<option value="Industrial Training|Practical / Industrial Training">
-Practical / Industrial Training Component
+<option value="Programme-Specific|Practical Internship">
+
+Practical / Internship Component
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2000</span></div>
+<div class="price">₹2000</div>
 
 <button class="add-btn"
-onclick="addProgramme('B.Sc. Hospitality & Hotel Administration','BHM','bhm',2000)">
+
+onclick="addProgramme('B.Sc. Hospitality & Hotel Administration','BHM / BHA','bhm',2000)">
 
 Add to Cart
 
@@ -964,32 +1576,52 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>BAG / B.Sc. CBCS</h2>
+<h2>B.Sc. Various Electives / FYUP</h2>
 
-<div class="code">BAG / BSCG</div>
+<div class="programme-code">
+
+BSCG / FYUP
+
+</div>
 
 <label>Select Component</label>
 
-<select id="bag">
+<select id="bscg">
 
 <option value="">Select Component</option>
 
-<option value="Programme Specific|Project / Elective Component">
-Programme Specific Project / Elective Component
+<option value="Programme-Specific|Discipline Project">
+
+Programme-Specific Discipline Project
+
+</option>
+
+<option value="CHE-13|Discipline Project">
+
+CHE-13 — Discipline Project
+
+</option>
+
+<option value="AEC-01|Discipline Project">
+
+AEC-01 — Discipline Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2000</span></div>
+<div class="price">₹2000</div>
 
 <button class="add-btn"
-onclick="addProgramme('BAG / B.Sc. CBCS','BAG / BSCG','bag',2000)">
+
+onclick="addProgramme('B.Sc. Various Electives / FYUP','BSCG / FYUP','bscg',2000)">
 
 Add to Cart
 
 </button>
 
 </div>
+
 
 </div>
 
@@ -1001,38 +1633,52 @@ Add to Cart
 <section id="pgd" class="category">
 
 <h2 class="category-title">
+
 Post Graduate Diploma Programmes
+
 </h2>
 
-<p class="category-text">
-Select your programme project, practical or internship component.
+<p class="category-description">
+
+Select the required Project or Special Project course.
+
 </p>
+
 
 <div class="programme-grid">
 
 
 <div class="programme-card">
 
-<h2>PG Diploma in Audio Programme Production</h2>
+<h2>PG Diploma in Rural Development</h2>
 
-<div class="code">PGDAEP</div>
+<div class="programme-code">PGDRD</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
-<select id="pgdaep">
+<select id="pgdrd">
 
 <option value="">Select Course</option>
 
-<option value="MJRP-002|Project">
-MJRP-002 — Project
+<option value="RDD-5|Project Work">
+
+RDD-5 — Project Work
+
+</option>
+
+<option value="MRDP-001|Project Work">
+
+MRDP-001 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
-onclick="addProgramme('PG Diploma in Audio Programme Production','PGDAEP','pgdaep',2200)">
+
+onclick="addProgramme('PG Diploma in Rural Development','PGDRD','pgdrd',2200)">
 
 Add to Cart
 
@@ -1043,26 +1689,29 @@ Add to Cart
 
 <div class="programme-card">
 
-<h2>PG Diploma in Environmental & Occupational Health</h2>
+<h2>PG Diploma in Audio Programme Production</h2>
 
-<div class="code">PGDEOH</div>
+<div class="programme-code">PGDAPP</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
-<select id="pgdeoh">
+<select id="pgdapp">
 
 <option value="">Select Course</option>
 
-<option value="MEHP-001|Project">
-MEHP-001 — Project
+<option value="MJRP-002|Project Work">
+
+MJRP-002 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
-onclick="addProgramme('PG Diploma in Environmental & Occupational Health','PGDEOH','pgdeoh',2200)">
+
+onclick="addProgramme('PG Diploma in Audio Programme Production','PGDAPP','pgdapp',2200)">
 
 Add to Cart
 
@@ -1075,23 +1724,26 @@ Add to Cart
 
 <h2>PG Diploma in Journalism & Mass Communication</h2>
 
-<div class="code">PGJMC</div>
+<div class="programme-code">PGJMC</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="pgjmc">
 
 <option value="">Select Course</option>
 
 <option value="JMCP-001|Project">
+
 JMCP-001 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('PG Diploma in Journalism & Mass Communication','PGJMC','pgjmc',2200)">
 
 Add to Cart
@@ -1105,23 +1757,26 @@ Add to Cart
 
 <h2>PG Diploma in Higher Education</h2>
 
-<div class="code">PGDHE</div>
+<div class="programme-code">PGDHE</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="pgdhe">
 
 <option value="">Select Course</option>
 
-<option value="MES-035|Project">
-MES-035 — Project
+<option value="MES-035|Special Project">
+
+MES-035 — Special Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('PG Diploma in Higher Education','PGDHE','pgdhe',2200)">
 
 Add to Cart
@@ -1135,23 +1790,26 @@ Add to Cart
 
 <h2>PG Diploma in School Leadership & Management</h2>
 
-<div class="code">PGDSLM</div>
+<div class="programme-code">PGDSLM</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="pgdslm">
 
 <option value="">Select Course</option>
 
 <option value="MES-008|Project">
+
 MES-008 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('PG Diploma in School Leadership & Management','PGDSLM','pgdslm',2200)">
 
 Add to Cart
@@ -1165,24 +1823,93 @@ Add to Cart
 
 <h2>PG Diploma in Educational Management & Administration</h2>
 
-<div class="code">PGDEMA</div>
+<div class="programme-code">PGDEMA</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="pgdema">
 
 <option value="">Select Course</option>
 
 <option value="MESP-049|Project">
+
 MESP-049 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('PG Diploma in Educational Management & Administration','PGDEMA','pgdema',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Environmental & Occupational Health</h2>
+
+<div class="programme-code">PGDEOH</div>
+
+<label>Select Course</label>
+
+<select id="pgdeoh">
+
+<option value="">Select Course</option>
+
+<option value="MEHP-001|Project Work">
+
+MEHP-001 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹2200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('PG Diploma in Environmental & Occupational Health','PGDEOH','pgdeoh',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Environmental & Sustainable Development</h2>
+
+<div class="programme-code">PGDESD</div>
+
+<label>Select Course</label>
+
+<select id="pgdesd">
+
+<option value="">Select Course</option>
+
+<option value="MEDP-001|Project Work">
+
+MEDP-001 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹2200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('PG Diploma in Environmental & Sustainable Development','PGDESD','pgdesd',2200)">
 
 Add to Cart
 
@@ -1195,23 +1922,26 @@ Add to Cart
 
 <h2>PG Diploma in Disability Management</h2>
 
-<div class="code">PGDDM</div>
+<div class="programme-code">PGDDM</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="pgddm">
 
 <option value="">Select Course</option>
 
 <option value="MMDP-001|Project">
+
 MMDP-001 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('PG Diploma in Disability Management','PGDDM','pgddm',2200)">
 
 Add to Cart
@@ -1225,23 +1955,26 @@ Add to Cart
 
 <h2>PG Diploma in Plantation Management</h2>
 
-<div class="code">PGDPM</div>
+<div class="programme-code">PGDPM</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="pgdpm">
 
 <option value="">Select Course</option>
 
-<option value="MAM-004|Project">
-MAM-004 — Project
+<option value="MAM-004|Project Work">
+
+MAM-004 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>2200</span></div>
+<div class="price">₹2200</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('PG Diploma in Plantation Management','PGDPM','pgdpm',2200)">
 
 Add to Cart
@@ -1249,6 +1982,106 @@ Add to Cart
 </button>
 
 </div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Disaster Management</h2>
+
+<div class="programme-code">PGDDM</div>
+
+<label>Select Course</label>
+
+<select id="pgddm2">
+
+<option value="">Select Course</option>
+
+<option value="MPAP-001|Project">
+
+MPAP-001 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹2200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('PG Diploma in Disaster Management','PGDDM','pgddm2',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Hospital & Health Management</h2>
+
+<div class="programme-code">PGDHHM</div>
+
+<label>Select Course</label>
+
+<select id="pgdhhm">
+
+<option value="">Select Course</option>
+
+<option value="MME-005|Project Work">
+
+MME-005 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹2200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('PG Diploma in Hospital & Health Management','PGDHHM','pgdhhm',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>PG Diploma in Intellectual Property Rights</h2>
+
+<div class="programme-code">PGDIPR</div>
+
+<label>Select Course</label>
+
+<select id="pgdipr">
+
+<option value="">Select Course</option>
+
+<option value="MIP-108|Project">
+
+MIP-108 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹2200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('PG Diploma in Intellectual Property Rights','PGDIPR','pgdipr',2200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
 
 </div>
 
@@ -1260,12 +2093,17 @@ Add to Cart
 <section id="diploma" class="category">
 
 <h2 class="category-title">
+
 Diploma Programmes
+
 </h2>
 
-<p class="category-text">
-Select your required Project, Practical or Field Work course.
+<p class="category-description">
+
+Select your Project, Practical or Field Work course.
+
 </p>
+
 
 <div class="programme-grid">
 
@@ -1274,23 +2112,26 @@ Select your required Project, Practical or Field Work course.
 
 <h2>Diploma in Early Childhood Care & Education</h2>
 
-<div class="code">DECE</div>
+<div class="programme-code">DECE</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="dece">
 
 <option value="">Select Course</option>
 
 <option value="DECE-04|Project Work">
+
 DECE-04 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>1800</span></div>
+<div class="price">₹1800</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('Diploma in Early Childhood Care & Education','DECE','dece',1800)">
 
 Add to Cart
@@ -1304,23 +2145,26 @@ Add to Cart
 
 <h2>Diploma in Nutrition & Health Education</h2>
 
-<div class="code">DNHE</div>
+<div class="programme-code">DNHE</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="dnhe">
 
 <option value="">Select Course</option>
 
-<option value="DNHE-04|Project / Practical">
-DNHE-04 — Project / Practical
+<option value="DNHE-04|Project Work">
+
+DNHE-04 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>1800</span></div>
+<div class="price">₹1800</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('Diploma in Nutrition & Health Education','DNHE','dnhe',1800)">
 
 Add to Cart
@@ -1334,27 +2178,38 @@ Add to Cart
 
 <h2>Diploma in Tourism Studies</h2>
 
-<div class="code">DTS</div>
+<div class="programme-code">DTS</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="dts">
 
 <option value="">Select Course</option>
 
-<option value="PTS-4|Project / Practical">
-PTS-4 — Project / Practical
+<option value="PTS-4|Project Work">
+
+PTS-4 — Project Work
+
 </option>
 
-<option value="PTS-6|Project / Practical">
-PTS-6 — Project / Practical
+<option value="PTS-5|Project Work">
+
+PTS-5 — Project Work
+
+</option>
+
+<option value="PTS-6|Project Work">
+
+PTS-6 — Project Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>1800</span></div>
+<div class="price">₹1800</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('Diploma in Tourism Studies','DTS','dts',1800)">
 
 Add to Cart
@@ -1368,23 +2223,26 @@ Add to Cart
 
 <h2>Diploma in Panchayat Level Administration & Development</h2>
 
-<div class="code">DPLAD</div>
+<div class="programme-code">DPLAD</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="dplad">
 
 <option value="">Select Course</option>
 
 <option value="BPRP-004|Project">
+
 BPRP-004 — Project
+
 </option>
 
 </select>
 
-<div class="price">₹<span>1800</span></div>
+<div class="price">₹1800</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('Diploma in Panchayat Level Administration & Development','DPLAD','dplad',1800)">
 
 Add to Cart
@@ -1398,23 +2256,26 @@ Add to Cart
 
 <h2>Diploma in HIV & Family Education</h2>
 
-<div class="code">DAFE</div>
+<div class="programme-code">DAFE</div>
 
-<label>Select Component</label>
+<label>Select Course</label>
 
 <select id="dafe">
 
 <option value="">Select Course</option>
 
-<option value="BFE-102|Project / Practical">
-BFE-102 — Project / Practical
+<option value="BFE-102|Field Work">
+
+BFE-102 — Field Work
+
 </option>
 
 </select>
 
-<div class="price">₹<span>1800</span></div>
+<div class="price">₹1800</div>
 
 <button class="add-btn"
+
 onclick="addProgramme('Diploma in HIV & Family Education','DAFE','dafe',1800)">
 
 Add to Cart
@@ -1423,9 +2284,510 @@ Add to Cart
 
 </div>
 
+
+<div class="programme-card">
+
+<h2>Diploma in Women's Empowerment & Development</h2>
+
+<div class="programme-code">DWED</div>
+
+<label>Select Course</label>
+
+<select id="dwed">
+
+<option value="">Select Course</option>
+
+<option value="DWED-01|Project">
+
+DWED-01 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹1800</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Diploma in Women’s Empowerment & Development','DWED','dwed',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Diploma in Aquaculture</h2>
+
+<div class="programme-code">DAQB</div>
+
+<label>Select Course</label>
+
+<select id="daqb">
+
+<option value="">Select Course</option>
+
+<option value="AQP-001|Project Work">
+
+AQP-001 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹1800</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Diploma in Aquaculture','DAQB','daqb',1800)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
 </div>
 
 </section>
+
+
+<!-- CERTIFICATE -->
+
+<section id="certificate" class="category">
+
+<h2 class="category-title">
+
+Certificate Programmes
+
+</h2>
+
+<p class="category-description">
+
+Select your Practical, Project or Field Work component.
+
+</p>
+
+
+<div class="programme-grid">
+
+
+<div class="programme-card">
+
+<h2>Certificate in Food & Nutrition</h2>
+
+<div class="programme-code">CFN</div>
+
+<label>Select Course</label>
+
+<select id="cfn">
+
+<option value="">Select Course</option>
+
+<option value="CFN-3|Practical / Project">
+
+CFN-3 — Practical / Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Food & Nutrition','CFN','cfn',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Guidance</h2>
+
+<div class="programme-code">CIG</div>
+
+<label>Select Course</label>
+
+<select id="cig">
+
+<option value="">Select Course</option>
+
+<option value="NES-104|Project Work">
+
+NES-104 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Guidance','CIG','cig',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in HIV & Family Education</h2>
+
+<div class="programme-code">CFE</div>
+
+<label>Select Course</label>
+
+<select id="cfe">
+
+<option value="">Select Course</option>
+
+<option value="BFE-102|Field Work">
+
+BFE-102 — Field Work
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in HIV & Family Education','CFE','cfe',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Rural Development</h2>
+
+<div class="programme-code">CRD</div>
+
+<label>Select Course</label>
+
+<select id="crd">
+
+<option value="">Select Course</option>
+
+<option value="RDD-5|Project Work">
+
+RDD-5 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Rural Development','CRD','crd',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Tourism Studies</h2>
+
+<div class="programme-code">CTS</div>
+
+<label>Select Course</label>
+
+<select id="cts">
+
+<option value="">Select Course</option>
+
+<option value="PTS-4|Project Work">
+
+PTS-4 — Project Work
+
+</option>
+
+<option value="PTS-5|Project Work">
+
+PTS-5 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Tourism Studies','CTS','cts',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Organic Farming</h2>
+
+<div class="programme-code">COF</div>
+
+<label>Select Course</label>
+
+<select id="cof">
+
+<option value="">Select Course</option>
+
+<option value="BAP-001|Practical / Project">
+
+BAP-001 — Practical / Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Organic Farming','COF','cof',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Poultry Farming</h2>
+
+<div class="programme-code">CPF</div>
+
+<label>Select Course</label>
+
+<select id="cpf">
+
+<option value="">Select Course</option>
+
+<option value="OLPI-001|Practical / Project">
+
+OLPI-001 — Practical / Project
+
+</option>
+
+<option value="OLPI-002|Practical / Project">
+
+OLPI-002 — Practical / Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Poultry Farming','CPF','cpf',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Environmental Studies</h2>
+
+<div class="programme-code">CES</div>
+
+<label>Select Course</label>
+
+<select id="ces">
+
+<option value="">Select Course</option>
+
+<option value="AHE-01|Project">
+
+AHE-01 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Environmental Studies','CES','ces',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Sericulture</h2>
+
+<div class="programme-code">CISB</div>
+
+<label>Select Course</label>
+
+<select id="cisb">
+
+<option value="">Select Course</option>
+
+<option value="LPI-002|Practical / Project">
+
+LPI-002 — Practical / Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Sericulture','CISB','cisb',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Water Harvesting & Management</h2>
+
+<div class="programme-code">CWHM</div>
+
+<label>Select Course</label>
+
+<select id="cwhm">
+
+<option value="">Select Course</option>
+
+<option value="ONRI-001|Project">
+
+ONRI-001 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Water Harvesting & Management','CWHM','cwhm',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Community Radio</h2>
+
+<div class="programme-code">CCR</div>
+
+<label>Select Course</label>
+
+<select id="ccr">
+
+<option value="">Select Course</option>
+
+<option value="BCPR-001|Project">
+
+BCPR-001 — Project
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Community Radio','CCR','ccr',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+<div class="programme-card">
+
+<h2>Certificate in Communication & IT Skills</h2>
+
+<div class="programme-code">CCITS</div>
+
+<label>Select Course</label>
+
+<select id="ccits">
+
+<option value="">Select Course</option>
+
+<option value="BPOI-006|Project Work">
+
+BPOI-006 — Project Work
+
+</option>
+
+</select>
+
+<div class="price">₹1200</div>
+
+<button class="add-btn"
+
+onclick="addProgramme('Certificate in Communication & IT Skills','CCITS','ccits',1200)">
+
+Add to Cart
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
 
 </div>
 
@@ -1442,73 +2804,33 @@ Add to Cart
 
 function showCategory(id,button){
 
-document.querySelectorAll(
-
-".category"
-
-).forEach(
+document.querySelectorAll(".category").forEach(
 
 function(section){
 
-section.classList.remove(
-
-"active"
-
-);
+section.classList.remove("active");
 
 }
 
 );
 
 
-document.getElementById(
-
-id
-
-).classList.add(
-
-"active"
-
-);
+document.getElementById(id).classList.add("active");
 
 
-document.querySelectorAll(
-
-".tab"
-
-).forEach(
+document.querySelectorAll(".tab").forEach(
 
 function(tab){
 
-tab.classList.remove(
-
-"active"
-
-);
+tab.classList.remove("active");
 
 }
 
 );
 
 
-button.classList.add(
+button.classList.add("active");
 
-"active"
-
-);
-
-
-window.scrollTo({
-
-top:document.querySelector(
-
-".category-tabs"
-
-).offsetTop-20,
-
-behavior:"smooth"
-
-});
 
 }
 
@@ -1519,22 +2841,14 @@ let cart=
 
 JSON.parse(
 
-localStorage.getItem(
-
-"cart"
-
-)
+localStorage.getItem("cart")
 
 )
 
 || [];
 
 
-document.getElementById(
-
-"cartCount"
-
-).innerText=
+document.getElementById("cartCount").innerText=
 
 cart.length;
 
@@ -1556,19 +2870,10 @@ price
 
 let select=
 
-document.getElementById(
-
-selectId
-
-);
+document.getElementById(selectId);
 
 
-if(
-
-select.value==""
-
-){
-
+if(select.value===""){
 
 alert(
 
@@ -1576,20 +2881,14 @@ alert(
 
 );
 
-
 return;
-
 
 }
 
 
 let details=
 
-select.value.split(
-
-"|"
-
-);
+select.value.split("|");
 
 
 let courseCode=
@@ -1606,11 +2905,7 @@ let cart=
 
 JSON.parse(
 
-localStorage.getItem(
-
-"cart"
-
-)
+localStorage.getItem("cart")
 
 )
 
@@ -1632,6 +2927,34 @@ component+
 ")";
 
 
+let alreadyAdded=
+
+cart.some(
+
+function(item){
+
+return item.name===productName;
+
+}
+
+);
+
+
+if(alreadyAdded){
+
+alert(
+
+"This product is already in your cart."
+
+);
+
+window.location.href="cart.html";
+
+return;
+
+}
+
+
 cart.push({
 
 name:productName,
@@ -1651,11 +2974,7 @@ localStorage.setItem(
 
 "cart",
 
-JSON.stringify(
-
-cart
-
-)
+JSON.stringify(cart)
 
 );
 
@@ -1686,4 +3005,5 @@ updateCartCount();
 </script>
 
 </body>
+
 </html>
