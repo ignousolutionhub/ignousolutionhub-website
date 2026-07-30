@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Orders - IGNOU Solution Hub</title>
+<title>Payment Details - IGNOU Solution Hub</title>
 
 <style>
 
@@ -46,20 +46,20 @@ font-weight:bold;
 }
 
 .container{
-max-width:1200px;
+max-width:1150px;
 margin:35px auto;
 padding:0 20px;
 }
 
-.order-card{
+.payment-card{
 background:white;
-padding:25px;
-margin-bottom:22px;
+padding:24px;
+margin-bottom:20px;
 border-radius:12px;
 box-shadow:0 3px 12px rgba(0,0,0,.12);
 }
 
-.order-top{
+.top{
 display:flex;
 justify-content:space-between;
 gap:20px;
@@ -68,17 +68,17 @@ padding-bottom:15px;
 margin-bottom:18px;
 }
 
-.order-top h2{
+.top h2{
 margin:0;
 color:#0b5ed7;
 }
 
-.order-date{
+.date{
 color:#666;
 font-size:14px;
 }
 
-.details-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:15px;
@@ -92,47 +92,43 @@ border-radius:8px;
 
 .detail b{
 display:block;
-color:#555;
 font-size:13px;
+color:#666;
 margin-bottom:6px;
 }
 
 .products{
-margin-top:20px;
+margin-top:18px;
 padding-top:18px;
 border-top:1px solid #ddd;
 }
 
-.products h3{
-margin-top:0;
-color:#0b5ed7;
-}
-
-.product-item{
+.product{
 background:#f7f9fc;
-padding:12px;
-margin:8px 0;
+padding:11px;
 border-radius:7px;
+margin-top:8px;
 display:flex;
 justify-content:space-between;
 }
 
-.total{
-font-size:23px;
-font-weight:bold;
-color:#198754;
-margin-top:18px;
-}
-
-.status-area{
+.bottom{
 display:flex;
-gap:15px;
+justify-content:space-between;
+align-items:center;
+gap:20px;
 margin-top:20px;
 flex-wrap:wrap;
 }
 
-.status-box{
-padding:10px 14px;
+.amount{
+font-size:25px;
+font-weight:bold;
+color:#198754;
+}
+
+.status{
+padding:10px 15px;
 border-radius:7px;
 font-weight:bold;
 }
@@ -147,9 +143,18 @@ background:#d1e7dd;
 color:#0f5132;
 }
 
-.dispatch{
-background:#cfe2ff;
-color:#084298;
+.mark-paid{
+background:#198754;
+color:white;
+border:none;
+padding:11px 17px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.mark-paid:hover{
+background:#157347;
 }
 
 .message{
@@ -158,13 +163,13 @@ padding:35px;
 text-align:center;
 border-radius:12px;
 box-shadow:0 3px 12px rgba(0,0,0,.10);
-color:#666;
 font-size:18px;
+color:#666;
 }
 
 @media(max-width:850px){
 
-.details-grid{
+.grid{
 grid-template-columns:repeat(2,1fr);
 }
 
@@ -180,17 +185,25 @@ header h1{
 font-size:19px;
 }
 
-.order-top{
+.top{
 flex-direction:column;
 }
 
-.details-grid{
+.grid{
 grid-template-columns:1fr;
 }
 
-.product-item{
+.product{
 flex-direction:column;
 gap:5px;
+}
+
+.bottom{
+align-items:stretch;
+}
+
+.mark-paid{
+width:100%;
 }
 
 }
@@ -199,13 +212,11 @@ gap:5px;
 
 </head>
 
-
 <body>
-
 
 <header>
 
-<h1>Customer Orders</h1>
+<h1>Payment Details</h1>
 
 <a href="dashboard.html" class="back-btn">
 
@@ -215,24 +226,21 @@ gap:5px;
 
 </header>
 
-
 <div class="container">
 
-<div id="ordersContainer">
+<div id="paymentContainer">
 
 <div class="message">
 
-Loading orders...
+Loading payment details...
 
 </div>
 
 </div>
 
 </div>
-
 
 <script type="module">
-
 
 import {
 
@@ -242,15 +250,11 @@ db
 
 } from "./firebase-config.js";
 
-
 import {
 
 onAuthStateChanged
 
-} from
-
-"https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 import {
 
@@ -260,62 +264,39 @@ getDocs,
 
 query,
 
-orderBy
+orderBy,
 
-} from
+doc,
 
-"https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+updateDoc
 
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-const ordersContainer =
-
-document.getElementById(
-
-"ordersContainer"
-
-);
+const paymentContainer = document.getElementById("paymentContainer");
 
 
-/* ADMIN LOGIN CHECK */
-
-onAuthStateChanged(
-
-auth,
-
-function(user){
+onAuthStateChanged(auth, function(user){
 
 if(!user){
 
-alert(
+alert("Admin Login Required");
 
-"Admin Login Required"
-
-);
-
-window.location.href=
-
-"login.html";
+window.location.href="login.html";
 
 return;
 
 }
 
-loadOrders();
+loadPayments();
 
-}
-
-);
+});
 
 
-/* LOAD ORDERS */
-
-async function loadOrders(){
+async function loadPayments(){
 
 try{
 
-const ordersQuery =
-
-query(
+const paymentQuery = query(
 
 collection(db,"orders"),
 
@@ -323,25 +304,18 @@ orderBy("createdAt","desc")
 
 );
 
-
-const snapshot =
-
-await getDocs(
-
-ordersQuery
-
-);
+const snapshot = await getDocs(paymentQuery);
 
 
 if(snapshot.empty){
 
-ordersContainer.innerHTML=
+paymentContainer.innerHTML=
 
 `
 
 <div class="message">
 
-Abhi koi order nahi aaya.
+Abhi koi payment/order available nahi hai.
 
 </div>
 
@@ -352,132 +326,20 @@ return;
 }
 
 
-ordersContainer.innerHTML="";
+paymentContainer.innerHTML="";
 
 
-snapshot.forEach(
+snapshot.forEach(function(orderDoc){
 
-function(orderDoc){
+const order = orderDoc.data();
 
+const orderId = orderDoc.id;
 
-const order =
+const paymentStatus = order.paymentStatus || "Pending";
 
-orderDoc.data();
+const statusClass =
 
-
-let dateText =
-
-"Date not available";
-
-
-if(
-
-order.createdAt
-
-){
-
-dateText =
-
-order.createdAt
-
-.toDate()
-
-.toLocaleString(
-
-"en-IN"
-
-);
-
-}
-
-
-let productsHtml =
-
-"";
-
-
-if(
-
-Array.isArray(
-
-order.cart
-
-)
-
-&&
-
-order.cart.length>0
-
-){
-
-
-order.cart.forEach(
-
-function(item){
-
-
-productsHtml +=
-
-`
-
-<div class="product-item">
-
-<span>
-
-${item.name || "Product"}
-
-</span>
-
-<b>
-
-₹${Number(item.price || 0)}
-
-</b>
-
-</div>
-
-`;
-
-
-}
-
-);
-
-
-}
-
-else{
-
-
-productsHtml=
-
-`
-
-<p>
-
-Product details not available.
-
-</p>
-
-`;
-
-
-}
-
-
-const paymentClass =
-
-String(
-
-order.paymentStatus || "Pending"
-
-)
-
-.toLowerCase()
-
-===
-
-"paid"
+paymentStatus.toLowerCase() === "paid"
 
 ?
 
@@ -488,43 +350,98 @@ order.paymentStatus || "Pending"
 "pending";
 
 
-const card =
+let dateText = "Date not available";
 
-document.createElement(
+if(order.createdAt){
 
-"div"
+dateText =
 
-);
+order.createdAt
+
+.toDate()
+
+.toLocaleString("en-IN");
+
+}
 
 
-card.className=
+let productsHtml="";
 
-"order-card";
+if(Array.isArray(order.cart) && order.cart.length>0){
 
+order.cart.forEach(function(item){
+
+productsHtml +=
+
+`
+
+<div class="product">
+
+<span>${item.name || "Product"}</span>
+
+<b>₹${Number(item.price || 0)}</b>
+
+</div>
+
+`;
+
+});
+
+}
+
+else{
+
+productsHtml="<p>Product details not available.</p>";
+
+}
+
+
+const paidButton =
+
+paymentStatus.toLowerCase() === "paid"
+
+?
+
+""
+
+:
+
+`
+
+<button
+
+class="mark-paid"
+
+onclick="markAsPaid('${orderId}')"
+
+>
+
+✓ Mark as Paid
+
+</button>
+
+`;
+
+
+const card = document.createElement("div");
+
+card.className="payment-card";
 
 card.innerHTML=
 
 `
 
-<div class="order-top">
+<div class="top">
 
 <div>
 
-<h2>
+<h2>${order.customerName || "Customer"}</h2>
 
-${order.customerName || "Customer"}
-
-</h2>
-
-<p>
-
-Order ID: ${orderDoc.id}
-
-</p>
+<p>Order ID: ${orderId}</p>
 
 </div>
 
-<div class="order-date">
+<div class="date">
 
 ${dateText}
 
@@ -533,8 +450,7 @@ ${dateText}
 </div>
 
 
-<div class="details-grid">
-
+<div class="grid">
 
 <div class="detail">
 
@@ -544,7 +460,6 @@ ${order.mobile || "Not added"}
 
 </div>
 
-
 <div class="detail">
 
 <b>Email</b>
@@ -552,16 +467,6 @@ ${order.mobile || "Not added"}
 ${order.email || "Not added"}
 
 </div>
-
-
-<div class="detail">
-
-<b>Enrollment Number</b>
-
-${order.enrollment || "Not added"}
-
-</div>
-
 
 <div class="detail">
 
@@ -571,115 +476,57 @@ ${order.programme || "Not added"}
 
 </div>
 
-
-<div class="detail">
-
-<b>Course</b>
-
-${order.course || "Not added"}
-
-</div>
-
-
-<div class="detail">
-
-<b>PIN Code</b>
-
-${order.pincode || "Not added"}
-
-</div>
-
-
 </div>
 
 
 <div class="products">
 
-<h3>
-
-Purchased Products
-
-</h3>
+<h3>Purchased Products</h3>
 
 ${productsHtml}
 
 </div>
 
 
-<div class="total">
+<div class="bottom">
 
-Total Amount: ₹${Number(
+<div class="amount">
 
-order.totalAmount || 0
-
-)}
+Total: ₹${Number(order.totalAmount || 0)}
 
 </div>
 
 
-<div class="status-area">
+<div class="status ${statusClass}">
 
-
-<div class="status-box ${paymentClass}">
-
-Payment: ${
-
-order.paymentStatus || "Pending"
-
-}
+Payment: ${paymentStatus}
 
 </div>
 
 
-<div class="status-box dispatch">
-
-Dispatch: ${
-
-order.dispatchStatus || "Pending"
-
-}
-
-</div>
-
-
-</div>
-
+${paidButton}
 
 </div>
 
 `;
 
+paymentContainer.appendChild(card);
 
-ordersContainer.appendChild(
-
-card
-
-);
-
-
-}
-
-);
-
+});
 
 }
 
 catch(error){
 
-console.error(
+console.error(error);
 
-error
-
-);
-
-
-ordersContainer.innerHTML=
+paymentContainer.innerHTML=
 
 `
 
 <div class="message">
 
-Orders load nahi hue.
+Payment details load nahi hui.
 
 <br><br>
 
@@ -689,14 +536,56 @@ ${error.message}
 
 `;
 
-
 }
 
 }
 
+
+window.markAsPaid = async function(orderId){
+
+const confirmPayment = confirm(
+
+"Payment verify karne ke baad hi Paid karein. Continue?"
+
+);
+
+if(!confirmPayment){
+
+return;
+
+}
+
+try{
+
+await updateDoc(
+
+doc(db,"orders",orderId),
+
+{
+
+paymentStatus:"Paid"
+
+}
+
+);
+
+alert("Payment status updated to Paid ✅");
+
+loadPayments();
+
+}
+
+catch(error){
+
+alert("Status update failed: "+error.message);
+
+console.error(error);
+
+}
+
+};
 
 </script>
-
 
 </body>
 
