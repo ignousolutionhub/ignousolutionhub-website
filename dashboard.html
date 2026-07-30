@@ -9,6 +9,31 @@
 
 <title>Admin Dashboard - IGNOU Solution Hub</title>
 
+/* FIX DASHBOARD CARD CLICKS */
+
+.menu-grid{
+position:relative;
+z-index:10;
+}
+
+.menu-card{
+position:relative;
+z-index:20;
+display:block;
+pointer-events:auto !important;
+cursor:pointer;
+}
+
+.menu-card *{
+pointer-events:none;
+}
+
+.header,
+.container{
+position:relative;
+z-index:1;
+}
+  
 <style>
 
 *{
