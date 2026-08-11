@@ -225,6 +225,16 @@ cursor:pointer;
 background:#146c43;
 }
 
+.synopsis-note{
+background:#e8f5e9;
+color:#146c43;
+padding:9px 11px;
+border-radius:7px;
+font-size:14px;
+margin-top:8px;
+}
+
+
 footer{
 background:#173f69;
 color:white;
@@ -411,11 +421,31 @@ MMPP-001 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<label>Synopsis / Project Proposal</label>
+
+<select id="mbaSynopsis" onchange="toggleSynopsisPrice('mba')">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<label>Synopsis</label>
+
+<select id="mbaSynopsis">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('Master of Business Administration','MBA / MBF / MBAHM / MBAMM / MBAOM','mba',2500)">
+onclick="addProgramme('Master of Business Administration','MBA / MBF / MBAHM / MBAMM / MBAOM','mba',1500)">
 
 Add to Cart
 
@@ -448,11 +478,31 @@ MCOP-001 — Project Work
 
 </select>
 
-<div class="price">₹2500</div>
+<label>Synopsis / Project Proposal</label>
+
+<select id="mcomSynopsis" onchange="toggleSynopsisPrice('mcom')">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<label>Synopsis</label>
+
+<select id="mcomSynopsis">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('Master of Commerce','MCOM / MCOM_NEW','mcom',2500)">
+onclick="addProgramme('Master of Commerce','MCOM / MCOM_NEW','mcom',1500)">
 
 Add to Cart
 
@@ -515,11 +565,31 @@ MPCE-035 — Internship
 
 </select>
 
-<div class="price">₹2500</div>
+<label>Synopsis / Project Proposal</label>
+
+<select id="mapcSynopsis" onchange="toggleSynopsisPrice('mapc')">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<label>Synopsis</label>
+
+<select id="mapcSynopsis">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Psychology','MAPC','mapc',2500)">
+onclick="addProgramme('MA in Psychology','MAPC','mapc',1500)">
 
 Add to Cart
 
@@ -558,11 +628,11 @@ MSWP-002 — Field Work
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('Master of Social Work','MSW','msw',2500)">
+onclick="addProgramme('Master of Social Work','MSW','msw',1500)">
 
 Add to Cart
 
@@ -601,11 +671,11 @@ MSWP-012 — Field Work
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MSW Counselling','MSWC','mswc',2500)">
+onclick="addProgramme('MSW Counselling','MSWC','mswc',1500)">
 
 Add to Cart
 
@@ -644,11 +714,11 @@ MESE-001 — Dissertation
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Education','MAEDU / MAED','maedu',2500)">
+onclick="addProgramme('MA in Education','MAEDU / MAED','maedu',1500)">
 
 Add to Cart
 
@@ -687,11 +757,11 @@ MRDP-201 — Dissertation
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Rural Development','MARD','mard',2500)">
+onclick="addProgramme('MA in Rural Development','MARD','mard',1500)">
 
 Add to Cart
 
@@ -724,11 +794,31 @@ MLIP-002 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<label>Synopsis / Project Proposal</label>
+
+<select id="mlisSynopsis" onchange="toggleSynopsisPrice('mlis')">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<label>Synopsis</label>
+
+<select id="mlisSynopsis">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('Master of Library & Information Science','MLIS','mlis',2500)">
+onclick="addProgramme('Master of Library & Information Science','MLIS','mlis',1500)">
 
 Add to Cart
 
@@ -761,11 +851,31 @@ MCSP-060 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<label>Synopsis / Project Proposal</label>
+
+<select id="mcaSynopsis" onchange="toggleSynopsisPrice('mca')">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<label>Synopsis</label>
+
+<select id="mcaSynopsis">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('Master of Computer Applications','MCA / MCA_NEW','mca',2500)">
+onclick="addProgramme('Master of Computer Applications','MCA / MCA_NEW','mca',1500)">
 
 Add to Cart
 
@@ -804,11 +914,11 @@ MTTMP-119 — Dissertation
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Tourism Management','MTTM','mttm',2500)">
+onclick="addProgramme('MA in Tourism Management','MTTM','mttm',1500)">
 
 Add to Cart
 
@@ -841,11 +951,11 @@ MJMP-020 — Production Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Journalism & Mass Communication','MAJMC','majmc',2500)">
+onclick="addProgramme('MA in Journalism & Mass Communication','MAJMC','majmc',1500)">
 
 Add to Cart
 
@@ -878,11 +988,11 @@ MEDSP-041 — Dissertation
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Development Studies','MADVS','madvs',2500)">
+onclick="addProgramme('MA in Development Studies','MADVS','madvs',1500)">
 
 Add to Cart
 
@@ -915,11 +1025,11 @@ MWGP-001 — Project Work
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Gender & Development Studies','MAGD','magd',2500)">
+onclick="addProgramme('MA in Gender & Development Studies','MAGD','magd',1500)">
 
 Add to Cart
 
@@ -952,11 +1062,11 @@ MEDSP-015 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Extension & Development Studies','MAEDS','maeds',2500)">
+onclick="addProgramme('MA in Extension & Development Studies','MAEDS','maeds',1500)">
 
 Add to Cart
 
@@ -989,11 +1099,11 @@ MEDSP-051 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Corporate Social Responsibility','MACSR','macsr',2500)">
+onclick="addProgramme('MA in Corporate Social Responsibility','MACSR','macsr',1500)">
 
 Add to Cart
 
@@ -1026,11 +1136,11 @@ MEDSP-061 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Urban Studies','MAUS','maus',2500)">
+onclick="addProgramme('MA in Urban Studies','MAUS','maus',1500)">
 
 Add to Cart
 
@@ -1069,11 +1179,11 @@ MANE-106 — Dissertation
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Anthropology','MAAN','maan',2500)">
+onclick="addProgramme('MA in Anthropology','MAAN','maan',1500)">
 
 Add to Cart
 
@@ -1106,11 +1216,11 @@ MECP-301 — Project Work
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA in Economics','MAEC','maec',2500)">
+onclick="addProgramme('MA in Economics','MAEC','maec',1500)">
 
 Add to Cart
 
@@ -1143,11 +1253,11 @@ MEHP-001 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('MA Environmental & Occupational Health','MAEOH','maeoh',2500)">
+onclick="addProgramme('MA Environmental & Occupational Health','MAEOH','maeoh',1500)">
 
 Add to Cart
 
@@ -1186,11 +1296,11 @@ MEVP-001 — Dissertation
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('M.Sc. Environmental Science','MSCENV','mscenv',2500)">
+onclick="addProgramme('M.Sc. Environmental Science','MSCENV','mscenv',1500)">
 
 Add to Cart
 
@@ -1229,11 +1339,11 @@ MFNL-008 — Internship
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('M.Sc. Dietetics & Food Service Management','MSCDFSM / MSDFSM','mscdfsm',2500)">
+onclick="addProgramme('M.Sc. Dietetics & Food Service Management','MSCDFSM / MSDFSM','mscdfsm',1500)">
 
 Add to Cart
 
@@ -1272,11 +1382,11 @@ MSEP-038 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('M.Sc. Information Security','MSCIS','mscis',2500)">
+onclick="addProgramme('M.Sc. Information Security','MSCIS','mscis',1500)">
 
 Add to Cart
 
@@ -1309,11 +1419,11 @@ MRWP-001 — Project
 
 </select>
 
-<div class="price">₹2500</div>
+<div class="price">₹1500</div>
 
 <button class="add-btn"
 
-onclick="addProgramme('M.Sc. Renewable Energy & Environment','MSCRWEE','mscrwee',2500)">
+onclick="addProgramme('M.Sc. Renewable Energy & Environment','MSCRWEE','mscrwee',1500)">
 
 Add to Cart
 
@@ -1423,6 +1533,26 @@ BCA / BCA_NEW
 BCSP-064 — Project Work
 
 </option>
+
+</select>
+
+<label>Synopsis / Project Proposal</label>
+
+<select id="bcaSynopsis" onchange="toggleSynopsisPrice('bca')">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
+
+</select>
+
+<label>Synopsis</label>
+
+<select id="bcaSynopsis">
+
+<option value="no">No Synopsis</option>
+
+<option value="yes">Add Synopsis — ₹1000</option>
 
 </select>
 
@@ -2855,6 +2985,31 @@ cart.length;
 }
 
 
+function toggleSynopsisPrice(selectId){
+
+let courseSelect=document.getElementById(selectId);
+let synopsisSelect=document.getElementById(selectId+"Synopsis");
+
+if(!synopsisSelect) return;
+
+let selectedText=courseSelect.options[courseSelect.selectedIndex]?.text || "";
+let isProject=selectedText.toLowerCase().includes("project");
+
+if(!isProject){
+
+synopsisSelect.value="no";
+
+synopsisSelect.disabled=true;
+
+}else{
+
+synopsisSelect.disabled=false;
+
+}
+
+}
+
+
 function addProgramme(
 
 programmeName,
@@ -2867,93 +3022,34 @@ price
 
 ){
 
-
-let select=
-
-document.getElementById(selectId);
-
+let select=document.getElementById(selectId);
 
 if(select.value===""){
 
-alert(
-
-"Please select a course code first."
-
-);
+alert("Please select a course code first.");
 
 return;
 
 }
 
+let details=select.value.split("|");
+let courseCode=details[0];
+let component=details[1];
 
-let details=
+let cart=JSON.parse(localStorage.getItem("cart")) || [];
+let productName=programmeName+" — "+courseCode+" ("+component+")";
 
-select.value.split("|");
-
-
-let courseCode=
-
-details[0];
-
-
-let component=
-
-details[1];
-
-
-let cart=
-
-JSON.parse(
-
-localStorage.getItem("cart")
-
-)
-
-|| [];
-
-
-let productName=
-
-programmeName+
-
-" — "+
-
-courseCode+
-
-" ("+
-
-component+
-
-")";
-
-
-let alreadyAdded=
-
-cart.some(
-
-function(item){
-
-return item.name===productName;
-
-}
-
-);
-
+let alreadyAdded=cart.some(function(item){ return item.name===productName; });
 
 if(alreadyAdded){
 
-alert(
-
-"This product is already in your cart."
-
-);
+alert("This product is already in your cart.");
 
 window.location.href="cart.html";
 
 return;
 
 }
-
 
 cart.push({
 
@@ -2969,14 +3065,45 @@ productType:component
 
 });
 
+let synopsisSelect=document.getElementById(selectId+"Synopsis");
+let isProject=component.toLowerCase().includes("project");
 
-localStorage.setItem(
+if(synopsisSelect && !synopsisSelect.disabled && synopsisSelect.value==="yes" && isProject){
 
-"cart",
+let synopsisName=programmeName+" — "+courseCode+" (Synopsis / Project Proposal)";
 
-JSON.stringify(cart)
+let synopsisAlreadyAdded=cart.some(function(item){ return item.name===synopsisName; });
 
-);
+if(!synopsisAlreadyAdded){
+
+cart.push({
+
+name:synopsisName,
+
+price:1000,
+
+programme:programmeCode,
+
+course:courseCode,
+
+productType:"Synopsis / Project Proposal"
+
+});
+
+}
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+updateCartCount();
+
+alert(productName+" has been added to your cart.");
+
+window.location.href="cart.html";
+
+}
+
 
 
 updateCartCount();
