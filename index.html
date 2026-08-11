@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +9,58 @@
     <meta name="description" content="Download IGNOU Solved Assignments, Projects, Synopsis, Internship Reports, Field Work Reports and Study Support for all IGNOU Programmes.">
 
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Assignment hover menu */
+        .assignment-dropdown{
+            position:relative;
+            display:inline-block;
+        }
+
+        .assignment-dropdown > a{
+            display:block;
+        }
+
+        .assignment-dropdown-menu{
+            display:none;
+            position:absolute;
+            top:100%;
+            left:0;
+            min-width:300px;
+            background:#fff;
+            border-radius:8px;
+            box-shadow:0 6px 18px rgba(0,0,0,.22);
+            overflow:hidden;
+            z-index:99999;
+        }
+
+        .assignment-dropdown-menu a{
+            display:block;
+            padding:14px 16px;
+            color:#222 !important;
+            background:#fff;
+            text-decoration:none;
+            white-space:nowrap;
+            font-weight:600;
+        }
+
+        .assignment-dropdown-menu a:hover{
+            background:#f1f5f9;
+            color:#005bb5 !important;
+        }
+
+        .assignment-dropdown:hover .assignment-dropdown-menu{
+            display:block;
+        }
+
+        @media(max-width:768px){
+            .assignment-dropdown-menu{
+                position:static;
+                min-width:260px;
+                margin-top:8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -30,19 +81,27 @@
 
 </div>
 
-
 <nav>
 
 <a href="index.html">Home</a>
 
-<a href="assignments.html">Assignments</a>
+<div class="assignment-dropdown">
+    <a href="assignments.html">Assignments ▾</a>
+    <div class="assignment-dropdown-menu">
+        <a href="https://www.ignou.ac.in/studentService/download/assignments" target="_blank" rel="noopener noreferrer">
+            📄 Assignment Question Paper
+        </a>
+        <a href="assignments.html">
+            📝 Ready to Submit Solved Assignment
+        </a>
+    </div>
+</div>
 
 <a href="project-services.html">Project / Internship</a>
 
 <a href="study-material.html">Study Material</a>
 
 <a href="guide.html">Guide</a>
-
 
 <a href="contact.html">Contact</a>
 
@@ -73,7 +132,7 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 
 </section>
 
-    <section class="updates">
+<section class="updates">
 
 <h2>Latest IGNOU Updates</h2>
 
@@ -104,7 +163,6 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 
 <div class="service-box">
 
-  
 <a href="assignments.html" class="service-link">
 <div class="card">
 <h3>📘 Solved Assignments</h3>
@@ -131,8 +189,8 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 <h3>📝 Synopsis</h3>
 <p>Professional synopsis writing & formatting.</p>
 </div>
-    
 </a>
+
 <a href="projects.html" class="service-link">
 <div class="card">
 <h3>📂 Field Work Reports</h3>
@@ -146,7 +204,6 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 <p>Complete practical files with proper formatting.</p>
 </div>
 </a>
-    
 
 <a href="study-material.html" class="service-link">
 <div class="card">
@@ -161,12 +218,12 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 <p>Download previous year question papers.</p>
 </div>
 </a>
-    
+
 </div>
 
 </section>
 
-    <section class="features">
+<section class="features">
 
 <h2>Why Students Trust Us</h2>
 
@@ -195,7 +252,7 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 </div>
 
 </section>
-    
+
 <section class="courses-home">
 
 <h2>Popular IGNOU Courses</h2>
@@ -241,7 +298,7 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 </div>
 
 </section>
-    
+
 <section class="process">
 
 <h2>How It Works</h2>
@@ -266,8 +323,8 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 </div>
 
 </section>
-    
- <section class="reviews">
+
+<section class="reviews">
 
 <h2>Student Reviews</h2>
 
@@ -295,8 +352,7 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 
 </section>
 
-
-     <section class="stats">
+<section class="stats">
 
 <div class="stat">
 <h2>5000+</h2>
@@ -318,9 +374,9 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 <p>Student Satisfaction</p>
 </div>
 
-</section>    
+</section>
 
-    <section class="promise">
+<section class="promise">
 
 <h2>Our Promise</h2>
 
@@ -349,7 +405,7 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 </div>
 
 </section>
-    
+
 <section class="about" id="about">
 
 <h2>Why Choose IGNOU Assignment Hub?</h2>
@@ -358,7 +414,6 @@ Assignments • Projects • Internship • Field Work • Practical Files • P
 We provide academic guidance for IGNOU learners including solved assignments, projects, synopsis, internship reports, field work reports and study support.
 </p>
 
-  
 </section>
 
 <section class="faq">
@@ -395,15 +450,13 @@ We provide academic guidance for IGNOU learners including solved assignments, pr
 Get assistance for Assignments, Projects, Synopsis, Internship, Practical Files and more.
 </p>
 
-
-    
 <a href="https://wa.me/919462926195" class="btn" target="_blank">
 Get Started on WhatsApp
 </a>
 
-</section>    
+</section>
 
-    <section class="process">
+<section class="process">
 
 <h2>How It Works</h2>
 
@@ -428,7 +481,7 @@ Get Started on WhatsApp
 
 </section>
 
-    <section class="callback">
+<section class="callback">
 
 <h2>Request a Call Back</h2>
 
@@ -482,7 +535,7 @@ loading="lazy">
 
 <p>📍 IGNOU Solution Hub, Opp. IGNOU Headquarters, IGNOU, Maidan Garhi, New Delhi – 110068</p>
 
-    <form class="contact-form">
+<form class="contact-form">
 
 <input type="text" placeholder="Your Name" required>
 
@@ -525,13 +578,9 @@ Assignments, Projects, Internship, Practical Files & Academic Support.
 <h3>Contact</h3>
 <p>📞 +91 9462926195 </p>
 <p>📧 ignouprojectpractical@gmail.com</p>
-    
 <p>📍 IGNOU Solution Hub</p>
-
 <p>Opp. IGNOU Headquarters</p>
-
 <p>IGNOU, Maidan Garhi</p>
-
 <p>New Delhi – 110068</p>
 </div>
 
@@ -545,8 +594,8 @@ Assignments, Projects, Internship, Practical Files & Academic Support.
 
 </footer>
 
-    <a href="https://wa.me/919462926195" class="whatsapp-float" target="_blank">
-    💬
+<a href="https://wa.me/919462926195" class="whatsapp-float" target="_blank">
+💬
 </a>
 
 <script src="assets/js/script.js"></script>
