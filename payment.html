@@ -1,1 +1,69 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Payment - IGNOU Assignment Hub</title><style>*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f5f5f5;color:#222}.site-header{position:sticky;top:0;z-index:1000;background:#0b5ed7;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 2px 8px #0003}.logo{font-size:22px;font-weight:bold}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-weight:bold}.cart-link{background:#fff;color:#0b5ed7;padding:8px 13px;border-radius:20px;text-decoration:none;font-weight:bold}.container{max-width:650px;margin:35px auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.2)}h1{text-align:center;color:#0d6efd;margin-bottom:20px}.total{font-size:30px;font-weight:bold;text-align:center;color:#198754;margin:20px 0}.order-box{background:#eef5ff;padding:15px;border-radius:8px;margin-bottom:20px}.order-item{padding:8px 0;border-bottom:1px solid #d5dff0}.order-item:last-child{border:0}.upi{text-align:center;font-size:21px;margin:20px 0}.qr{display:block;width:240px;height:240px;object-fit:contain;margin:15px auto;border:8px solid #fff;box-shadow:0 2px 10px #0002}.paybtn{width:100%;padding:15px;font-size:18px;background:#198754;color:white;border:none;border-radius:8px;cursor:pointer}.note{margin-top:20px;text-align:center;color:#666}.upi-note{font-size:14px;color:#555;margin-top:8px}@media(max-width:700px){.site-header{padding:12px;flex-direction:column;align-items:flex-start}.nav{gap:9px}}</style></head><body><header class="site-header"><div class="logo">IGNOU Assignment Hub</div><nav class="nav"><a href="index.html">Home</a><a href="assignments.html">Assignments</a><a href="project-services.html">Project / Internship</a><a href="study-material.html">Study Material</a><a href="guide.html">Guide</a><a href="contact.html">Contact</a><a href="track-order.html">Track Order</a></nav><a class="cart-link" href="cart-fixed.html">🛒 Cart <span id="cartCount">0</span></a></header><div class="container"><h1>Complete Payment</h1><div class="order-box"><b>Your Selected Order</b><div id="orderItems"></div></div><div class="total">₹ <span id="amount">0</span></div><div class="upi"><b>UPI ID</b><br>jineshsingh01@oksbi<img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3Djineshsingh01%40oksbi%26pn%3DIGNOU%2520Assignment%2520Hub" alt="UPI QR Code"><small>Scan this QR to pay</small><div class="upi-note">UPI ID: jineshsingh01@oksbi</div></div><button class="paybtn" id="payBtn">I Have Paid</button><div class="note">Payment complete karne ke baad hi button dabaye.</div></div><script type="module">import{db}from'./firebase-config.js';import{collection,addDoc,serverTimestamp}from'https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js';const cart=JSON.parse(localStorage.getItem('cart')||'[]');const order=JSON.parse(localStorage.getItem('latestOrder')||'null');if(!cart.length||!order){alert('Order information missing.');location.href='cart-fixed.html'}let total=0;const items=document.getElementById('orderItems');cart.forEach(item=>{const p=Number(item.price)||0;total+=p;const d=document.createElement('div');d.className='order-item';d.innerHTML='<b>'+safe(item.name)+'</b> — ₹'+p+(item.programme?'<br><small>Programme: '+safe(item.programme)+'</small>':'')+(item.course?'<br><small>Course Code: '+safe(item.course)+'</small>':'')+(item.productType?'<br><small>Type: '+safe(item.productType)+'</small>':'');items.appendChild(d)});document.getElementById('amount').innerText=total;document.getElementById('cartCount').innerText=cart.length;function safe(s){return String(s||'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]))}document.getElementById('payBtn').addEventListener('click',async()=>{try{const saved=await addDoc(collection(db,'orders'),{customerName:order.name,mobile:order.mobile,email:order.email,enrollment:order.enrollment,address:order.address,pincode:order.pincode,cart:cart,totalAmount:total,paymentStatus:'Pending',dispatchStatus:'Pending',trackingStatus:'Processing',trackingNumber:'',trackingNote:'',createdAt:serverTimestamp()});const completed={...order,cart:cart,totalAmount:total,orderId:saved.id};localStorage.removeItem('cart');localStorage.setItem('completedOrder',JSON.stringify(completed));location.href='order-success.html'}catch(error){console.error(error);alert('Order save nahi hua. Please try again.')}});</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Payment - IGNOU Assignment Hub</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f5f5f5;color:#222}.site-header{position:sticky;top:0;z-index:1000;background:#0b5ed7;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 2px 8px #0003}.logo{font-size:22px;font-weight:bold}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-weight:bold}.cart-link{background:#fff;color:#0b5ed7;padding:8px 13px;border-radius:20px;text-decoration:none;font-weight:bold}.container{max-width:650px;margin:35px auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.2)}h1{text-align:center;color:#0d6efd;margin-bottom:20px}.total{font-size:30px;font-weight:bold;text-align:center;color:#198754;margin:20px 0}.order-box{background:#eef5ff;padding:15px;border-radius:8px;margin-bottom:20px}.order-item{padding:8px 0;border-bottom:1px solid #d5dff0}.order-item:last-child{border:0}.upi{text-align:center;font-size:21px;margin:20px 0}.qr{display:block;width:240px;height:240px;object-fit:contain;margin:15px auto;border:8px solid #fff;box-shadow:0 2px 10px #0002}.paybtn{width:100%;padding:15px;font-size:18px;background:#198754;color:white;border:none;border-radius:8px;cursor:pointer}.note{margin-top:20px;text-align:center;color:#666}.upi-note{font-size:14px;color:#555;margin-top:8px}@media(max-width:700px){.site-header{padding:12px;flex-direction:column;align-items:flex-start}.nav{gap:9px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="logo">IGNOU Assignment Hub</div><nav class="nav"><a href="index.html">Home</a><a href="assignments.html">Assignments</a><a href="project-services.html">Project / Internship</a><a href="study-material.html">Study Material</a><a href="guide.html">Guide</a><a href="contact.html">Contact</a><a href="track-order.html">Track Order</a></nav><a class="cart-link" href="cart-fixed.html">🛒 Cart <span id="cartCount">0</span></a></header>
+<div class="container">
+<h1>Complete Payment</h1>
+<div class="order-box"><b>Your Selected Order</b><div id="orderItems"></div></div>
+<div class="total">₹ <span id="amount">0</span></div>
+<div class="upi"><b>UPI ID</b><br>jineshsingh01@oksbi<img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3Djineshsingh01%40oksbi%26pn%3DIGNOU%2520Assignment%2520Hub" alt="UPI QR Code"><small>Scan this QR to pay</small><div class="upi-note">UPI ID: jineshsingh01@oksbi</div></div>
+<button class="paybtn" id="payBtn">I Have Paid</button>
+<div class="note">Payment complete karne ke baad hi button dabaye.</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="module">
+import{db}from'./firebase-config.js';
+import{collection,addDoc,serverTimestamp}from'https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js';
+import{EMAILJS_PUBLIC_KEY,EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,EMAILJS_ENABLED}from'./email-config.js';
+
+const cart=JSON.parse(localStorage.getItem('cart')||'[]');
+const order=JSON.parse(localStorage.getItem('latestOrder')||'null');
+if(!cart.length||!order){alert('Order information missing.');location.href='cart-fixed.html'}
+let total=0;
+const items=document.getElementById('orderItems');
+cart.forEach(item=>{const p=Number(item.price)||0;total+=p;const d=document.createElement('div');d.className='order-item';d.innerHTML='<b>'+safe(item.name)+'</b> — ₹'+p+(item.programme?'<br><small>Programme: '+safe(item.programme)+'</small>':'')+(item.course?'<br><small>Course Code: '+safe(item.course)+'</small>':'')+(item.productType?'<br><small>Type: '+safe(item.productType)+'</small>':'');items.appendChild(d)});
+document.getElementById('amount').innerText=total;
+document.getElementById('cartCount').innerText=cart.length;
+function safe(s){return String(s||'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]))}
+function orderItemsText(){return cart.map((x,i)=>`${i+1}. ${x.name||'Product'} — ₹${Number(x.price)||0}${x.programme?' | Programme: '+x.programme:''}${x.course?' | Course: '+x.course:''}`).join('\n')}
+
+async function sendCustomerEmail(orderId){
+if(!EMAILJS_ENABLED)return false;
+if(!window.emailjs||!EMAILJS_PUBLIC_KEY||!EMAILJS_SERVICE_ID||!EMAILJS_TEMPLATE_ID)return false;
+try{
+emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{
+to_email:order.email,
+customer_name:order.name,
+order_id:orderId,
+mobile:order.mobile,
+enrollment:order.enrollment,
+order_items:orderItemsText(),
+total_amount:'₹'+total,
+order_status:'Pending',
+tracking_message:'Order details will be updated within 24 hours.',
+tracking_url:location.origin+location.pathname.replace('payment.html','track-order.html')
+});
+return true;
+}catch(err){console.error('Customer email failed:',err);return false;}
+}
+
+document.getElementById('payBtn').addEventListener('click',async()=>{
+const btn=document.getElementById('payBtn');btn.disabled=true;btn.innerText='Saving Order...';
+try{
+const saved=await addDoc(collection(db,'orders'),{customerName:order.name,mobile:order.mobile,email:order.email,enrollment:order.enrollment,address:order.address,pincode:order.pincode,cart:cart,totalAmount:total,paymentStatus:'Pending',dispatchStatus:'Pending',trackingStatus:'Pending',trackingNumber:'',trackingNote:'',createdAt:serverTimestamp()});
+const emailSent=await sendCustomerEmail(saved.id);
+const completed={...order,cart:cart,totalAmount:total,orderId:saved.id,trackingStatus:'Pending',emailSent};
+localStorage.removeItem('cart');localStorage.setItem('completedOrder',JSON.stringify(completed));location.href='order-success.html';
+}catch(error){console.error(error);btn.disabled=false;btn.innerText='I Have Paid';alert('Order save nahi hua. Please try again.')}});
+</script>
+</body>
+</html>
