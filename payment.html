@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Payment - IGNOU Assignment Hub</title>
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f5f5f5;color:#222}.site-header{position:sticky;top:0;z-index:1000;background:#0b5ed7;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 2px 8px #0003}.logo{font-size:22px;font-weight:bold}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-weight:bold}.cart-link{background:#fff;color:#0b5ed7;padding:8px 13px;border-radius:20px;text-decoration:none;font-weight:bold}.container{max-width:650px;margin:35px auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.2)}h1{text-align:center;color:#0d6efd;margin-bottom:20px}.total{font-size:30px;font-weight:bold;text-align:center;color:#198754;margin:20px 0}.order-box{background:#eef5ff;padding:15px;border-radius:8px;margin-bottom:20px}.order-item{padding:8px 0;border-bottom:1px solid #d5dff0}.order-item:last-child{border:0}.upi{text-align:center;font-size:21px;margin:20px 0}.qr{display:block;width:240px;height:240px;object-fit:contain;margin:15px auto;border:8px solid #fff;box-shadow:0 2px 10px #0002}.paybtn{width:100%;padding:15px;font-size:18px;background:#198754;color:white;border:none;border-radius:8px;cursor:pointer}.note{margin-top:20px;text-align:center;color:#666}.upi-note{font-size:14px;color:#555;margin-top:8px}@media(max-width:700px){.site-header{padding:12px;flex-direction:column;align-items:flex-start}.nav{gap:9px}}
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f5f5f5;color:#222}.site-header{position:sticky;top:0;z-index:1000;background:#0b5ed7;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 2px 8px #0003}.logo{font-size:22px;font-weight:bold}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-weight:bold}.cart-link{background:#fff;color:#0b5ed7;padding:8px 13px;border-radius:20px;text-decoration:none;font-weight:bold}.container{max-width:650px;margin:35px auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.2)}h1{text-align:center;color:#0d6efd;margin-bottom:20px}.total{font-size:30px;font-weight:bold;text-align:center;color:#198754;margin:20px 0}.order-box{background:#eef5ff;padding:15px;border-radius:8px;margin-bottom:20px}.order-item{padding:8px 0;border-bottom:1px solid #d5dff0}.order-item:last-child{border:0}.upi{text-align:center;font-size:21px;margin:20px 0}.qr{display:block;width:240px;height:240px;object-fit:contain;margin:15px auto;border:8px solid #fff;box-shadow:0 2px 10px #0002}.paybtn{width:100%;padding:15px;font-size:18px;background:#198754;color:white;border:none;border-radius:8px;cursor:pointer}.paybtn:disabled{opacity:.7;cursor:wait}.note{margin-top:20px;text-align:center;color:#666}.upi-note{font-size:14px;color:#555;margin-top:8px}.error-box{display:none;background:#fff0f0;color:#a00;border:1px solid #e0aaaa;padding:12px;border-radius:7px;margin:15px 0;white-space:pre-wrap;font-size:14px}@media(max-width:700px){.site-header{padding:12px;flex-direction:column;align-items:flex-start}.nav{gap:9px}}
 </style>
 </head>
 <body>
@@ -15,13 +15,15 @@
 <div class="order-box"><b>Your Selected Order</b><div id="orderItems"></div></div>
 <div class="total">₹ <span id="amount">0</span></div>
 <div class="upi"><b>UPI ID</b><br>jineshsingh01@oksbi<img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3Djineshsingh01%40oksbi%26pn%3DIGNOU%2520Assignment%2520Hub" alt="UPI QR Code"><small>Scan this QR to pay</small><div class="upi-note">UPI ID: jineshsingh01@oksbi</div></div>
+<div id="errorBox" class="error-box"></div>
 <button class="paybtn" id="payBtn">I Have Paid</button>
 <div class="note">Payment complete karne ke baad hi button dabaye.</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="module">
-import{db}from'./firebase-config.js';
+import{db,auth}from'./firebase-config.js';
 import{collection,addDoc,serverTimestamp}from'https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js';
+import{signInAnonymously}from'https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js';
 import{EMAILJS_PUBLIC_KEY,EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,EMAILJS_ENABLED}from'./email-config.js';
 
 const cart=JSON.parse(localStorage.getItem('cart')||'[]');
@@ -56,14 +58,36 @@ return true;
 }catch(err){console.error('Customer email failed:',err);return false;}
 }
 
+function showError(message){
+const box=document.getElementById('errorBox');
+box.style.display='block';
+box.textContent=message;
+}
+
+async function ensureCustomerAuth(){
+if(auth.currentUser)return auth.currentUser;
+const result=await signInAnonymously(auth);
+return result.user;
+}
+
 document.getElementById('payBtn').addEventListener('click',async()=>{
-const btn=document.getElementById('payBtn');btn.disabled=true;btn.innerText='Saving Order...';
+const btn=document.getElementById('payBtn');
+const errorBox=document.getElementById('errorBox');
+errorBox.style.display='none';
+btn.disabled=true;btn.innerText='Saving Order...';
 try{
+await ensureCustomerAuth();
 const saved=await addDoc(collection(db,'orders'),{customerName:order.name,mobile:order.mobile,email:order.email,enrollment:order.enrollment,address:order.address,pincode:order.pincode,cart:cart,totalAmount:total,paymentStatus:'Pending',dispatchStatus:'Pending',trackingStatus:'Pending',trackingNumber:'',trackingNote:'',createdAt:serverTimestamp()});
 const emailSent=await sendCustomerEmail(saved.id);
 const completed={...order,cart:cart,totalAmount:total,orderId:saved.id,trackingStatus:'Pending',emailSent};
 localStorage.removeItem('cart');localStorage.setItem('completedOrder',JSON.stringify(completed));location.href='order-success.html';
-}catch(error){console.error(error);btn.disabled=false;btn.innerText='I Have Paid';alert('Order save nahi hua. Please try again.')}});
+}catch(error){
+console.error('ORDER SAVE ERROR:',error);
+btn.disabled=false;btn.innerText='I Have Paid';
+showError('Order save nahi hua. Firebase error: '+(error?.code||'unknown')+'\n'+(error?.message||error));
+alert('Order save nahi hua. Error details neeche dikhayi gayi hain.');
+}
+});
 </script>
 </body>
 </html>
