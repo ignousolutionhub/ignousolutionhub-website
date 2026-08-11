@@ -47,60 +47,29 @@ emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
 const customerEmail=String(order.email).trim();
 const customerName=order.name||'Customer';
 const details=orderItemsText();
-const params={
-// Send both the original and template-specific variable names. This supports the
-// current EmailJS template fields shown in the dashboard: {{name}}, {{email}},
-// {{order_id}}, {{order_details}}, {{total_amount}}, and {{status}}.
-email:customerEmail,
-to_email:customerEmail,
-reply_to:customerEmail,
-name:customerName,
-customer_name:customerName,
-order_id:orderId,
-order_details:details,
-order_items:details,
-total_amount:'₹'+total,
-cost:'₹'+total,
-status:'Pending',
-order_status:'Pending',
-mobile:order.mobile||'',
-enrollment:order.enrollment||'',
-tracking_message:'Order details will be updated within 24 hours.',
-tracking_url:location.origin+location.pathname.replace('payment.html','track-order.html')
-};
-console.log('Sending EmailJS order confirmation to:',customerEmail);
+const params={email:customerEmail,to_email:customerEmail,reply_to:customerEmail,name:customerName,customer_name:customerName,order_id:orderId,order_details:details,order_items:details,total_amount:'₹'+total,cost:'₹'+total,status:'Order Successfully Placed',order_status:'Order Successfully Placed',payment_status:'Payment status will be updated within 24 hours.',mobile:order.mobile||'',enrollment:order.enrollment||'',tracking_message:'Order details will be updated within 24 hours.',tracking_url:location.origin+location.pathname.replace('payment.html','track-order.html')};
 const response=await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,params);
-console.log('Customer email sent:',response.status,response.text);
 return{sent:true,response};
-}catch(err){
-console.error('Customer email failed:',err);
-return{sent:false,reason:err?.text||err?.message||String(err)};
-}
+}catch(err){console.error('Customer email failed:',err);return{sent:false,reason:err?.text||err?.message||String(err)}}
 }
 
-function showError(message){const box=document.getElementById('errorBox');box.style.display='block';box.textContent=message;}
-function showSuccess(message){const box=document.getElementById('successBox');box.style.display='block';box.textContent=message;}
-async function ensureCustomerAuth(){if(auth.currentUser)return auth.currentUser;const result=await signInAnonymously(auth);return result.user;}
+function showError(message){const box=document.getElementById('errorBox');box.style.display='block';box.textContent=message}
+async function ensureCustomerAuth(){if(auth.currentUser)return auth.currentUser;const result=await signInAnonymously(auth);return result.user}
 
 document.getElementById('payBtn').addEventListener('click',async()=>{
 const btn=document.getElementById('payBtn');
 const errorBox=document.getElementById('errorBox');
-const successBox=document.getElementById('successBox');
-errorBox.style.display='none';successBox.style.display='none';
+errorBox.style.display='none';
 btn.disabled=true;btn.innerText='Saving Order...';
 try{
 await ensureCustomerAuth();
-const saved=await addDoc(collection(db,'orders'),{customerName:order.name,mobile:order.mobile,email:order.email,enrollment:order.enrollment,address:order.address,pincode:order.pincode,cart:cart,totalAmount:total,paymentStatus:'Pending',dispatchStatus:'Pending',trackingStatus:'Pending',trackingNumber:'',trackingNote:'',createdAt:serverTimestamp()});
+const saved=await addDoc(collection(db,'orders'),{customerName:order.name,mobile:order.mobile,email:order.email,enrollment:order.enrollment,address:order.address,pincode:order.pincode,cart:cart,totalAmount:total,orderStatus:'Order Successfully Placed',paymentStatus:'Payment status will be updated within 24 hours.',dispatchStatus:'Pending',trackingStatus:'Pending',trackingNumber:'',trackingNote:'',createdAt:serverTimestamp()});
 const emailResult=await sendCustomerEmail(saved.id);
-const completed={...order,cart:cart,totalAmount:total,orderId:saved.id,trackingStatus:'Pending',emailSent:emailResult.sent};
+const completed={...order,cart:cart,totalAmount:total,orderId:saved.id,orderStatus:'Order Successfully Placed',paymentStatus:'Payment status will be updated within 24 hours.',trackingStatus:'Pending',emailSent:emailResult.sent};
 localStorage.removeItem('cart');localStorage.setItem('completedOrder',JSON.stringify(completed));
-if(emailResult.sent){
-showSuccess('Order placed successfully. Customer ke email par order details bhej di gayi hain.');
-setTimeout(()=>location.href='order-success.html',900);
-}else{
-showError('Order place ho gaya, lekin customer email nahi bheji ja saki.\nEmailJS reason: '+emailResult.reason+'\n\nEmailJS template me To Email field {{email}} par hona chahiye.');
-btn.disabled=false;btn.innerText='Continue';
-}
+// Email failure must NOT make the customer order look unsuccessful.
+// The order is already saved successfully in Firestore, so always show the success page.
+setTimeout(()=>location.href='order-success.html',300);
 }catch(error){
 console.error('ORDER SAVE ERROR:',error);
 btn.disabled=false;btn.innerText='I Have Paid';
