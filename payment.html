@@ -44,21 +44,31 @@ if(!window.emailjs||!EMAILJS_PUBLIC_KEY||!EMAILJS_SERVICE_ID||!EMAILJS_TEMPLATE_
 if(!order.email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(order.email).trim()))return{sent:false,reason:'Customer email is missing or invalid'};
 try{
 emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+const customerEmail=String(order.email).trim();
+const customerName=order.name||'Customer';
+const details=orderItemsText();
 const params={
-// Both names are supplied so the EmailJS template can use either {{email}} or {{to_email}} in its To Email field.
-email:String(order.email).trim(),
-to_email:String(order.email).trim(),
-reply_to:String(order.email).trim(),
-customer_name:order.name||'',
+// Send both the original and template-specific variable names. This supports the
+// current EmailJS template fields shown in the dashboard: {{name}}, {{email}},
+// {{order_id}}, {{order_details}}, {{total_amount}}, and {{status}}.
+email:customerEmail,
+to_email:customerEmail,
+reply_to:customerEmail,
+name:customerName,
+customer_name:customerName,
 order_id:orderId,
+order_details:details,
+order_items:details,
+total_amount:'₹'+total,
+cost:'₹'+total,
+status:'Pending',
+order_status:'Pending',
 mobile:order.mobile||'',
 enrollment:order.enrollment||'',
-order_items:orderItemsText(),
-total_amount:'₹'+total,
-order_status:'Pending',
 tracking_message:'Order details will be updated within 24 hours.',
 tracking_url:location.origin+location.pathname.replace('payment.html','track-order.html')
 };
+console.log('Sending EmailJS order confirmation to:',customerEmail);
 const response=await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,params);
 console.log('Customer email sent:',response.status,response.text);
 return{sent:true,response};
@@ -85,10 +95,10 @@ const emailResult=await sendCustomerEmail(saved.id);
 const completed={...order,cart:cart,totalAmount:total,orderId:saved.id,trackingStatus:'Pending',emailSent:emailResult.sent};
 localStorage.removeItem('cart');localStorage.setItem('completedOrder',JSON.stringify(completed));
 if(emailResult.sent){
-showSuccess('Order placed successfully. Order details email ho gayi hain.');
+showSuccess('Order placed successfully. Customer ke email par order details bhej di gayi hain.');
 setTimeout(()=>location.href='order-success.html',900);
 }else{
-showError('Order place ho gaya, lekin customer email nahi bheji ja saki.\nEmailJS reason: '+emailResult.reason+'\n\nEmailJS template me To Email field ko {{email}} ya {{to_email}} par set karein.');
+showError('Order place ho gaya, lekin customer email nahi bheji ja saki.\nEmailJS reason: '+emailResult.reason+'\n\nEmailJS template me To Email field {{email}} par hona chahiye.');
 btn.disabled=false;btn.innerText='Continue';
 }
 }catch(error){
