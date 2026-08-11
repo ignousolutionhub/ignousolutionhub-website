@@ -1,1 +1,35 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Order Successful - IGNOU Assignment Hub</title><style>*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f4f6f9}.site-header{position:sticky;top:0;z-index:1000;background:#0b5ed7;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.logo{font-size:22px;font-weight:bold}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-weight:bold}.box{max-width:650px;margin:50px auto;background:#fff;padding:30px;border-radius:12px;text-align:center;box-shadow:0 3px 15px #0002}.ok{font-size:60px}.details{text-align:left;background:#eef5ff;padding:15px;border-radius:8px;margin:20px 0}.notice{background:#fff3cd;color:#664d03;padding:12px;border-radius:8px;margin:15px 0;font-weight:bold}.btn{display:block;width:100%;padding:14px;margin:10px 0;border:0;border-radius:7px;font-size:17px;font-weight:bold;text-decoration:none;cursor:pointer}.wa{background:#198754;color:#fff}.track{background:#6f42c1;color:#fff}.home{background:#6c757d;color:#fff}</style></head><body><header class="site-header"><div class="logo">IGNOU Assignment Hub</div><nav class="nav"><a href="index.html">Home</a><a href="assignments.html">Assignments</a><a href="project-services.html">Project / Internship</a><a href="study-material.html">Study Material</a><a href="guide.html">Guide</a><a href="contact.html">Contact</a><a href="track-order.html">Track Order</a></nav></header><div class="box"><div class="ok">✅</div><h1>Order Successfully Placed</h1><p>आपका order हमें मिल गया है।</p><div class="details" id="details"></div><div class="notice">Status: Pending<br><small>Order details will be updated within 24 hours.</small></div><a id="wa" class="btn wa" target="_blank">📱 Send Order Details on WhatsApp</a><a href="track-order.html" class="btn track">📦 Track This Order</a><a href="index.html" class="btn home">← Back to Home</a></div><script>const o=JSON.parse(localStorage.getItem('completedOrder')||'null');if(!o){location.href='index.html'}else{let lines=['IGNOU Assignment Hub Order','Order ID: '+(o.orderId||'N/A'),'Name: '+(o.name||''),'Mobile: '+(o.mobile||''),'Email: '+(o.email||''),'Enrollment: '+(o.enrollment||''),'Address: '+(o.address||''),'PIN: '+(o.pincode||''),'Status: Pending','','Products:'];(o.cart||[]).forEach((x,i)=>lines.push((i+1)+'. '+(x.name||'Product')+' - ₹'+(Number(x.price)||0)+(x.programme?' | Programme: '+x.programme:'')+(x.course?' | Course: '+x.course:'')));lines.push('','Total: ₹'+(Number(o.totalAmount)||0));const msg=lines.join('\n');document.getElementById('details').innerHTML='<b>Order ID:</b> '+(o.orderId||'N/A')+'<br><b>Name:</b> '+(o.name||'')+'<br><b>Email:</b> '+(o.email||'')+'<br><b>Total:</b> ₹'+(Number(o.totalAmount)||0)+'<br><b>Status:</b> Pending';document.getElementById('wa').href='https://wa.me/919462926195?text='+encodeURIComponent(msg)}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Order Successfully Placed - IGNOU Assignment Hub</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f4f6f9}.site-header{position:sticky;top:0;z-index:1000;background:#0b5ed7;color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.logo{font-size:22px;font-weight:bold}.nav{display:flex;gap:14px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;font-weight:bold}.box{max-width:650px;margin:50px auto;background:#fff;padding:30px;border-radius:12px;text-align:center;box-shadow:0 3px 15px #0002}.ok{font-size:60px}.details{text-align:left;background:#eef5ff;padding:15px;border-radius:8px;margin:20px 0}.notice{background:#fff3cd;color:#664d03;padding:14px;border-radius:8px;margin:15px 0;font-weight:bold;line-height:1.6}.success{background:#effaf3;color:#176b3a;border:1px solid #9bd5b1;padding:14px;border-radius:8px;margin:15px 0;font-weight:bold}.btn{display:block;width:100%;padding:14px;margin:10px 0;border:0;border-radius:7px;font-size:17px;font-weight:bold;text-decoration:none;cursor:pointer}.wa{background:#198754;color:#fff}.track{background:#6f42c1;color:#fff}.home{background:#6c757d;color:#fff}</style>
+</head>
+<body>
+<header class="site-header"><div class="logo">IGNOU Assignment Hub</div><nav class="nav"><a href="index.html">Home</a><a href="assignments.html">Assignments</a><a href="project-services.html">Project / Internship</a><a href="study-material.html">Study Material</a><a href="guide.html">Guide</a><a href="contact.html">Contact</a><a href="track-order.html">Track Order</a></nav></header>
+<div class="box">
+<div class="ok">✅</div>
+<h1>Order Successfully Placed</h1>
+<p>Aapka order successfully place ho gaya hai.</p>
+<div class="success">Order Status: Successfully Placed</div>
+<div class="details" id="details"></div>
+<div class="notice">Payment Status: Will be updated within 24 hours.<br><small>Order details will be updated within 24 hours.</small></div>
+<a id="wa" class="btn wa" target="_blank">📱 Send Order Details on WhatsApp</a>
+<a href="track-order.html" class="btn track">📦 Track This Order</a>
+<a href="index.html" class="btn home">← Back to Home</a>
+</div>
+<script>
+const o=JSON.parse(localStorage.getItem('completedOrder')||'null');
+if(!o){location.href='index.html'}else{
+let lines=['IGNOU Assignment Hub Order','Order ID: '+(o.orderId||'N/A'),'Name: '+(o.name||''),'Mobile: '+(o.mobile||''),'Email: '+(o.email||''),'Enrollment: '+(o.enrollment||''),'Address: '+(o.address||''),'PIN: '+(o.pincode||''),'Order Status: Successfully Placed','Payment Status: Will be updated within 24 hours.','','Products:'];
+(o.cart||[]).forEach((x,i)=>lines.push((i+1)+'. '+(x.name||'Product')+' - ₹'+(Number(x.price)||0)+(x.programme?' | Programme: '+x.programme:'')+(x.course?' | Course: '+x.course:'')));
+lines.push('','Total: ₹'+(Number(o.totalAmount)||0));
+const msg=lines.join('\n');
+document.getElementById('details').innerHTML='<b>Order ID:</b> '+(o.orderId||'N/A')+'<br><b>Name:</b> '+(o.name||'')+'<br><b>Email:</b> '+(o.email||'')+'<br><b>Total:</b> ₹'+(Number(o.totalAmount)||0)+'<br><b>Order Status:</b> Successfully Placed';
+document.getElementById('wa').href='https://wa.me/919462926195?text='+encodeURIComponent(msg)
+}
+</script>
+</body>
+</html>
