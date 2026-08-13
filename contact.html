@@ -1,10 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - IGNOU Assignment Hub</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#f5f5f5;color:#222}
+header{background:#0b5ed7;color:#fff;padding:14px 25px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}.logo img{width:48px;height:48px;object-fit:contain;border-radius:6px;background:#fff}.logo h2{margin:0;font-size:21px}.logo p{margin:3px 0 0;font-size:13px}
+nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;font-weight:bold;font-size:15px}nav a:hover{color:#ffd24d}
+.cart{background:#fff;color:#0b5ed7;padding:10px 16px;border-radius:24px;text-decoration:none;font-weight:bold;white-space:nowrap}#cartCount{background:#e53935;color:#fff;padding:3px 8px;border-radius:50%;margin-left:4px}
+.container{max-width:900px;margin:35px auto;padding:0 20px}.title{text-align:center;color:#173f69}.subtitle{text-align:center;color:#555;margin-bottom:25px}
+.card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.12);margin-bottom:25px}.card h2{margin-top:0;color:#173f69}
+label{display:block;font-weight:bold;margin-top:15px}input,textarea{width:100%;padding:12px;margin-top:7px;border:1px solid #ccc;border-radius:6px;font-size:15px}textarea{min-height:130px;resize:vertical}
+button{margin-top:18px;width:100%;padding:13px;background:#198754;color:#fff;border:0;border-radius:7px;font-size:17px;font-weight:bold;cursor:pointer}button:hover{background:#157347}
+.note{background:#eef5ff;border-left:4px solid #0b5ed7;padding:14px;border-radius:5px;line-height:1.5}
+@media(max-width:800px){header{padding:14px 16px}nav{gap:10px}.logo h2{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo"><img src="assets/logo/logo.png" alt="IGNOU Assignment Hub"><div><h2>IGNOU Assignment Hub</h2><p>Assignments | Projects | Internship</p></div></div>
 <nav>
 <a href="index.html">Home</a>
-<a href="courses.html">Courses</a>
-<a href="assignments.html">Assignments</a>
-<a href="projects.html">Projects</a>
-<a href="internship.html">Internship</a>
+<a href="assignments.html">Solved Assignments</a>
+<a href="project-services.html">Project / Internship</a>
 <a href="study-material.html">Study Material</a>
-<a href="pyq.html">PYQ</a>
 <a href="contact.html">Contact</a>
 </nav>
+<a class="cart" href="cart.html">🛒 Cart <span id="cartCount">0</span></a>
+</header>
+
+<main class="container">
+<h1 class="title">Contact Us</h1>
+<p class="subtitle">Have a question about assignments, projects, internship or study material?</p>
+<div class="card">
+<h2>Send Your Message</h2>
+<p>Fill in the form below with your query. Please include your course and subject when asking about an academic product.</p>
+<form onsubmit="sendMessage(event)">
+<label for="name">Name</label><input id="name" required placeholder="Enter your name">
+<label for="email">Email</label><input id="email" type="email" required placeholder="Enter your email">
+<label for="message">Message</label><textarea id="message" required placeholder="Write your query here..."></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+<div class="card note"><strong>Need help with an order?</strong><br>Please mention your order details and the product/course name in your message so your query can be handled correctly.</div>
+</main>
+<script>
+function updateCartCount(){const cart=JSON.parse(localStorage.getItem('cart'))||[];document.getElementById('cartCount').textContent=cart.length}
+function sendMessage(e){e.preventDefault();alert('Your message has been prepared. Please add your support email/WhatsApp details to the website to enable direct delivery of contact-form messages.');}
+updateCartCount();
+</script>
+</body>
+</html>
